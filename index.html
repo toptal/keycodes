@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript KeyCodes</title>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+</head>
+<body>
+  <div class="display">
+    <div class="wrap">
+      <p class="keycode-display"></p>
+      <p class="text-display">press any key to get the keycode</p>
+    </div>
+  </div>
+
+  <span class="love">Made with love by <a href="http://wesbos.com">Wes Bos</a> — <a href="http://twitter.com/wesbos">@wesbos</a> — suggest edits on <a href="http://github.com/wesbos/keycodes"></a></span>
+  <style>
+    html,body {
+      height:100%;
+      font-family: 'Montserrat', 'sans-serif';
+      color:#424242;
+    }
+    .display {
+      text-align: center;
+      display: table;
+      height:100%;
+      margin:0 auto;
+    }
+    .wrap {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    p {
+      font-size: 100px; /* For lamers who don't support viewport sizing */
+      font-size:40vmin;
+      text-align: center;
+      margin: 0;
+    }
+    p.text-display {
+      display: inline-block;
+      color: #5E5E5E;
+      font: bold 20px arial;
+      text-decoration: none;
+      text-align: center;
+      margin: 20px auto;
+      padding: 15px 20px;
+      background: #EFF0F2;
+      border-radius: 4px;
+      border-top: 1px solid #F5F5F5;
+      box-shadow: inset 0 0 25px #E8E8E8, 0 1px 0 #C3C3C3, 0 2px 0 #C9C9C9, 0 2px 3px #333;
+      text-shadow: 0px 1px 0px #F5F5F5;
+    }
+
+    span.love {
+      display: block;
+      position: absolute;
+      bottom:10px;
+      width: 100%;
+      text-align: center;
+    }
+    span.love a {
+      text-decoration: none;
+      color:#D12026;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+    var keyCodes = {
+       8 : "backspace / delete",
+       9 : "tab",
+       13 : "enter",
+       16 : "shift",
+       17 : "ctrl ",
+       18 : "alt",
+       19 : "pause/break",
+       20 : "caps lock",
+       27 : "escape",
+       32 : "spacebar",
+       33 : "page up",
+       34 : "page down",
+       35 : "end",
+       36 : "home ",
+       37 : "left arrow ",
+       38 : "up arrow ",
+       39 : "right arrow",
+       40 : "down arrow ",
+       41 : "select",
+       42 : "print",
+       43 : "execute",
+       44 : "Print Screen",
+       45 : "insert ",
+       46 : "delete",
+       48 : "0",
+       49 : "1",
+       50 : "2",
+       51 : "3",
+       52 : "4",
+       53 : "5",
+       54 : "6",
+       55 : "7",
+       56 : "8",
+       57 : "9",
+       65 : "a",
+       66 : "b",
+       67 : "c",
+       68 : "d",
+       69 : "e",
+       70 : "f",
+       71 : "g",
+       72 : "h",
+       73 : "i",
+       74 : "j",
+       75 : "k",
+       76 : "l",
+       77 : "m",
+       78 : "n",
+       79 : "o",
+       80 : "p",
+       81 : "q",
+       82 : "r",
+       83 : "s",
+       84 : "t",
+       85 : "u",
+       86 : "v",
+       87 : "w",
+       88 : "x",
+       89 : "y",
+       90 : "z",
+       91 : "Windows Key / Left ⌘",
+       92 : "right window key ",
+       93 : "Windows Menu / Right ⌘",
+       96 : "numpad 0 ",
+       97 : "numpad 1 ",
+       98 : "numpad 2 ",
+       99 : "numpad 3 ",
+       100 : "numpad 4 ",
+       101 : "numpad 5 ",
+       102 : "numpad 6 ",
+       103 : "numpad 7 ",
+       104 : "numpad 8 ",
+       105 : "numpad 9 ",
+       106 : "multiply ",
+       107 : "add",
+       109 : "subtract ",
+       110 : "decimal point",
+       111 : "divide ",
+       112 : "f1 ",
+       113 : "f2 ",
+       114 : "f3 ",
+       115 : "f4 ",
+       116 : "f5 ",
+       117 : "f6 ",
+       118 : "f7 ",
+       119 : "f8 ",
+       120 : "f9 ",
+       121 : "f10",
+       122 : "f11",
+       123 : "f12",
+       144 : "num lock ",
+       145 : "scroll lock",
+       186 : "semi-colon ",
+       187 : "equal sign ",
+       188 : "comma",
+       189 : "dash ",
+       190 : "period ",
+       191 : "forward slash",
+       192 : "grave accent ",
+       219 : "open bracket ",
+       220 : "back slash ",
+       221 : "close bracket ",
+       222 : "single quote "
+    }
+
+    $(function(){
+      $('body').on('keydown',function(e){
+        e.preventDefault();
+        $('p.keycode-display').text(e.keyCode);
+        $('p.text-display').text(keyCodes[e.keyCode]);
+      })
+    });
+  </script>
+</body>
+</html>
