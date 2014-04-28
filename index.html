@@ -2,19 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>JavaScript KeyCodes</title>
+  <title>JavaScript Event KeyCodes</title>
   <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
   <meta name="viewport" content="width=device-width, user-scalable=no">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JavaScript Event KeyCodes">
+  <meta name="twitter:description" content="Keycode testing tool - which keys map to which keycodes?">
+  <meta name="twitter:creator" content="@wesbos">
+  <meta name="twitter:image" content="http://f.cl.ly/items/1Z3e0c1R36001s1D271A/ss%202014-04-28%20at%2012.08.06%20PM.png">
 </head>
 <body>
   <div class="display">
     <div class="wrap">
       <p class="keycode-display"></p>
-      <p class="text-display">press any key to get the keycode</p>
+      <p class="text-display">press any key to get the JavaScript event keycode</p>
     </div>
   </div>
 
-  <span class="love">Made with love by <a href="http://wesbos.com">Wes Bos</a> — <a href="http://twitter.com/wesbos">@wesbos</a> — suggest edits on <a href="http://github.com/wesbos/keycodes"></a></span>
+  <span class="love">Made with love by <a href="http://wesbos.com">Wes Bos</a> — <a href="http://twitter.com/wesbos">@wesbos</a> — fork or suggest edits on <a href="http://github.com/wesbos/keycodes">Github</a></span>
   <style>
     html,body {
       height:100%;
@@ -179,6 +184,15 @@
         $('p.text-display').text(keyCodes[e.keyCode]);
       })
     });
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-50371747-1', 'keycode.info');
+    ga('send', 'pageview');
+
   </script>
 </body>
 </html>
