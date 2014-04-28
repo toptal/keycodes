@@ -174,14 +174,15 @@
        219 : "open bracket ",
        220 : "back slash ",
        221 : "close bracket ",
-       222 : "single quote "
+       222 : "single quote ",
+       224 : "left or right ⌘ key (firefox)"
     }
 
     $(function(){
       $('body').on('keydown',function(e){
         e.preventDefault();
         $('p.keycode-display').text(e.keyCode);
-        $('p.text-display').text(keyCodes[e.keyCode]);
+        $('p.text-display').text(keyCodes[e.keyCode] || "huh? Let me know what browser and key this was.");
       })
     });
 
