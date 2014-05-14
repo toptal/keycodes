@@ -189,7 +189,9 @@
 
     $(function(){
       $('body').on('keydown',function(e){
-        e.preventDefault();
+        if( !e.metaKey ) {
+          e.preventDefault();
+        }
         $('p.keycode-display').text(e.keyCode);
         $('p.text-display').text(keyCodes[e.keyCode] || "huh? Let me know what browser and key this was.");
       })
