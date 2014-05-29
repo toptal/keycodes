@@ -10,6 +10,7 @@
   <meta name="twitter:description" content="Keycode testing tool - which keys map to which keycodes?">
   <meta name="twitter:creator" content="@wesbos">
   <meta name="twitter:image" content="http://f.cl.ly/items/1Z3e0c1R36001s1D271A/ss%202014-04-28%20at%2012.08.06%20PM.png">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="display">
@@ -19,189 +20,20 @@
     </div>
   </div>
 
-  <span class="love">Made with love by <a href="http://wesbos.com">Wes Bos</a> — <a href="http://twitter.com/wesbos">@wesbos</a> — fork or suggest edits on <a href="http://github.com/wesbos/keycodes">Github</a></span>
-  <style>
-    html,body {
-      height:100%;
-      font-family: 'Montserrat', 'sans-serif';
-      color:#424242;
-    }
-    .display {
-      text-align: center;
-      display: table;
-      height:100%;
-      margin:0 auto;
-    }
-    .wrap {
-      display: table-cell;
-      vertical-align: middle;
-    }
-    p {
-      font-size: 100px; /* For lamers who don't support viewport sizing */
-      font-size:40vmin;
-      text-align: center;
-      margin: 0;
-    }
-    p.text-display {
-      display: inline-block;
-      color: #5E5E5E;
-      font: bold 20px arial;
-      text-decoration: none;
-      text-align: center;
-      margin: 20px auto;
-      padding: 15px 20px;
-      background: #EFF0F2;
-      border-radius: 4px;
-      border-top: 1px solid #F5F5F5;
-      box-shadow: inset 0 0 25px #E8E8E8, 0 1px 0 #C3C3C3, 0 2px 0 #C9C9C9, 0 2px 3px #333;
-      text-shadow: 0px 1px 0px #F5F5F5;
-    }
+  <span class="love">Made with love by <a href="http://wesbos.com">Wes Bos</a> —
 
-    span.love {
-      display: block;
-      position: absolute;
-      bottom:10px;
-      width: 100%;
-      text-align: center;
-    }
-    span.love a {
-      text-decoration: none;
-      color:#D12026;
-    }
-  </style>
+    fork or suggest edits on <a href="http://github.com/wesbos/keycodes">Github</a> —
+    
+    <a href="https://twitter.com/wesbos" class="twitter-follow-button" data-show-count="false">Follow @wesbos</a>
+
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://keycode.info" data-text="Nice tool for finding JavaScript event keycodes" data-via="wesbos" data-related="wesbos">Tweet</a>
+
+
+  </span>
+
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script>
-    var keyCodes = {
-       8 : "backspace / delete",
-       9 : "tab",
-       12 : 'clear',
-       13 : "enter",
-       16 : "shift",
-       17 : "ctrl ",
-       18 : "alt",
-       19 : "pause/break",
-       20 : "caps lock",
-       27 : "escape",
-       32 : "spacebar",
-       33 : "page up",
-       34 : "page down",
-       35 : "end",
-       36 : "home ",
-       37 : "left arrow ",
-       38 : "up arrow ",
-       39 : "right arrow",
-       40 : "down arrow ",
-       41 : "select",
-       42 : "print",
-       43 : "execute",
-       44 : "Print Screen",
-       45 : "insert ",
-       46 : "delete",
-       48 : "0",
-       49 : "1",
-       50 : "2",
-       51 : "3",
-       52 : "4",
-       53 : "5",
-       54 : "6",
-       55 : "7",
-       56 : "8",
-       57 : "9",
-       65 : "a",
-       66 : "b",
-       67 : "c",
-       68 : "d",
-       69 : "e",
-       70 : "f",
-       71 : "g",
-       72 : "h",
-       73 : "i",
-       74 : "j",
-       75 : "k",
-       76 : "l",
-       77 : "m",
-       78 : "n",
-       79 : "o",
-       80 : "p",
-       81 : "q",
-       82 : "r",
-       83 : "s",
-       84 : "t",
-       85 : "u",
-       86 : "v",
-       87 : "w",
-       88 : "x",
-       89 : "y",
-       90 : "z",
-       91 : "Windows Key / Left ⌘",
-       92 : "right window key ",
-       93 : "Windows Menu / Right ⌘",
-       96 : "numpad 0 ",
-       97 : "numpad 1 ",
-       98 : "numpad 2 ",
-       99 : "numpad 3 ",
-       100 : "numpad 4 ",
-       101 : "numpad 5 ",
-       102 : "numpad 6 ",
-       103 : "numpad 7 ",
-       104 : "numpad 8 ",
-       105 : "numpad 9 ",
-       106 : "multiply ",
-       107 : "add",
-       109 : "subtract ",
-       110 : "decimal point",
-       111 : "divide ",
-       112 : "f1 ",
-       113 : "f2 ",
-       114 : "f3 ",
-       115 : "f4 ",
-       116 : "f5 ",
-       117 : "f6 ",
-       118 : "f7 ",
-       119 : "f8 ",
-       120 : "f9 ",
-       121 : "f10",
-       122 : "f11",
-       123 : "f12",
-       124 : "f13",
-       125 : "f14",
-       126 : "f15",
-       127 : "f16",
-       128 : "f17",
-       129 : "f18",
-       130 : "f19",
-       144 : "num lock ",
-       145 : "scroll lock",
-       186 : "semi-colon ",
-       187 : "equal sign ",
-       188 : "comma",
-       189 : "dash ",
-       190 : "period ",
-       191 : "forward slash",
-       192 : "grave accent ",
-       219 : "open bracket ",
-       220 : "back slash ",
-       221 : "close bracket ",
-       222 : "single quote ",
-       224 : "left or right ⌘ key (firefox)"
-    }
-
-    $(function(){
-      $('body').on('keydown',function(e){
-        e.preventDefault();
-        $('p.keycode-display').text(e.keyCode);
-        $('p.text-display').text(keyCodes[e.keyCode] || "huh? Let me know what browser and key this was.");
-      })
-    });
-
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-50371747-1', 'keycode.info');
-    ga('send', 'pageview');
-
-  </script>
+  <script src="scripts.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 </body>
 </html>
