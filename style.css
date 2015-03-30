@@ -3,6 +3,7 @@
     margin:0;
     font-family: 'Montserrat', 'sans-serif';
     color:#424242;
+    overflow: hidden;
   }
   .display {
     text-align: center;
