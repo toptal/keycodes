@@ -123,7 +123,7 @@ var keyCodes = {
   222 : "single quote ",
   224 : "left or right ⌘ key (firefox)",
   225 : "altgr",
-  226 : "< / >",
+  226 : "< /git >",
   255 : "toggle touchpad"
 };
 
