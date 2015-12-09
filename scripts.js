@@ -104,6 +104,7 @@ var keyCodes = {
   130 : "f19",
   144 : "num lock ",
   145 : "scroll lock",
+  163 : "#",
   173 : "minus (firefox), mute/unmute",
   174 : "decrease volume level",
   175 : "increase volume level",
