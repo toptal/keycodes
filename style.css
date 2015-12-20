@@ -53,3 +53,9 @@
     text-decoration: none;
     color:#D12026;
   }
+  .twitter-follow-button {
+    vertical-align: text-bottom;
+  }
+  .twitter-share-button {
+    vertical-align: text-bottom;
+  }
