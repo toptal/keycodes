@@ -40,6 +40,7 @@ var keyCodes = {
   59 : "semicolon (firefox), equals",
   60 : "<",
   61 : "equals (firefox)",
+  63 : "ß",
   65 : "a",
   66 : "b",
   67 : "c",
