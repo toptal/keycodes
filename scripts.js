@@ -118,7 +118,7 @@ var keyCodes = {
   181 : "mute/unmute (firefox)",
   182 : "decrease volume level (firefox)",
   183 : "increase volume level (firefox)",
-  186 : "semi-colon ",
+  186 : "semi-colon / ñ",
   187 : "equal sign ",
   188 : "comma",
   189 : "dash ",
