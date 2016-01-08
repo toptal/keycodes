@@ -133,6 +133,7 @@ var keyCodes = {
   224 : "left or right ⌘ key (firefox)",
   225 : "altgr",
   226 : "< /git >",
+  230 : "GNOME Compose Key",
   255 : "toggle touchpad"
 };
 
