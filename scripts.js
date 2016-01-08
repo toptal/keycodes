@@ -133,7 +133,8 @@ var keyCodes = {
   224 : "left or right ⌘ key (firefox)",
   225 : "altgr",
   226 : "< /git >",
-  255 : "toggle touchpad"
+  255 : "toggle touchpad",
+  230 : "GNOME Compose Key"
 };
 
 var body = document.querySelector('body');
