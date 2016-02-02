@@ -115,6 +115,7 @@ var keyCodes = {
   177 : "previous",
   178 : "stop",
   179 : "play/pause",
+  180 : "e-mail",
   181 : "mute/unmute (firefox)",
   182 : "decrease volume level (firefox)",
   183 : "increase volume level (firefox)",
