@@ -131,6 +131,7 @@ var keyCodes = {
   220 : "back slash ",
   221 : "close bracket ",
   222 : "single quote ",
+  223 : "`",
   224 : "left or right ⌘ key (firefox)",
   225 : "altgr",
   226 : "< /git >",
