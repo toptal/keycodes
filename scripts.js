@@ -67,7 +67,7 @@ var keyCodes = {
   88 : "x",
   89 : "y",
   90 : "z",
-  91 : "Windows Key / Left ⌘",
+  91 : "Windows Key / Left ⌘ / Chromebook Search key",
   92 : "right window key ",
   93 : "Windows Menu / Right ⌘",
   96 : "numpad 0 ",
