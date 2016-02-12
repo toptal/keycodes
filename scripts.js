@@ -125,7 +125,7 @@ var keyCodes = {
   188 : "comma",
   189 : "dash ",
   190 : "period ",
-  191 : "forward slash",
+  191 : "forward slash / ç",
   192 : "grave accent ",
   194 : "numpad period (chrome)",
   219 : "open bracket ",
