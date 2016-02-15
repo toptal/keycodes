@@ -127,6 +127,7 @@ var keyCodes = {
   190 : "period ",
   191 : "forward slash",
   192 : "grave accent ",
+  193 : "?, / or °",
   194 : "numpad period (chrome)",
   219 : "open bracket ",
   220 : "back slash ",
