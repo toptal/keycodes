@@ -111,6 +111,7 @@ var keyCodes = {
   160 : "^",
   163 : "#",
   167 : "page forward (Chromebook)",
+  171 : "~ + * key",
   173 : "minus (firefox), mute/unmute",
   174 : "decrease volume level",
   175 : "increase volume level",
