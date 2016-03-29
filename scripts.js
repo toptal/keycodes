@@ -1,7 +1,6 @@
 'use strict';
 
 var keyCodes = {
-  0 : "Windows Menu (Windows-oriented keyboard used on Mac)",
   3 : "break",
   8 : "backspace / delete",
   9 : "tab",
