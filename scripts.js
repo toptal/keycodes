@@ -37,6 +37,7 @@ var keyCodes = {
   55 : "7",
   56 : "8",
   57 : "9",
+  58: ":",
   59 : "semicolon (firefox), equals",
   60 : "<",
   61 : "equals (firefox)",
