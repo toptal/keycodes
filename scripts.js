@@ -117,6 +117,7 @@ var keyCodes = {
   163 : "#",
   166 : "page backward",
   167 : "page forward",
+  169 : "closing paren (AZERTY)",
   171 : "~ + * key",
   173 : "minus (firefox), mute/unmute",
   174 : "decrease volume level",
