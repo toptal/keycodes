@@ -37,7 +37,7 @@ var keyCodes = {
   55 : "7",
   56 : "8",
   57 : "9",
-  58: ":",
+  58 : ":",
   59 : "semicolon (firefox), equals",
   60 : "<",
   61 : "equals (firefox)",
@@ -134,7 +134,7 @@ var keyCodes = {
   189 : "dash ",
   190 : "period ",
   191 : "forward slash / ç",
-  192 : "grave accent ",
+  192 : "grave accent / ñ",
   193 : "?, / or °",
   194 : "numpad period (chrome)",
   219 : "open bracket ",
@@ -146,8 +146,8 @@ var keyCodes = {
   225 : "altgr",
   226 : "< /git >",
   230 : "GNOME Compose Key",
-  233: "XF86Forward",
-  234: "XF86Back",
+  233 : "XF86Forward",
+  234 : "XF86Back",
   255 : "toggle touchpad"
 };
 
