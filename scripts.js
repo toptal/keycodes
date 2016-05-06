@@ -42,6 +42,7 @@ var keyCodes = {
   60 : "<",
   61 : "equals (firefox)",
   63 : "ß",
+  64 : "@ (firefox)",
   65 : "a",
   66 : "b",
   67 : "c",
