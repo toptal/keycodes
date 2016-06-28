@@ -189,7 +189,7 @@ var keyCodesAlt = {
 
 var body = document.querySelector('body');
 
-var onKeyDown = function(e) {
+body.onkeydown = function (e) {
 
   if ( !e.metaKey ) {
     e.preventDefault();
@@ -216,8 +216,6 @@ var onKeyDown = function(e) {
     display ? (prefix + display) : `huh? Let me know what browser and key this was. <a href='https://github.com/wesbos/keycodes/issues/new?title=Missing keycode ${e.keyCode}&body=Tell me what key it was or even better, submit a Pull request!'>Submit to Github</a>`;
 
 }
-
-body.onkeydown = onKeyDown;
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
