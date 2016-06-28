@@ -191,7 +191,7 @@ var action = function(e, obj) {
 }
 
 var onKeyDown = function(e) {
-  if ( (e.shiftKey && e.keyCode != 16) || ( e.keyCode >= 65 && e.keyCode <= 90 ) ) { 
+  if ( (e.shiftKey && keyCodesShift[e.keyCode] )  ) { 
     return;
   } else if ( !e.metaKey ) {
     e.preventDefault();
@@ -200,7 +200,7 @@ var onKeyDown = function(e) {
 }
 
 var onKeyPress = function(e) {
-  if ( (!e.shiftKey && e.keyCode != 16) && ( e.keyCode < 65 && e.keyCode > 90 ) ) { 
+  if ( !e.shiftKey || !keyCodesShift[e.keyCode] ) { 
     return;
   } if ( !e.metaKey ) {
     e.preventDefault();
@@ -210,6 +210,7 @@ var onKeyPress = function(e) {
 
 body.onkeydown = onKeyDown;
 body.onkeypress = onKeyPress;
+
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
