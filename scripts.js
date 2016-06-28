@@ -159,58 +159,65 @@ var keyCodes = {
 };
 
 var keyCodesShift = {
-  33 : '!',
-  34 : '"',
-  35 : '#',
-  36 : '$',
-  37 : '%',
-  38 : '&',
-  40 : '(',
-  41 : ')',
-  42 : '*',
-  43 : '+',
-  58 : ':',
-  60 : '<',
-  62 : '>',
-  63 : '?',
-  64 : '@',
-  94 : '^',
-  95 : '_',
-  123 : '{',
-  124 : '|',
-  125 : '}',
-  126 : '~'
+  188 : [60 , '<'],
+  49 : [33 , '!'],
+  222 : [34 , '"'],
+  51 : [35 , '#'],
+  52 : [36 , '$'],
+  53 : [37 , '%'],
+  55 : [38 , '&'],
+  57 : [40 , '('],
+  48 : [41 , ')'],
+  56 : [42 , '*'],
+  189 : [43 , '+'],
+  186 : [58 , ':'],
+  60 : [60 , '<'],
+  190 : [62 , '>'],
+  191 : [63 , '?'],
+  50 : [64 , '@'],
+  54 : [94 , '^'],
+  189 : [95 , '_'],
+  219 : [123 , '{'],
+  220 : [124 , '|'],
+  221 : [125 , '}'],
+  192 : [126 , '~']
+};
+
+var keyCodesAlt = {
+  67 : [131 , 'ç']
 };
 
 var body = document.querySelector('body');
 
-var action = function(e, obj) {
-  document.querySelector('.keycode-display').innerHTML = e.keyCode;
-  document.querySelector('.text-display').innerHTML =
-    obj[e.keyCode] || `huh? Let me know what browser and key this was. <a href='https://github.com/wesbos/keycodes/issues/new?title=Missing keycode ${e.keyCode}&body=Tell me what key it was or even better, submit a Pull request!'>Submit to Github</a>`;
-}
-
 var onKeyDown = function(e) {
-  if ( (e.shiftKey && keyCodesShift[e.keyCode] )  ) { 
-    return;
-  } else if ( !e.metaKey ) {
-    e.preventDefault();
-  }
-  action(e,keyCodes);
-}
 
-var onKeyPress = function(e) {
-  if ( !e.shiftKey || !keyCodesShift[e.keyCode] ) { 
-    return;
-  } if ( !e.metaKey ) {
+  if ( !e.metaKey ) {
     e.preventDefault();
   }
-  action(e,keyCodesShift);
+
+  var code = e.keyCode,
+      display = keyCodes[e.keyCode],
+      prefix = '';
+
+  if (e.shiftKey && keyCodesShift[e.keyCode]) {
+    code = keyCodesShift[e.keyCode][0];
+    display = keyCodesShift[e.keyCode][1];
+    prefix = 'shift + ';
+  }
+
+  if (e.altKey && keyCodesAlt[e.keyCode]) {
+    code = keyCodesAlt[e.keyCode][0];
+    display = keyCodesAlt[e.keyCode][1];
+    prefix = 'alt + ';
+  }
+
+  document.querySelector('.keycode-display').innerHTML = code;
+  document.querySelector('.text-display').innerHTML =
+    display ? (prefix + display) : `huh? Let me know what browser and key this was. <a href='https://github.com/wesbos/keycodes/issues/new?title=Missing keycode ${e.keyCode}&body=Tell me what key it was or even better, submit a Pull request!'>Submit to Github</a>`;
+
 }
 
 body.onkeydown = onKeyDown;
-body.onkeypress = onKeyPress;
-
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
