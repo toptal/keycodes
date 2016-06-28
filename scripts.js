@@ -188,12 +188,10 @@ var action = function(e, obj) {
   document.querySelector('.keycode-display').innerHTML = e.keyCode;
   document.querySelector('.text-display').innerHTML =
     obj[e.keyCode] || `huh? Let me know what browser and key this was. <a href='https://github.com/wesbos/keycodes/issues/new?title=Missing keycode ${e.keyCode}&body=Tell me what key it was or even better, submit a Pull request!'>Submit to Github</a>`;
-
 }
 
 var onKeyDown = function(e) {
-  console.log('onKeyDown ', e.shiftKey, e.keyCode);
-  if ( e.shiftKey && e.keyCode != 16 ) { 
+  if ( (e.shiftKey && e.keyCode != 16) || ( e.keyCode >= 65 && e.keyCode <= 90 ) ) { 
     return;
   } else if ( !e.metaKey ) {
     e.preventDefault();
@@ -202,8 +200,7 @@ var onKeyDown = function(e) {
 }
 
 var onKeyPress = function(e) {
-  console.log('onKeyPress ', e.shiftKey);
-  if ( !e.shiftKey && e.keyCode != 16 ) { 
+  if ( (!e.shiftKey && e.keyCode != 16) && ( e.keyCode < 65 && e.keyCode > 90 ) ) { 
     return;
   } if ( !e.metaKey ) {
     e.preventDefault();
@@ -213,7 +210,6 @@ var onKeyPress = function(e) {
 
 body.onkeydown = onKeyDown;
 body.onkeypress = onKeyPress;
-
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
