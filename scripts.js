@@ -158,17 +158,62 @@ var keyCodes = {
   255 : "toggle touchpad"
 };
 
+var keyCodesShift = {
+  33 : '!',
+  34 : '"',
+  35 : '#',
+  36 : '$',
+  37 : '%',
+  38 : '&',
+  40 : '(',
+  41 : ')',
+  42 : '*',
+  43 : '+',
+  58 : ':',
+  60 : '<',
+  62 : '>',
+  63 : '?',
+  64 : '@',
+  94 : '^',
+  95 : '_',
+  123 : '{',
+  124 : '|',
+  125 : '}',
+  126 : '~'
+};
+
 var body = document.querySelector('body');
 
-body.onkeydown = function (e) {
-  if ( !e.metaKey ) {
-    e.preventDefault();
-  }
-
+var action = function(e, obj) {
   document.querySelector('.keycode-display').innerHTML = e.keyCode;
   document.querySelector('.text-display').innerHTML =
-    keyCodes[e.keyCode] || `huh? Let me know what browser and key this was. <a href='https://github.com/wesbos/keycodes/issues/new?title=Missing keycode ${e.keyCode}&body=Tell me what key it was or even better, submit a Pull request!'>Submit to Github</a>`;
-};
+    obj[e.keyCode] || `huh? Let me know what browser and key this was. <a href='https://github.com/wesbos/keycodes/issues/new?title=Missing keycode ${e.keyCode}&body=Tell me what key it was or even better, submit a Pull request!'>Submit to Github</a>`;
+
+}
+
+var onKeyDown = function(e) {
+  console.log('onKeyDown ', e.shiftKey, e.keyCode);
+  if ( e.shiftKey && e.keyCode != 16 ) { 
+    return;
+  } else if ( !e.metaKey ) {
+    e.preventDefault();
+  }
+  action(e,keyCodes);
+}
+
+var onKeyPress = function(e) {
+  console.log('onKeyPress ', e.shiftKey);
+  if ( !e.shiftKey && e.keyCode != 16 ) { 
+    return;
+  } if ( !e.metaKey ) {
+    e.preventDefault();
+  }
+  action(e,keyCodesShift);
+}
+
+body.onkeydown = onKeyDown;
+body.onkeypress = onKeyPress;
+
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
