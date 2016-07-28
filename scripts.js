@@ -27,6 +27,7 @@ var keyCodes = {
   44 : "Print Screen",
   45 : "insert ",
   46 : "delete",
+  47 : "(Chrome) Lock trackpad/mouse"
   48 : "0",
   49 : "1",
   50 : "2",
@@ -155,6 +156,7 @@ var keyCodes = {
   230 : "GNOME Compose Key",
   233 : "XF86Forward",
   234 : "XF86Back",
+  251 : "(Chrome) unlock trackpad/mouse"
   255 : "toggle touchpad"
 };
 
