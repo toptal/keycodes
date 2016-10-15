@@ -25,18 +25,22 @@ this.oninstall = (event) => {
 };
 
 this.onfetch = (event) => {
-  const response =
+  event.respondWith(
     caches.match(event.request)
-      .catch(() =>
-        fetch(event.request)
+      .then(response => {
+        if (response) {
+          return response;
+        }
+
+        return fetch(event.request)
           .then((res) => {
             const r = res.clone();
-            caches.open(CACHE_NAME).then((cache) => {
-              cache.put(event.request, r);
+            caches.open(CACHE_NAME)
+              .then((cache) => {
+                cache.put(event.request, r);
             });
-          return res;
-          }))
-      .then((res) => res);
-
-  event.respondWith(response);
+          return res; // Don't wait for the request to cache
+          });
+      })
+  );
 };
