@@ -7,7 +7,7 @@ var keyCodes = {
   12 : 'clear',
   13 : "enter",
   16 : "shift",
-  17 : "ctrl ",
+  17 : "ctrl",
   18 : "alt",
   19 : "pause/break",
   20 : "caps lock",
