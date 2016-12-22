@@ -160,15 +160,33 @@ var keyCodes = {
 
 var body = document.querySelector('body');
 
+let pressedKeys = [];
+
 body.onkeydown = function (e) {
   if ( !e.metaKey ) {
     e.preventDefault();
   }
 
-  document.querySelector('.keycode-display').innerHTML = e.keyCode;
-  document.querySelector('.text-display').innerHTML =
-    keyCodes[e.keyCode] || `huh? Let me know what browser and key this was. <a href='https://github.com/wesbos/keycodes/issues/new?title=Missing keycode ${e.keyCode}&body=Tell me what key it was or even better, submit a Pull request!'>Submit to Github</a>`;
+  if(!pressedKeys.includes(e.keyCode)) {
+    pressedKeys.push(e.keyCode);
+  }
+  displayText();
 };
+
+body.onkeyup = function (e) {
+  e.preventDefault();
+  pressedKeys = [];
+};
+
+function displayText() {
+  const displayCodes = pressedKeys.map((code, i) => (i !== 0) ? ' + ' + code : code).join('');
+  const displayKeys = pressedKeys.map((code, i) => {
+    return (keyCodes[code]) ? `<p class="text-display">${keyCodes[code]}</p>` : `<p class="text-display">huh? Let me know what browser and key this was. <a href='https://github.com/wesbos/keycodes/issues/new?title=Missing keycode ${e.keyCode}&body=Tell me what key it was or even better, submit a Pull request!'>Submit to Github</a></p>`
+  }).join('');
+
+  document.getElementById('text-display').innerHTML = displayKeys;
+  document.querySelector('.keycode-display').innerHTML = displayCodes;
+}
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
