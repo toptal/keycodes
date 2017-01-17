@@ -153,6 +153,7 @@ var keyCodes = {
   225 : "altgr",
   226 : "< /git >",
   230 : "GNOME Compose Key",
+  231 : "ç",
   233 : "XF86Forward",
   234 : "XF86Back",
   255 : "toggle touchpad"
