@@ -86,7 +86,7 @@ var keyCodes = {
   107 : "add",
   108 : "numpad period (firefox)",
   109 : "subtract ",
-  110 : "decimal point",
+  110 : "decimal mark",
   111 : "divide ",
   112 : "f1 ",
   113 : "f2 ",
