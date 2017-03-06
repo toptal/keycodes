@@ -161,7 +161,7 @@ var keyCodes = {
 
 var body = document.querySelector('body');
 
-body.onkeydown = function (e) {
+body.onkeypress = function (e) {
   if ( !e.metaKey ) {
     e.preventDefault();
   }
