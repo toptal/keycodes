@@ -12,6 +12,8 @@ var keyCodes = {
   19 : "pause/break",
   20 : "caps lock",
   27 : "escape",
+  28 : "conversion",
+  29 : "non-conversion",
   32 : "spacebar",
   33 : "page up",
   34 : "page down",
@@ -156,6 +158,10 @@ var keyCodes = {
   231 : "ç",
   233 : "XF86Forward",
   234 : "XF86Back",
+  240 : "alphanumeric",
+  242 : "hiragana/katakana",
+  243 : "half-width/full-width",
+  244 : "kanji",
   255 : "toggle touchpad"
 };
 
