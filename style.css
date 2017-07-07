@@ -4,29 +4,33 @@
   	padding: 0;
   }
 
-  html,body {
+  html, body {
     height:100%;
     margin:0;
     font-family: 'Montserrat', 'sans-serif';
     color:#424242;
     overflow: hidden;
   }
+
   .display {
     text-align: center;
     display: table;
     height:100%;
     margin:0 auto;
   }
+
   .wrap {
     display: table-cell;
     vertical-align: middle;
   }
+
   p {
     font-size: 100px; /* For lamers who don't support viewport sizing */
     font-size:40vmin;
     text-align: center;
     margin: 0;
   }
+
   p.text-display {
     display: inline-block;
     color: #5E5E5E;
@@ -49,13 +53,16 @@
     width: 100%;
     text-align: center;
   }
+
   span.love a {
     text-decoration: none;
     color:#D12026;
   }
+
   .twitter-follow-button {
     vertical-align: text-bottom;
   }
+
   .twitter-share-button {
     vertical-align: text-bottom;
   }
