@@ -174,10 +174,10 @@ body.onkeydown = function (e) {
 
   document.querySelector('.keycode-display').innerHTML = e.keyCode;
   document.querySelector('#keyboard-event').innerHTML = JSON.stringify({
-    code: e.code,
-    key: e.key,
-    keyCode: e.keyCode,
-    which: e.which
+    code: e.code || null,
+    key: e.key || null,
+    keyCode: e.keyCode || null,
+    which: e.which || null
   }).replace('{', '{ ')
     .replace(/,/g, ', ')
     .replace(/:/g, ': ')
