@@ -1,6 +1,7 @@
 'use strict';
 
 var keyCodes = {
+  0 : "unidentifiable",
   3 : "break",
   8 : "backspace / delete",
   9 : "tab",
