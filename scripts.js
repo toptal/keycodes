@@ -153,7 +153,7 @@ var keyCodes = {
   223 : "`",
   224 : "left or right ⌘ key (firefox)",
   225 : "altgr",
-  226 : "< /git >",
+  226 : "< /git >, left back slash",
   230 : "GNOME Compose Key",
   231 : "ç",
   233 : "XF86Forward",
