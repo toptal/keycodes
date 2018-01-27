@@ -172,9 +172,7 @@ var keyCodes = {
   255 : "toggle touchpad"
 };
 
-var body = document.querySelector('body');
-
-body.onkeydown = function (e) {
+document.onkeydown = function (e) {
   if ( !e.metaKey ) {
     e.preventDefault();
   }
