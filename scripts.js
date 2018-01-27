@@ -175,6 +175,7 @@ const keyCodes = {
 
 const codes = {
   // This needs to be filled in at some point with the event.code values for when event.keyCode deprecates completely
+  // There are some keys (e.g. media keys, etc) that have a code, but not a keyCode
 };
 
 const keys = {
@@ -505,6 +506,11 @@ const keys = {
 document.onclick = function() {
   mode = (mode + 1) % 3;
   document.title = document.querySelector('.mode > strong').innerHTML = (mode === 0 ? 'KeyboardEvent.keyCode' : (mode === 1 ? 'KeyboardEvent.code' : 'KeyboardEvent.key'));
+
+  if(mode !== 0) // Some of the event.code and event.key values are much longer (e.g. 'Backspace', 'MediaPlayPause', etc.)
+    document.querySelector('.keycode-display').classList.add('smaller');
+  else
+    document.querySelector('.keycode-display').classList.remove('smaller');
 }
 
 document.onkeydown = function (e) {
