@@ -165,6 +165,7 @@ var keyCodes = {
   231 : "ç",
   233 : "XF86Forward",
   234 : "XF86Back",
+  235 : "non-conversion",
   240 : "alphanumeric",
   242 : "hiragana/katakana",
   243 : "half-width/full-width",
