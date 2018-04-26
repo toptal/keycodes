@@ -5,17 +5,17 @@
   }
 
   html,body {
-    height:100%;
-    margin:0;
+    height: 100%;
+    margin: 0;
     font-family: 'Montserrat', 'sans-serif';
-    color:#424242;
+    color: #424242;
     overflow: hidden;
   }
   .display {
     text-align: center;
     display: table;
-    height:100%;
-    margin:0 auto;
+    height: 100%;
+    margin: 0 auto;
   }
   .wrap {
     display: table-cell;
@@ -23,9 +23,13 @@
   }
   p {
     font-size: 100px; /* For lamers who don't support viewport sizing */
-    font-size:40vmin;
+    font-size: 40vmin;
     text-align: center;
     margin: 0;
+  }
+  p.smaller {
+    font-size: 100px;
+    font-size: 20vmin;
   }
   p.text-display {
     display: inline-block;
@@ -42,6 +46,14 @@
     text-shadow: 0px 1px 0px #F5F5F5;
   }
 
+  p.mode {
+    font-size: 100%;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    text-align: left;
+  }
+
   span.love {
     display: block;
     position: absolute;
@@ -51,7 +63,7 @@
   }
   span.love a {
     text-decoration: none;
-    color:#D12026;
+    color: #D12026;
   }
   .twitter-follow-button {
     vertical-align: text-bottom;
