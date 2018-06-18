@@ -121,6 +121,7 @@ const keyCodes = {
   145: 'scroll lock',
   160: '^',
   161: '!',
+  162: '؛ (arabic semicolon)',
   163: '#',
   164: '$',
   165: 'ù',
