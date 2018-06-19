@@ -176,13 +176,14 @@ const body = document.querySelector('body');
 
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
+ctx.textBaseline = 'middle';
+ctx.textAlign = 'center';
+ctx.font = '110px sans-serif';
 
 function drawNumberToCanvas(number) {
-  const fontSize = number >= 100 ? '70' : '110';
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = 'black';
-  ctx.font = `${fontSize}px sans-serif`;
-  ctx.fillText(number, 0, fontSize);
+  ctx.fillText(number, canvas.width / 2, canvas.height / 2, canvas.width);
   const data = canvas.toDataURL('image/png');
 
   const link = document.querySelector("link[rel*='icon']");
