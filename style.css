@@ -43,7 +43,9 @@
     min-width: 24px;
     font-size: 26px;
   }
-
+  .key-display {
+    font-size: 40px;
+  }
   span.love {
     display: block;
     position: absolute;
