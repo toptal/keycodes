@@ -199,6 +199,15 @@ body.onkeydown = function(e) {
   drawNumberToCanvas(e.keyCode);
 
   document.querySelector('.keycode-display').innerHTML = e.keyCode;
+  document.querySelector('#keyboard-event').innerHTML = JSON.stringify({
+    code: e.code || null,
+    key: e.key || null,
+    keyCode: e.keyCode || null,
+    which: e.which || null
+  }).replace('{', '{ ')
+    .replace(/,/g, ', ')
+    .replace(/:/g, ': ')
+    .replace('}', ' }');
   document.querySelector('.text-display').innerHTML =
     keyCodes[e.keyCode] ||
     `huh? Let me know what browser and key this was. <a href="https://github.com/wesbos/keycodes/issues/new?title=Missing keycode ${e.keyCode}&body=Tell me what key it was or even better, submit a Pull request!">Submit to Github</a>`;
