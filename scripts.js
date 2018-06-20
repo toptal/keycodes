@@ -169,6 +169,7 @@ const keyCodes = {
   242: 'hiragana/katakana',
   243: 'half-width/full-width',
   244: 'kanji',
+  251: "unlock trackpad (Chrome/Edge)",
   255: 'toggle touchpad',
 };
 
