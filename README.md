@@ -1,6 +1,6 @@
 # JavaScript Keycodes → [KeyCode.info](http://keycode.info)
 
-![](http://wes.io/dsHT/content)
+![](http://wes.io/sQyC/content.gif)
 
 A simple webpage that responds to the key pressed and returns the JavaScript 'on-key pressed' keycode.
 
