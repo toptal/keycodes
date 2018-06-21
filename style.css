@@ -10,11 +10,13 @@
     font-family: 'Montserrat', 'sans-serif';
     color:#424242;
     overflow: hidden;
+    background: #f2f4f8;
   }
   .display {
     text-align: center;
     display: table;
     height:100%;
+    width: 980px;
     margin:0 auto;
   }
   .wrap {
@@ -35,9 +37,9 @@
     text-align: center;
     margin: 20px auto;
     padding: 15px 20px;
-    background: #EFF0F2;
+    background: #FBFBFB;
     border-radius: 4px;
-    border-top: 1px solid #F5F5F5;
+    border-top: 1px solid #DADADA;
     box-shadow: inset 0 0 25px #E8E8E8, 0 1px 0 #C3C3C3, 0 2px 0 #C9C9C9, 0 2px 3px #333;
     text-shadow: 0px 1px 0px #F5F5F5;
     min-width: 24px;
@@ -61,3 +63,92 @@
   .twitter-share-button {
     vertical-align: text-bottom;
   }
+
+
+/*
+  Added New Card layout Css
+*/
+.cards{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  margin-bottom: 20px;
+}
+.card {
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 10px;
+  flex: 30%;
+  max-width: 30%;
+  box-shadow: 0 14px 26px rgba(0,0,0,0.04);
+  transition: all 0.3s ease-out;
+  text-decoration: none;
+  border: 1px solid rgba(0,0,0,0.11);
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0,0,0,0.11),
+    0 24px 46px rgba(220, 233, 255, 0.48);
+}
+
+.card-header {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  border-bottom: 1px solid #a2e2ff;
+  background-color: #B9E9FF;
+  padding: 5px 10px;
+}
+
+.card-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.main-description {
+  font-size: 28px;
+  text-align: center;
+  min-height: 35px;
+}
+
+@media (min-width: 601px) and (max-width: 980px) {
+  body{
+    overflow-y: auto;
+  }
+  .card {
+    flex: 45%;
+    max-width: 45%;
+  }
+  .display {
+    width: 80%;
+  }
+  .main-description {
+    min-height: 34px;
+  }
+}
+@media (max-width: 600px) {
+  body{
+    overflow-y: auto;
+  }
+  .card {
+    flex: 100%;
+    max-width: 100%;
+  }
+  .display {
+    width: 90%;
+  }
+}
+
+.hide {
+  display: none!important;
+}
+.active{
+  display: flex;
+}
