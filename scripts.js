@@ -197,10 +197,38 @@ body.onkeydown = function(e) {
   }
   drawNumberToCanvas(e.keyCode);
 
+  // Main e.keyCode display
   document.querySelector('.keycode-display').innerHTML = e.keyCode;
-  document.querySelector('.text-display').innerHTML =
-    keyCodes[e.keyCode] ||
-    `huh? Let me know what browser and key this was. <a href="https://github.com/wesbos/keycodes/issues/new?title=Missing keycode ${e.keyCode}&body=Tell me what key it was or even better, submit a Pull request!">Submit to Github</a>`;
+
+  // Show the cards with all
+  var cards = document.querySelector('.cards');
+  cards.classList.add('active');
+  cards.classList.remove('hide');
+  document.querySelector('.text-display').classList.add('hide');
+
+  // Check if Key_Values is Unidentified then redirect to docs
+  var newKeyText = '';
+  if (e.key != null && e.key === 'Unidentified'){
+    newKeyText = `<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values#Special_values" target="_blank">Unidentified</a>`;
+  } else {
+    newKeyText = e.key || '';
+  }
+
+  // Check if code is Unidentified then redirect to docs
+  var newCodeText = '';
+  if (e.code != null && e.code === 'Unidentified'){
+    newCodeText = `<a href="https://w3c.github.io/uievents-code/#table-key-code-special" target="_blank">Unidentified</a>`;
+  } else {
+    newCodeText = e.code || '';
+  }
+
+  document.querySelector('.item-key .main-description').innerHTML = newKeyText;
+  document.querySelector('.item-which .main-description').innerHTML = e.which || '';
+  document.querySelector('.item-code .main-description').innerHTML = newCodeText;
+
+  // document.querySelector('.text-display').innerHTML =
+  //   keyCodes[e.keyCode] ||
+  //   `huh? Let me know what browser and key this was. <a href="https://github.com/wesbos/keycodes/issues/new?title=Missing keycode ${e.keyCode}&body=Tell me what key it was or even better, submit a Pull request!">Submit to Github</a>`;
 };
 
 (function(i, s, o, g, r, a, m) {

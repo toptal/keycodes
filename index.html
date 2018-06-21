@@ -20,26 +20,46 @@
   <div class="display">
     <div class="wrap" aria-live="polite" aria-atomic="true">
       <p class="keycode-display"></p>
-      <p class="text-display">press any key to get the JavaScript event keycode</p>
+      <p class="text-display">Press any key to get the JavaScript event keycode</p>
+      <div class="cards hide">
+        <div class="card item-key">
+          <div class="card-header">event.key</div>
+          <div class="card-main">
+            <div class="main-description">key</div>
+          </div>
+        </div>
+        <div class="card item-which">
+          <div class="card-header">event.which</div>
+          <div class="card-main">
+            <div class="main-description">which</div>
+          </div>
+        </div>
+        <div class="card item-code">
+          <div class="card-header">event.code</div>
+          <div class="card-main">
+            <div class="main-description">code</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <span class="love">Made with love by
-    <a href="http://wesbos.com">Wes Bos</a> — fork or suggest edits on
-    <a href="http://github.com/wesbos/keycodes">GitHub</a> —
+    <a href="http://wesbos.com" target="_blank">Wes Bos</a> — fork or suggest edits on
+    <a href="http://github.com/wesbos/keycodes" target="_blank">GitHub</a> —
 
-    <a href="https://twitter.com/wesbos" class="twitter-follow-button" data-show-count="false">Follow @wesbos</a>
+    <a href="https://twitter.com/wesbos" class="twitter-follow-button" data-show-count="false" target="_blank">Follow @wesbos</a>
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://keycode.info" data-text="Nice tool for finding JavaScript event keycodes"
-      data-via="wesbos" data-related="wesbos">Tweet</a>
+      data-via="wesbos" data-related="wesbos" target="_blank">Tweet</a>
 
 
   </span>
 
   <script type='text/javascript'>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./service-worker.js');
-      }
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js');
+    }
   </script>
   <script src="scripts.js"></script>
   <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
