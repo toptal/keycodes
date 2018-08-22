@@ -212,7 +212,7 @@ body.onkeydown = function(e) {
   if (e.key != null && e.key === 'Unidentified'){
     newKeyText = `<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values#Special_values" target="_blank">Unidentified</a>`;
   } else {
-    newKeyText = e.key || '';
+    newKeyText = `"<span>${e.key}</span>"` || '';
   }
 
   // Check if code is Unidentified then redirect to docs

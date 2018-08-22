@@ -118,6 +118,15 @@
   min-height: 35px;
 }
 
+.card.item-key .main-description {
+  color: #CCC;
+}
+
+.card.item-key .main-description span {
+  color: initial;
+}
+
+
 @media (min-width: 601px) and (max-width: 980px) {
   body{
     overflow-y: auto;
