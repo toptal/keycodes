@@ -1,4 +1,4 @@
-# JavaScript Keycodes → [KeyCode.info](http://keycode.info)
+# JavaScript Keycodes → [KeyCode.info](https://keycode.info)
 
 ![](http://wes.io/sQyC/content.gif)
 
