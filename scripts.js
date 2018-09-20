@@ -210,7 +210,7 @@ body.onkeydown = function(e) {
   // Check if Key_Values is Unidentified then redirect to docs
   var newKeyText = '';
   if (e.key != null && e.key === 'Unidentified'){
-    newKeyText = `<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values#Special_values" target="_blank">Unidentified</a>`;
+    newKeyText = '<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values#Special_values" target="_blank">Unidentified</a>';
   } else {
     newKeyText = e.key || '';
   }
@@ -218,7 +218,7 @@ body.onkeydown = function(e) {
   // Check if code is Unidentified then redirect to docs
   var newCodeText = '';
   if (e.code != null && e.code === 'Unidentified'){
-    newCodeText = `<a href="https://w3c.github.io/uievents-code/#table-key-code-special" target="_blank">Unidentified</a>`;
+    newCodeText = '<a href="https://w3c.github.io/uievents-code/#table-key-code-special" target="_blank">Unidentified</a>';
   } else {
     newCodeText = e.code || '';
   }
