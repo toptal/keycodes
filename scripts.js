@@ -211,6 +211,8 @@ body.onkeydown = function(e) {
   var newKeyText = '';
   if (e.key != null && e.key === 'Unidentified'){
     newKeyText = '<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values#Special_values" target="_blank">Unidentified</a>';
+  } else if (e.key == ' '){
+    newKeyText = 'Space';
   } else {
     newKeyText = e.key || '';
   }
