@@ -118,6 +118,11 @@
   min-height: 35px;
 }
 
+.text-muted {
+  font-size: .65em;
+  color: #ccc;
+}
+
 @media (min-width: 601px) and (max-width: 980px) {
   body{
     overflow-y: auto;

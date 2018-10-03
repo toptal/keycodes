@@ -212,7 +212,7 @@ body.onkeydown = function(e) {
   if (e.key != null && e.key === 'Unidentified'){
     newKeyText = '<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values#Special_values" target="_blank">Unidentified</a>';
   } else if (e.key == ' '){
-    newKeyText = 'Space';
+    newKeyText = `<span class="text-muted">(Space character)</span>`;
   } else {
     newKeyText = e.key || '';
   }
