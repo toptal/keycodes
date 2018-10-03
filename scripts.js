@@ -192,7 +192,21 @@ function drawNumberToCanvas(number) {
   link.href = data;
 }
 
+var keys = [];
+
+body.onkeyup = function(e) {
+  if (keys.includes(e.code))
+    keys.remove(e.code);
+  else
+    identifyKey(e);
+}
+
 body.onkeydown = function(e) {
+  keys.push(e.code);
+  identifyKey(e);
+}
+
+function identifyKey(e) {
   if (!e.metaKey) {
     e.preventDefault();
   }
