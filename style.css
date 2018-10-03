@@ -102,6 +102,15 @@
   border-bottom: 1px solid #a2e2ff;
   background-color: #B9E9FF;
   padding: 5px 10px;
+  position: relative;
+}
+
+.deprecated-link {
+  position: absolute;
+  top: 6px;
+  right: 12px;
+  color: #6597b2;
+  font-size: 10px;
 }
 
 .card-main {
