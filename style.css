@@ -132,6 +132,13 @@
   color: #ccc;
 }
 
+.mobile-input input {
+  width: calc(100% - 20px);
+  height: 4rem;
+  margin: 10px;
+  font-size: 4rem;
+}
+
 @media (min-width: 601px) and (max-width: 980px) {
   body{
     overflow-y: auto;
