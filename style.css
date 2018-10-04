@@ -137,6 +137,17 @@
   height: 4rem;
   margin: 10px;
   font-size: 4rem;
+  border: 1px solid #DADADA;
+  border-radius: 4px;
+  box-shadow: 0 14px 26px rgba(0,0,0,0.04);
+  transition: all 0.3s ease-out;
+}
+
+.mobile-input input:focus {
+  outline: none;
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0,0,0,0.11),
+    0 24px 46px rgba(220, 233, 255, 0.48);
 }
 
 @media (min-width: 601px) and (max-width: 980px) {
