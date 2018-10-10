@@ -181,8 +181,6 @@ ctx.textBaseline = 'middle';
 ctx.textAlign = 'center';
 ctx.font = '110px sans-serif';
 
-
-
 const tableBody = document.querySelector('.table-body');
 for (let key in keyCodes){
   const row = document.createElement('tr');
@@ -201,7 +199,7 @@ function toggleTable() {
 
   // If hidden, show back arrow
   const hidden = table.classList.contains('hide');
-  document.querySelector('.table-button').textContent = hidden ? 'Table' : '⬅';
+  document.querySelector('.table-toggle-button').textContent = hidden ? 'Table' : '⬅';
 }
 
 function drawNumberToCanvas(number) {
