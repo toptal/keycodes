@@ -23,6 +23,13 @@
     display: table-cell;
     vertical-align: middle;
   }
+  .hidden_input-container {
+    position: relative;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    left: -2000px;
+  }
   p {
     font-size: 100px; /* For lamers who don't support viewport sizing */
     font-size:40vmin;
