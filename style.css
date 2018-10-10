@@ -23,6 +23,13 @@
     display: table-cell;
     vertical-align: middle;
   }
+  .hidden_input-container {
+    position: relative;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    left: -2000px;
+  }
   p {
     font-size: 100px; /* For lamers who don't support viewport sizing */
     font-size:40vmin;
@@ -49,9 +56,13 @@
   span.love {
     display: block;
     position: absolute;
-    bottom:10px;
+    background-color: #f2f4f8;
+    bottom: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     width: 100%;
     text-align: center;
+    min-height: 40px;
   }
   span.love a {
     text-decoration: none;

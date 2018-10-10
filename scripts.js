@@ -174,6 +174,8 @@ const keyCodes = {
 };
 
 const body = document.querySelector('body');
+const hiddenInput = document.getElementById('hidden_input');
+const isAndroid = navigator.userAgent.match(/Android/i);
 
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
@@ -192,14 +194,42 @@ function drawNumberToCanvas(number) {
   link.href = data;
 }
 
-body.onkeydown = function(e) {
+function getLastCharFromString(str) {
+  return str[str.length - 1];
+}
+function getLastCharCodeFromString(str) {
+  return str.charCodeAt(str.length-1);
+}
+
+body.onkeyup = function(e) {
   if (!e.metaKey) {
     e.preventDefault();
+  } 
+  
+  var charKeyCode = e.keyCode;
+  var newKeyText = '';
+
+  //for android chrome keycode fix
+  if (isAndroid && e.keyCode == 229 && hiddenInput.value.length>0) {
+    charKeyCode = getLastCharCodeFromString(hiddenInput.value);
+    newKeyText = getLastCharFromString(hiddenInput.value);
+
+    hiddenInput.value = '';
+    hiddenInput.blur();
+  } else {
+    // Check if Key_Values is Unidentified then redirect to docs
+    if (e.key != null && e.key === 'Unidentified') {
+      newKeyText = '<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values#Special_values" target="_blank">Unidentified</a>';
+    } else if (e.key == ' ') {
+      newKeyText = `<span class="text-muted">(Space character)</span>`;
+    } else {
+      newKeyText = e.key || '';
+    }
   }
-  drawNumberToCanvas(e.keyCode);
+  drawNumberToCanvas(charKeyCode);
 
   // Main e.keyCode display
-  document.querySelector('.keycode-display').innerHTML = e.keyCode;
+  document.querySelector('.keycode-display').innerHTML = charKeyCode;
 
   // Show the cards with all
   var cards = document.querySelector('.cards');
@@ -207,15 +237,6 @@ body.onkeydown = function(e) {
   cards.classList.remove('hide');
   document.querySelector('.text-display').classList.add('hide');
 
-  // Check if Key_Values is Unidentified then redirect to docs
-  var newKeyText = '';
-  if (e.key != null && e.key === 'Unidentified'){
-    newKeyText = '<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values#Special_values" target="_blank">Unidentified</a>';
-  } else if (e.key == ' '){
-    newKeyText = `<span class="text-muted">(Space character)</span>`;
-  } else {
-    newKeyText = e.key || '';
-  }
 
   // Check if code is Unidentified then redirect to docs
   var newCodeText = '';
@@ -226,13 +247,28 @@ body.onkeydown = function(e) {
   }
 
   document.querySelector('.item-key .main-description').innerHTML = newKeyText;
-  document.querySelector('.item-which .main-description').innerHTML = e.which || '';
+  document.querySelector('.item-which .main-description').innerHTML = charKeyCode || '';
   document.querySelector('.item-code .main-description').innerHTML = newCodeText;
 
   // document.querySelector('.text-display').innerHTML =
   //   keyCodes[e.keyCode] ||
   //   `huh? Let me know what browser and key this was. <a href="https://github.com/wesbos/keycodes/issues/new?title=Missing keycode ${e.keyCode}&body=Tell me what key it was or even better, submit a Pull request!">Submit to Github</a>`;
 };
+
+function focusHiddenInput() {
+
+  if (isAndroid) {
+    setTimeout(function () {
+      hiddenInput.focus();
+      hiddenInput.click();
+    }, 100);
+  } else {
+    hiddenInput.focus();
+  }
+}
+
+body.addEventListener('touchend', focusHiddenInput, true);
+
 
 (function(i, s, o, g, r, a, m) {
   i.GoogleAnalyticsObject = r;
