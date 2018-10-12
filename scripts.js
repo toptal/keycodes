@@ -174,6 +174,7 @@ const keyCodes = {
 };
 
 const body = document.querySelector('body');
+const mobileInputDiv = document.querySelector('.mobile-input');
 
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
@@ -191,6 +192,19 @@ function drawNumberToCanvas(number) {
   link.type = 'image/x-icon';
   link.href = data;
 }
+
+document.addEventListener('touchstart', function(e) {
+  if (document.querySelector('.mobile-input input') !== null) return;
+
+  const input = document.createElement('input');
+  input.setAttribute('type', 'text');
+  mobileInputDiv.appendChild(input);
+
+  // For some reason, the focus is immediately lost unless there is a delay on setting the focus
+  setTimeout(function() {
+    input.focus();
+  }, 100);
+});
 
 body.onkeydown = function(e) {
   if (!e.metaKey) {
@@ -223,6 +237,12 @@ body.onkeydown = function(e) {
     newCodeText = '<a href="https://w3c.github.io/uievents-code/#table-key-code-special" target="_blank">Unidentified</a>';
   } else {
     newCodeText = e.code || '';
+  }
+
+  // Clear input if manually entered
+  const mobileInput = document.querySelector('.mobile-input input');
+  if (mobileInput !== null) {
+    mobileInput.value = '';
   }
 
   document.querySelector('.item-key .main-description').innerHTML = newKeyText;
