@@ -182,6 +182,27 @@ ctx.textBaseline = 'middle';
 ctx.textAlign = 'center';
 ctx.font = '110px sans-serif';
 
+const tableBody = document.querySelector('.table-body');
+for (let key in keyCodes){
+  const row = document.createElement('tr');
+  row.innerHTML += `<td>${key}</td>`;
+  row.innerHTML += `<td>${keyCodes[key]}</td>`;
+  tableBody.appendChild(row);
+}
+
+function toggleTable() {
+  const table = document.querySelector('.table');
+  
+  // Toggle main content and table
+  document.querySelector('.wrap').classList.toggle('hide');
+  document.querySelector('.keycode-display').classList.toggle('hide');
+  table.classList.toggle('hide');
+
+  // If hidden, show back arrow
+  const hidden = table.classList.contains('hide');
+  document.querySelector('.table-toggle-button').textContent = hidden ? 'Table' : '⬅';
+}
+
 function drawNumberToCanvas(number) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = 'black';
@@ -195,7 +216,8 @@ function drawNumberToCanvas(number) {
 
 document.addEventListener('touchstart', function(e) {
   if (document.querySelector('.mobile-input input') !== null) return;
-
+  if (e.target.tagName === 'BUTTON') return;
+  
   const input = document.createElement('input');
   input.setAttribute('type', 'text');
   mobileInputDiv.appendChild(input);

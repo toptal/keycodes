@@ -19,6 +19,16 @@
 <body>
   <canvas width="128" height="128" hidden></canvas>
   <div class="display">
+    <table class="table hide">
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Key Code</th>
+        </tr>
+      </thead>
+      <tbody class="table-body">
+      </tbody>
+    </table>
     <div class="wrap" aria-live="polite" aria-atomic="true">
       <p class="keycode-display"></p>
       <p class="text-display">Press any key to get the JavaScript event keycode</p>
@@ -32,7 +42,8 @@
         <div class="card item-which">
           <div class="card-header">
             event.which
-            <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent" target="_blank" rel="noopener" class="deprecated-link">(deprecated)</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent" target="_blank" rel="noopener"
+              class="deprecated-link">(deprecated)</a>
           </div>
           <div class="card-main">
             <div class="main-description">which</div>
@@ -48,13 +59,15 @@
       <div class="mobile-input">
       </div>
     </div>
+    <button onclick={toggleTable()} class="table-toggle-button">Table</button>
   </div>
 
   <span class="love">Made with love by
     <a href="https://wesbos.com" target="_blank" rel="noopener">Wes Bos</a> — fork or suggest edits on
     <a href="https://github.com/wesbos/keycodes" target="_blank" rel="noopener">GitHub</a> —
 
-    <a href="https://twitter.com/wesbos" class="twitter-follow-button" data-show-count="false" target="_blank" rel="noopener">Follow @wesbos</a>
+    <a href="https://twitter.com/wesbos" class="twitter-follow-button" data-show-count="false" target="_blank" rel="noopener">Follow
+      @wesbos</a>
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://keycode.info" data-text="Nice tool for finding JavaScript event keycodes"
       data-via="wesbos" data-related="wesbos" target="_blank" rel="noopener">Tweet</a>
