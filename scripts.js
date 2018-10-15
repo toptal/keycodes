@@ -267,9 +267,19 @@ body.onkeydown = function(e) {
     mobileInput.value = '';
   }
 
+  // Use either which or keyCode, depending on browser support
+  const newKeyWhichText = e.which || e.keyCode || '';
+
   document.querySelector('.item-key .main-description').innerHTML = newKeyText;
-  document.querySelector('.item-which .main-description').innerHTML = e.which || '';
+  document.querySelector('.item-which .main-description').innerHTML = newKeyWhichText;
   document.querySelector('.item-code .main-description').innerHTML = newCodeText;
+
+  // Set query param, so that this URL leads to exactly this keypress
+  window.history.pushState(
+    {}, 
+    newCodeText, 
+    `?key=${newKeyText}&code=${newCodeText}&which=${newKeyWhichText}`
+  );
 
   // document.querySelector('.text-display').innerHTML =
   //   keyCodes[e.keyCode] ||
@@ -293,4 +303,22 @@ body.onkeydown = function(e) {
 ga('create', 'UA-50371747-1', 'keycode.info');
 ga('send', 'pageview');
 
-drawNumberToCanvas('⌨️');
+// Simulate a key press based on query params or show default icon
+const urlParams = new URLSearchParams(window.location.search);
+const keyParam = urlParams.get('key');
+const codeParam = urlParams.get('code');
+const whichParam = urlParams.get('which');
+
+if (keyParam && codeParam && whichParam) {
+  // Simulate key press to use existing logic for showing key in ui
+  var keyboardEvent = new KeyboardEvent('keydown', {
+    key: keyParam,
+    code: codeParam,
+    which: whichParam,
+    keyCode: whichParam
+  });
+  body.dispatchEvent(keyboardEvent);
+} else {
+  // Show default icon for fresh start
+  drawNumberToCanvas('⌨️');
+}
