@@ -17,7 +17,7 @@ body {
   text-align: center;
   display: table;
   height: 100%;
-  width: 980px;
+  width: 1280px;
   margin: 0 auto;
 }
 .wrap {
@@ -85,12 +85,32 @@ span.love a {
   border-radius: 5px;
   overflow: hidden;
   margin: 10px;
-  flex: 30%;
-  max-width: 30%;
+  flex: calc(25% - 20px);
+  max-width: calc(25% - 20px);
   box-shadow: 0 14px 26px rgba(0, 0, 0, 0.04);
   transition: all 0.3s ease-out;
   text-decoration: none;
   border: 1px solid rgba(0, 0, 0, 0.11);
+}
+
+.card:first-child {
+  margin-left: 0;
+}
+
+.card:last-child {
+  margin-right: 0;
+}
+
+.item-location .card-main {
+  padding: 9.5px;
+}
+
+.item-location .main-description {
+  font-size: 23px;
+}
+
+.item-location .main-description span {
+  display: block;
 }
 
 .card:hover {
@@ -107,6 +127,16 @@ span.love a {
   background-color: #b9e9ff;
   padding: 5px 10px;
   position: relative;
+}
+
+.more-info {
+  height: 1.2em;
+  width: 1.2em;
+  float: right;
+}
+
+.more-info::before {
+  content: '(?)';
 }
 
 .deprecated-link {

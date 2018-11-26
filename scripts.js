@@ -173,6 +173,13 @@ const keyCodes = {
   255: 'toggle touchpad',
 };
 
+const keyLocations = {
+  0: 'General keys',
+  1: 'Left-side modifier keys',
+  2: 'Right-side modifier keys',
+  3: 'Numpad',
+};
+
 const body = document.querySelector('body');
 const mobileInputDiv = document.querySelector('.mobile-input');
 
@@ -246,17 +253,37 @@ body.onkeydown = function(e) {
   // Check if Key_Values is Unidentified then redirect to docs
   var newKeyText = '';
   if (e.key != null && e.key === 'Unidentified'){
-    newKeyText = '<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values#Special_values" target="_blank">Unidentified</a>';
+    newKeyText = '<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values#Special_values" target="_blank" rel="noopener">Unidentified</a>';
   } else if (e.key == ' '){
     newKeyText = `<span class="text-muted">(Space character)</span>`;
   } else {
     newKeyText = e.key || '';
   }
 
+  // Check if location is Unidentified then redirect to docs
+  var newLocationText = '';
+  var newLocationFriendlyText = '';
+  if (e.location == null) {
+    newLocationFriendlyText = 'Unknown';
+  }
+  else if (!(e.location in keyLocations)) {
+    newLocationFriendlyText = '<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/location" target="_blank" rel="noopener">Other</a>';
+  }
+  else {
+    newLocationFriendlyText = keyLocations[e.location];
+  }
+
+  if (newLocationFriendlyText != 'Unknown') {
+    newLocationText = `${e.location} <span class="text-muted">(${newLocationFriendlyText})</span>`;
+  }
+  else {
+    newLocationText = newLocationFriendlyText;
+  }
+
   // Check if code is Unidentified then redirect to docs
   var newCodeText = '';
   if (e.code != null && e.code === 'Unidentified'){
-    newCodeText = '<a href="https://w3c.github.io/uievents-code/#table-key-code-special" target="_blank">Unidentified</a>';
+    newCodeText = '<a href="https://w3c.github.io/uievents-code/#table-key-code-special" target="_blank" rel="noopener">Unidentified</a>';
   } else {
     newCodeText = e.code || '';
   }
@@ -268,6 +295,7 @@ body.onkeydown = function(e) {
   }
 
   document.querySelector('.item-key .main-description').innerHTML = newKeyText;
+  document.querySelector('.item-location .main-description').innerHTML = newLocationText;
   document.querySelector('.item-which .main-description').innerHTML = e.which || '';
   document.querySelector('.item-code .main-description').innerHTML = newCodeText;
 
