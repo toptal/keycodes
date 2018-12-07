@@ -17,7 +17,8 @@ body {
   text-align: center;
   display: table;
   height: 100%;
-  width: 1280px;
+  max-width: 1280px; /* caniuse.com shows good support for the max-width property. Who still supports IE6 anyway 🤷‍ */
+  width: 100%;
   margin: 0 auto;
 }
 .wrap {
@@ -136,7 +137,7 @@ span.love a {
 }
 
 .more-info::before {
-  content: '(?)';
+  content: "(?)";
 }
 
 .deprecated-link {
