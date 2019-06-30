@@ -2,7 +2,7 @@
  * The name of the current cache
  * @type {String}
  */
-const CACHE_NAME = 'v2';
+const CACHE_NAME = 'v3';
 
 /**
  * Files to cache
@@ -15,16 +15,14 @@ const fileCache = [
   '/style.css'
 ];
 
-this.oninstall = (event) => {
+this.oninstall = event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then((cache) => {
-        return cache.addAll(fileCache);
-      })
+      .then(cache => cache.addAll(fileCache))
   );
 };
 
-this.onfetch = (event) => {
+this.onfetch = event => {
   event.respondWith(
     caches.match(event.request)
       .then(response => {
@@ -33,10 +31,10 @@ this.onfetch = (event) => {
         }
 
         return fetch(event.request)
-          .then((res) => {
+          .then(res => {
             const r = res.clone();
             caches.open(CACHE_NAME)
-              .then((cache) => {
+              .then(cache => {
                 cache.put(event.request, r);
             });
           return res; // Don't wait for the request to cache
