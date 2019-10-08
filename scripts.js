@@ -121,6 +121,7 @@ const keyCodes = {
   135: 'f24',
   144: 'num lock',
   145: 'scroll lock',
+  151: 'airplane mode',
   160: '^',
   161: '!',
   162: '؛ (arabic semicolon)',
