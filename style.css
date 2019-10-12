@@ -1,3 +1,20 @@
+/* Themes */
+:root {
+	--background: #f2f4f8;
+	--primary: #b9e9ff;
+	--primary-border: #a2e2ff;
+
+	--text: #424242;
+	--love-text: #d12026;
+	--muted-text: #ccc;
+	--context-text: #6597b2;
+
+	--button: #0091d4;
+
+	--card-background: #fff;
+	--card-hover: rgba(220, 233, 255, 0.48);
+	--table-separator: #dee2e6;
+}
 /* Reset */
 * {
   margin: 0;
@@ -9,9 +26,9 @@ body {
   height: 100%;
   margin: 0;
   font-family: 'Montserrat', 'sans-serif';
-  color: #424242;
+  color: var(--text);
   overflow: hidden;
-  background: #f2f4f8;
+  background: var(--background);
 }
 .display {
   text-align: center;
@@ -33,13 +50,13 @@ p {
 }
 p.text-display {
   display: inline-block;
-  color: #424242;
+  color: var(--text);
   font-size: 20px;
   text-decoration: none;
   text-align: center;
   margin: 20px auto;
   padding: 15px 20px;
-  background: #fff;
+  background: var(--card-background);
   border-radius: 5px;
   min-width: 24px;
   font-size: 26px;
@@ -56,7 +73,7 @@ span.love {
 
 span.love a {
   text-decoration: none;
-  color: #d12026;
+  color: var(--love-text);
 }
 
 .twitter-follow-toggle-button {
@@ -79,7 +96,7 @@ span.love a {
   margin-bottom: 20px;
 }
 .card {
-  background: #fff;
+  background: var(--card-background);
   border-radius: 5px;
   overflow: hidden;
   margin: 10px;
@@ -115,15 +132,15 @@ span.love a {
   cursor: pointer;
   transform: translateY(-5px) scale(1.005) translateZ(0);
   box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
-    0 24px 46px rgba(220, 233, 255, 0.48);
+    0 24px 46px var(--card-hover);
 }
 
 .card-header {
   text-align: center;
   font-size: 12px;
   font-weight: 600;
-  border-bottom: 1px solid #a2e2ff;
-  background-color: #b9e9ff;
+  border-bottom: 1px solid var(--primary-border);
+  background-color: var(--primary);
   padding: 5px 10px;
   position: relative;
 }
@@ -136,13 +153,15 @@ span.love a {
 
 .more-info::before {
   content: '(?)';
+  color: var(--context-text);
+  display: inline-block;
 }
 
 .deprecated-link {
   position: absolute;
   top: 6px;
   right: 12px;
-  color: #6597b2;
+  color: var(--context-text);
   font-size: 10px;
 }
 
@@ -162,7 +181,7 @@ span.love a {
 
 .text-muted {
   font-size: 0.65em;
-  color: #ccc;
+  color: var(--muted-text);
 }
 
 .table {
@@ -180,7 +199,7 @@ span.love a {
   width: 100%;
   overflow: auto;
   height: 77vh;
-  background: #fff;
+  background: var(--card-background);
 }
 
 .table thead tr {
@@ -191,8 +210,8 @@ span.love a {
 .table thead {
   font-size: 12px;
   font-weight: 600;
-  border-bottom: 1px solid #a2e2ff;
-  background-color: #b9e9ff;
+  border-bottom: 1px solid var(--primary-border);
+  background-color: var(--primary);
 }
 
 .table th,
@@ -207,7 +226,7 @@ span.love a {
   padding: 0.5rem 1rem;
 }
 .table td {
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid var(--table-separator);
 }
 .table tbody tr:hover {
   background-color: rgba(0, 0, 0, 0.075);
@@ -218,8 +237,8 @@ span.love a {
   position: absolute;
   top: 15px;
   right: 15px;
-  color: #0091d4;
-  border: 2px solid #0091d4;
+  color: var(--button);
+  border: 2px solid var(--button);
   background: transparent;
   border-radius: 5px;
   padding: 5px 10px;
@@ -229,7 +248,7 @@ span.love a {
 .table-toggle-button:hover {
   transform: translateY(-2px) scale(1.005) translateZ(0);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.11),
-    0 6px 9px rgba(220, 233, 255, 0.48);
+    0 6px 9px var(--card-hover);
 }
 
 .table-toggle-button:active {
@@ -252,7 +271,7 @@ span.love a {
   outline: none;
   transform: translateY(-5px) scale(1.005) translateZ(0);
   box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
-    0 24px 46px rgba(220, 233, 255, 0.48);
+    0 24px 46px var(--card-hover);
 }
 
 @media (min-width: 601px) and (max-width: 980px) {
