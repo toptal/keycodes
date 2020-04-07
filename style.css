@@ -253,13 +253,14 @@ span.love a {
 .table-toggle-button {
   font: bold 16px arial;
   position: absolute;
-  top: 15px;
-  right: 15px;
-  color: var(--button);
-  border: 2px solid var(--button);
-  background: transparent;
+  top: 20px;
+  right: 20px;
+  color: white;
+  background: var(--primary);
+	border: none;
   border-radius: 5px;
   padding: 5px 10px;
+	cursor: pointer;
   transition: all 0.3s ease-out;
 }
 
