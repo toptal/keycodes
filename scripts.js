@@ -383,6 +383,12 @@ body.onkeydown = function(e) {
   document.querySelector('.item-code .main-description').innerHTML = newCodeText;
 };
 
+body.onkeyup = function(e) {
+  if(e.keyCode == '44') {
+    body.onkeydown(e);
+  }
+}
+
 const cardDivs = document.querySelectorAll('.card');
 Array.from(cardDivs).forEach(card => {
   card.addEventListener('click', onCardClick);
