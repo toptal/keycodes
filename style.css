@@ -261,6 +261,7 @@ span.love a {
   border-radius: 5px;
   padding: 5px 10px;
   transition: all 0.3s ease-out;
+  cursor: pointer;
 }
 
 .table-toggle-button:hover {
