@@ -383,16 +383,16 @@ body.onkeydown = function(e) {
   document.querySelector('.item-code .main-description').innerHTML = newCodeText;
 };
 
-const cardWrapper = document.querySelector('.cards');
-cardWrapper.addEventListener('click', e => {
-  if (!e.target.closest('.card')) return;
-  onCardClick();
-})
+const cardDivs = document.querySelectorAll('.card');
+Array.from(cardDivs).forEach(card => {
+  card.addEventListener('click', onCardClick);
+});
 
 function onCardClick() {
   const card = this;
   let description = card.querySelector('.card-main .main-description').innerHTML;
   description = description.replace(/<[^>]*>?/gm, '');
+  if (description === '(Space character)') description = ' ';
   copyTextToClipboard(description);
 }
 
