@@ -191,6 +191,8 @@ const keyLocations = {
   3: 'Numpad',
 };
 
+const spaceDescription = '(Space character)';
+
 const body = document.querySelector('body');
 const mobileInputDiv = document.querySelector('.mobile-input');
 const canvas = document.querySelector('canvas');
@@ -341,7 +343,7 @@ body.onkeydown = function(e) {
   if (e.key != null && e.key === 'Unidentified') {
     newKeyText = '<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values#Special_values" target="_blank" rel="noopener">Unidentified</a>';
   } else if (e.key === ' ') {
-    newKeyText = `<span class="text-muted">(Space character)</span>`;
+    newKeyText = `<span class="text-muted">${spaceDescription}</span>`;
   } else {
     newKeyText = e.key || '';
   }
@@ -392,6 +394,9 @@ function onCardClick() {
   const card = this;
   let description = card.querySelector('.card-main .main-description').innerHTML;
   description = description.replace(/<[^>]*>?/gm, '');
+  if (description === spaceDescription) {
+    description = ' ';
+  }
   copyTextToClipboard(description);
 }
 
