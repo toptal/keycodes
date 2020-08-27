@@ -383,10 +383,11 @@ body.onkeydown = function(e) {
   document.querySelector('.item-code .main-description').innerHTML = newCodeText;
 };
 
-const cardDivs = document.querySelectorAll('.card');
-Array.from(cardDivs).forEach(card => {
-  card.addEventListener('click', onCardClick);
-});
+const cardWrapper = document.querySelector('.cards');
+cardWrapper.addEventListener('click', e => {
+  if (!e.target.closest('.card')) return;
+  onCardClick();
+})
 
 function onCardClick() {
   const card = this;
