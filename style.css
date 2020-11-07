@@ -118,20 +118,12 @@ span.love a {
   border-radius: 5px;
   overflow: hidden;
   margin: 10px;
-  flex: calc(25% - 20px);
+  flex: 1;
   max-width: calc(25% - 20px);
   box-shadow: 0 14px 26px rgba(0, 0, 0, 0.04);
   transition: all 0.3s ease-out;
   text-decoration: none;
   border: 1px solid rgba(0, 0, 0, 0.11);
-}
-
-.card:first-child {
-  margin-left: 0;
-}
-
-.card:last-child {
-  margin-right: 0;
 }
 
 .item-location .card-main {
