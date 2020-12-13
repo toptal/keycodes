@@ -6,7 +6,6 @@ enabled = true
 
   [analyzers.meta]
   environment = ["browser"]
-  style_guide = "standard"
 
 [[transformers]]
 name = "prettier"
