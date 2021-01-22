@@ -1,3 +1,4 @@
+import slugify from '@sindresorhus/slugify';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import EventCollection from '../../components/EventCollection';
@@ -74,7 +75,10 @@ export default function HomePage({ staticKey }) {
           <div className="card item-description">
             <div className="card-header">Description</div>
             <div className="card-main">
-              <div className="main-description">{keyCodes[key.keyCode]}</div>
+              <div className="main-description">
+                {keyCodesWithEvents[key.keyCode]?.description ||
+                  'No Description. Add one?'}
+              </div>
             </div>
           </div>
           <MetaKeys currentKey={key} />
@@ -139,20 +143,25 @@ export default function HomePage({ staticKey }) {
 export function getStaticPaths() {
   console.log('Getting Static Paths');
   const keyEvents = Object.values(keyCodesWithEvents);
-  // TODO: Uppercase versions
-  // TODO: slugify non url friendly chars like č
-  // TODO: Make routes for all keycodes
-  const keys = keyEvents.map((key) => key.key);
-  const oppositeCaseKeys = keyEvents.map((key) => getOppositeCase(key.key));
-  const codes = keyEvents.map((key) => key.code);
-  const keyCodes = keyEvents.map((key) => key.keyCode);
+  // Get the keys as is
+  const keys = keyEvents
+    .map((key) => key.key)
+    .filter(Boolean)
+    .filter((key) => key !== ' ')
+    .map((key) => key.toString());
+  const oppositeCaseKeys = keys.map((key) => getOppositeCase(key));
+  const codes = keyEvents.map((key) => key.code).filter(Boolean);
+  const keyCodes = keyEvents.map((key) => key.keyCode).filter(Boolean);
+  const keyDescriptions = keyEvents
+    .map((key) => key.description)
+    .filter(Boolean)
+    .map(slugify);
   const deDuped = Array.from(
-    new Set([keys, oppositeCaseKeys, codes, keyCodes].flat())
-  ).filter((x) => x !== ' ');
-  console.log(deDuped);
+    new Set([keys, oppositeCaseKeys, codes, keyCodes, keyDescriptions].flat())
+  );
   const paths = deDuped.map((key) => ({
     params: {
-      // account for numbers
+      // account for numbers, must be a string
       key: key.toString(),
     },
   }));
@@ -189,9 +198,14 @@ export async function getStaticProps({ params }) {
         return keyWithNumber;
       }
     }
-    // 5. Search for a key with this description
-    // 6. search for a key with this unicode
-    return 'lol';
+    // 5. Search for a key with this description slug
+    const keyWithSlug = keys
+      .filter((x) => x.description)
+      .find((x) => slugify(x.description) === key);
+    if (keyWithSlug) {
+      return keyWithSlug;
+    }
+    return {};
   }
 
   return {

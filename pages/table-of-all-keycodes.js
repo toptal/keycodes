@@ -1,7 +1,16 @@
+import slugify from '@sindresorhus/slugify';
+import Link from 'next/link';
+import { useEffect } from 'react';
+import { useKeyCode } from '../components/KeyCodeProvider';
 import { keyCodeEvents, keyCodes } from '../lib/keycodes';
 
 export default function TableOfAllCodes() {
   const keyArray = Object.values(keyCodeEvents).filter((x) => x);
+  // We clear out the keycode when visiting this page so links to it will use the static key
+  const { setKey } = useKeyCode();
+  useEffect(() => {
+    setKey({});
+  }, []);
   console.log(keyArray);
   return (
     <div>
@@ -18,10 +27,28 @@ export default function TableOfAllCodes() {
         <tbody className="table-body">
           {keyArray.map((key) => (
             <tr key={key.keyCode}>
-              <td>{key.keyCode}</td>
-              <td>{key.key}</td>
-              <td>{key.code}</td>
-              <td>TODO</td>
+              <td>
+                <Link href={`/for/${key.keyCode}`}>
+                  <a>{key.keyCode}</a>
+                </Link>
+              </td>
+              <td>
+                <Link href={`/for/${key.key}`}>
+                  <a>{key.key}</a>
+                </Link>
+              </td>
+              <td>
+                <Link href={`/for/${key.code}`}>
+                  <a>{key.code}</a>
+                </Link>
+              </td>
+              <td>
+                {key.description && (
+                  <Link href={`/for/${slugify(key.description)}`}>
+                    <a>{key.description}</a>
+                  </Link>
+                )}
+              </td>
             </tr>
           ))}
         </tbody>
