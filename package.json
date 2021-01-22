@@ -1,0 +1,42 @@
+{
+  "name": "keycodes",
+  "version": "1.0.0",
+  "description": "![](http://wes.io/sQyC/content.gif)",
+  "main": "google-analytics.js",
+  "scripts": {
+    "dev": "NODE_OPTIONS='--inspect' next dev -p 9999"
+  },
+  "eslintConfig": {
+    "extends": "wesbos"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wesbos/keycodes.git"
+  },
+  "author": "Wes Bos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wesbos/keycodes/issues"
+  },
+  "type": "module",
+  "homepage": "https://github.com/wesbos/keycodes#readme",
+  "dependencies": {
+    "next": "^10.0.5",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.18.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-wesbos": "^1.0.1",
+    "eslint-plugin-html": "^6.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.2.1"
+  }
+}
