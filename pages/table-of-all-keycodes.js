@@ -21,6 +21,7 @@ export default function TableOfAllCodes() {
             <th>Key Code</th>
             <th>Key</th>
             <th>Code</th>
+            <th>Unicode</th>
             <th>Description</th>
           </tr>
         </thead>
@@ -42,6 +43,7 @@ export default function TableOfAllCodes() {
                   <a>{key.code}</a>
                 </Link>
               </td>
+              <td>{key.unicode}</td>
               <td>
                 {key.description && (
                   <Link href={`/for/${slugify(key.description)}`}>

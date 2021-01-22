@@ -1,10 +1,12 @@
 import slugify from '@sindresorhus/slugify';
 import Head from 'next/head';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import EventCollection from '../../components/EventCollection';
 import { useKeyCode } from '../../components/KeyCodeProvider';
 import MetaKeys from '../../components/MetaKeys';
 import { getOppositeCase } from '../../lib/caseUtils';
+import { findSimilarKeys } from '../../lib/findSimilarKeys';
 import { keyCodes, keyLocations } from '../../lib/keycodes';
 import { keyCodesWithEvents } from '../../lib/keyCodesWithEvents';
 
@@ -15,6 +17,7 @@ export default function HomePage({ staticKey }) {
   // The user's key is favourable, but if they are visiting the page directly, then we use the static key
   const key = generatedKey.key ? generatedKey : staticKey;
   const hasKeyToShow = key.key === undefined;
+  const similarKeys = findSimilarKeys(key);
   return (
     <>
       <Head>
@@ -28,49 +31,77 @@ export default function HomePage({ staticKey }) {
         <div className="cards">
           <div className="card item-key">
             <div className="card-header">
-              event.key (Value of Key) (try it while holding ⌥)
-            </div>
-            <div className="card-main">
-              <div className="main-description">{key.key}</div>
-            </div>
-          </div>
-          <div className="card item-location">
-            <div className="card-header">
-              event.location
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/location"
-                target="_blank"
-                rel="noopener"
-                className="more-info"
-              />
+              <span>event.key</span> <small>(Value of Key)</small>
             </div>
             <div className="card-main">
               <div className="main-description">
-                {keyLocations[key.location]}
+                {key.key}
+                {key.key === ' ' && <small>(blank space)</small>}
               </div>
             </div>
+            <footer>
+              <p>
+                The value of the key pressed. Accounts for modifiers keys that
+                return CAPS and alternate chars.
+              </p>
+            </footer>
           </div>
-          <div className="card item-which">
-            <div className="card-header">
-              event.which
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent"
-                target="_blank"
-                rel="noopener"
-                className="deprecated-link"
-              >
-                (deprecated)
-              </a>
-            </div>
+          <div className="card item-location">
+            <div className="card-header">event.location</div>
             <div className="card-main">
-              <div className="main-description">{key.which}</div>
+              <div className="main-description">
+                {keyLocations[key.location]}
+                <small>({key.location})</small>
+              </div>
             </div>
+            <footer>
+              <p>
+                Some keys exist more than once on your keyboard. This provides
+                the location of the key pressed. Try it with both shifts.{' '}
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/location"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  More here
+                </a>
+              </p>
+            </footer>
           </div>
           <div className="card item-code">
-            <div className="card-header">event.code (Physical Key)</div>
+            <div className="card-header">
+              event.code
+              <small>(Physical Key)</small>
+            </div>
             <div className="card-main">
               <div className="main-description">{key.code}</div>
             </div>
+            <footer>
+              <p>
+                The physical key on the keyboard. Doesn't care if you are
+                holding a modifier like Shift.
+              </p>
+            </footer>
+          </div>
+          <div className="card item-which">
+            <div className="card-header">event.which</div>
+            <div className="card-main">
+              <div className="main-description">{key.which}</div>
+            </div>
+            <footer>
+              <p>
+                event.which and event.keyCode are{' '}
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  (deprecated)
+                </a>{' '}
+                in modern browsers. Use <code>.key</code> or <code>.code</code>{' '}
+                instead.
+              </p>
+            </footer>
           </div>
           <div className="card item-description">
             <div className="card-header">Description</div>
@@ -80,6 +111,13 @@ export default function HomePage({ staticKey }) {
                   'No Description. Add one?'}
               </div>
             </div>
+            <footer>
+              <p>
+                This is the description we have created. Think it can be
+                improved?{' '}
+                <a href="github.com/wesbos/keycodes">PR us on GitHub</a>
+              </p>
+            </footer>
           </div>
           <MetaKeys currentKey={key} />
           <div className="card item-event">
@@ -88,13 +126,24 @@ export default function HomePage({ staticKey }) {
               <pre>{JSON.stringify(key, '', ' ')}</pre>
             </div>
           </div>
-          <div className="card item-event">
+          <div className="card item-similar">
             <div className="card-header">Similar Values</div>
-            <div className="card-main">TODO</div>
+            <div className="card-main">
+              <ul>
+                {similarKeys.map((key) => (
+                  <li key={key.keyCode}>
+                    <a href={`/for/${key.code}`}>{key.code}</a>
+                    <a href={`/for/${key.keyCode}`}>({key.keyCode})</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <div className="card item-event">
+          <div className="card item-unicode">
             <div className="card-header">Unicode</div>
-            <div className="card-main">↵ TODO</div>
+            <div className="card-main">
+              {keyCodesWithEvents[key.keyCode]?.unicode || ' '}
+            </div>
           </div>
         </div>
         <div className="mobile-input" />
