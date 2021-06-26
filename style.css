@@ -48,6 +48,9 @@ body {
   overflow: hidden;
   background: var(--background);
 }
+* {
+  outline: none;
+}
 .display {
   text-align: center;
   display: table;
