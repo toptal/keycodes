@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="light-theme">
 
 <head>
   <meta charset="UTF-8">
@@ -69,7 +69,10 @@
       <div class="mobile-input">
       </div>
     </div>
-    <button onclick={toggleTable()} class="table-toggle-button">Table</button>
+    <div class="fixed-buttons">
+      <button onclick={toggleTable()} class="toggle-button">Table</button>
+      <button id="theme-button" onclick={toggleTheme()} class="toggle-button">Dark theme</button>
+    </div>
   </div>
 
   <span class="love">Made with love by
