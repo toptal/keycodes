@@ -1,5 +1,5 @@
 /* Themes */
-:root {
+.light-theme {
 	--background: #f2f4f8;
 	--primary: #b9e9ff;
 	--primary-border: #a2e2ff;
@@ -15,22 +15,21 @@
 	--card-hover: rgba(220, 233, 255, 0.48);
 	--table-separator: #dee2e6;
 }
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background: #424242;
-		--primary: #5b60ff;
-		--primary-border: #4347b6;
-		
-		--text: #f2f4f8;
-		--love-text: #00e4c6;
-		--context-text: #8effb1;
 
-		--button: var(--primary);
+.dark-theme {
+  --background: #424242;
+  --primary: #5b60ff;
+  --primary-border: #4347b6;
 
-		--card-background: #5f5f5f;
-		--card-hover: rgba(47, 47, 47, 0.76);
-		--table-separator: #828282;
-	}
+  --text: #f2f4f8;
+  --love-text: #00e4c6;
+  --context-text: #8effb1;
+
+  --button: var(--primary);
+
+  --card-background: #5f5f5f;
+  --card-hover: rgba(47, 47, 47, 0.76);
+  --table-separator: #828282;
 }
 
 /* Reset */
@@ -242,11 +241,18 @@ span.love a {
   background-color: rgba(0, 0, 0, 0.075);
 }
 
-.table-toggle-button {
-  font: bold 16px arial;
+.fixed-buttons {
   position: absolute;
   top: 15px;
   right: 15px;
+}
+
+.fixed-buttons :nth-child(1) {
+  margin-right: 15px;
+}
+
+.toggle-button {
+  font: bold 16px arial;
   color: var(--button);
   border: 2px solid var(--button);
   background: transparent;
@@ -256,13 +262,13 @@ span.love a {
   cursor: pointer;
 }
 
-.table-toggle-button:hover {
+.toggle-button:hover {
   transform: translateY(-2px) scale(1.005) translateZ(0);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.11),
     0 6px 9px var(--card-hover);
 }
 
-.table-toggle-button:active {
+.toggle-button:active {
   transform: translateY(2px) scale(0.995) translateZ(0);
   box-shadow: none;
 }

@@ -201,6 +201,8 @@ ctx.textBaseline = 'middle';
 ctx.textAlign = 'center';
 ctx.font = '110px sans-serif';
 
+let theme = 'dark';
+
 // #endregion
 
 // #region Main Methods
@@ -408,8 +410,46 @@ function onCardClick() {
 
 // #endregion
 
+// #region Theme Methods
+
+function queryMediaTheme() {
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    theme = e.matches ? 'dark' : 'light';
+    updateTheme();
+  });
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme = 'dark';
+  } else {
+    theme = 'light';
+  }
+}
+
+function toggleTheme() {
+  theme = (theme === 'light') ? 'dark' : 'light';
+  updateTheme();
+}
+
+function updateTheme() {
+  const html = document.querySelector("html");
+  const button = document.querySelector("#theme-button");
+
+  if (theme === 'light') {
+    html.classList.add('light-theme');
+    html.classList.remove('dark-theme');
+    button.innerHTML = 'Dark theme';
+  } else {
+    html.classList.add('dark-theme');
+    html.classList.remove('light-theme');
+    button.innerHTML = 'Light theme';
+  }
+}
+
+// #endregion
+
 // #region Init Methods
 
+queryMediaTheme();
+updateTheme();
 createTable();
 drawNumberToCanvas('⌨️');
 
