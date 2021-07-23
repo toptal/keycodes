@@ -80,7 +80,7 @@ p.text-display {
   box-shadow: 0 14px 26px rgba(0, 0, 0, 0.04);
 }
 
-span.love {
+footer {
   display: block;
   position: absolute;
   bottom: 10px;
@@ -88,7 +88,7 @@ span.love {
   text-align: center;
 }
 
-span.love a {
+footer a {
   text-decoration: none;
   color: var(--love-text);
 }
@@ -99,6 +99,10 @@ span.love a {
 
 .twitter-share-toggle-button {
   vertical-align: text-bottom;
+}
+
+.gamepad-display {
+  width: 66%;
 }
 
 /*

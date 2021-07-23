@@ -32,8 +32,11 @@
     </table>
     <div class="wrap" aria-live="polite" aria-atomic="true">
       <p class="keycode-display"></p>
+      <object type="image/svg+xml" data="standard_gamepad.svg"
+              onload="prepareGamepadDisplayOverlay()" class="gamepad-display hide"></object>
       <p class="text-display">Press any key to get the JavaScript event keycode</p>
-      <div class="cards hide">
+      <p class="text-display">Plug a gamepad to get the JavaScript events</p>
+      <div id="keyboard" class="cards hide">
         <div class="card item-key">
           <div class="card-header">event.key</div>
           <div class="card-main">
@@ -66,6 +69,32 @@
           </div>
         </div>
       </div>
+      <div id="gamepad" class="cards hide">
+        <div class="card item-id">
+          <div class="card-header">gamepad.id</div>
+          <div class="card-main">
+            <div class="main-description">xinput</div>
+          </div>
+        </div>
+        <div class="card item-mapping">
+          <div class="card-header">gamepad.mapping</div>
+          <div class="card-main">
+            <div class="main-description">standard</div>
+          </div>
+        </div>
+        <div class="card item-buttons">
+          <div class="card-header">gamepad.buttons</div>
+          <div class="card-main">
+            <div class="main-description"></div>
+          </div>
+        </div>
+        <div class="card item-axes">
+          <div class="card-header">gamepad.axes</div>
+          <div class="card-main">
+            <div class="main-description"></div>
+          </div>
+        </div>
+      </div>
       <div class="mobile-input">
       </div>
     </div>
@@ -75,18 +104,27 @@
     </div>
   </div>
 
-  <span class="love">Made with love by
-    <a href="https://wesbos.com" target="_blank" rel="noopener">Wes Bos</a> — fork or suggest edits on
-    <a href="https://github.com/wesbos/keycodes" target="_blank" rel="noopener">GitHub</a> —
+  <footer>
+    <span class="love">Made with love by
+      <a href="https://wesbos.com" target="_blank" rel="noopener">Wes Bos</a> — fork or suggest edits on
+      <a href="https://github.com/wesbos/keycodes" target="_blank" rel="noopener">GitHub</a> —
 
-    <a href="https://twitter.com/wesbos" class="twitter-follow-button" data-show-count="false" target="_blank" rel="noopener">Follow
-      @wesbos</a>
+      <a href="https://twitter.com/wesbos" class="twitter-follow-button" data-show-count="false" target="_blank" rel="noopener">Follow
+        @wesbos</a>
 
-    <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://keycode.info" data-text="Nice tool for finding JavaScript event keycodes"
-      data-via="wesbos" data-related="wesbos" target="_blank" rel="noopener">Tweet</a>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://keycode.info" data-text="Nice tool for finding JavaScript event keycodes"
+         data-via="wesbos" data-related="wesbos" target="_blank" rel="noopener">Tweet</a>
+    </span>
 
+    <br>
 
-  </span>
+    <span class="copyright">
+      This software or document includes material copied from or derived from<br>
+      <a href="https://w3c.github.io/gamepad/" target="_blank">Gamepad W3C Editor's Draft</a> —
+      <a href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document" target="_blank">
+        Copyright © 2021 W3C® (MIT, ERCIM, Keio, Beihang)</a>
+    </span>
+  </footer>
 
   <script type='text/javascript'>
     if ('serviceWorker' in navigator) {
