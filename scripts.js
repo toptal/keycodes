@@ -242,12 +242,13 @@ function drawNumberToCanvas(number) {
   link.href = data;
 }
 
-function createNotification(text) {
+function createNotification(text, timeout) {
+  timeout = (!timeout) ? '1500' : String(timeout);
   // eslint-disable-next-line no-undef
   new Noty({
     type: 'info',
     layout: 'topLeft',
-    timeout: '1500',
+    timeout: timeout,
     theme: 'metroui',
     progressBar: false,
     text,
@@ -511,7 +512,11 @@ window.addEventListener('gamepadconnected', e => {
   if (!gamepad) {
     createNotification('Gamepad connected!');
   } else {
-    createNotification('Gamepad connected! Note that only events of the first gamepad will be displayed.');
+    createNotification('Gamepad connected! Note that only events of the first gamepad will be displayed.', 3000);
+    return;
+  }
+  if (e.gamepad.mapping !== 'standard') {
+    createNotification('This gamepad mapping is not supported!', 3500);
   }
   toggleEventCards('gamepad');
 
@@ -531,8 +536,16 @@ function gamepadLoop() {
   const gamepads = getGamepads();
   const node = getGamepadSvgDocument();
 
-  // Stop loop if no gamepads were found or gamepad svg document isn't loaded yet.
-  if (!gamepads || !node) {
+  // Stop loop if no gamepads were found.
+  if (!gamepads) {
+    return;
+  }
+
+  // Retry if gamepad svg document isn't loaded yet.
+  if (!node) {
+    setTimeout(() => {
+      requestAnimationFrame(gamepadLoop);
+    }, 100);
     return;
   }
 
@@ -559,7 +572,7 @@ function gamepadLoop() {
 
 window.addEventListener('gamepaddisconnected', () => {
   if (hasRemainingGamepad()) {
-    createNotification('Gamepad disconnected. Disconnect them all to use keyboard / touch events.');
+    createNotification('Gamepad disconnected. Disconnect them all to use keyboard / touch events.', 3000);
     return;
   }
   createNotification('Gamepad disconnected.');
