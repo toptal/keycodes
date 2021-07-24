@@ -310,9 +310,8 @@ function copyTextToClipboard(text) {
 
 /**
  * Utility function to set the HTML content of a card using stylesheet class.
- *
- * @param key of the card to update.
- * @param value to display.
+ * @param {string} key of the card to update.
+ * @param {string} value to display.
  */
 function updateCardItem(key, value) {
   document.querySelector(`.item-${key} .main-description`).innerHTML = value;
@@ -321,8 +320,7 @@ function updateCardItem(key, value) {
 /**
  * Show cards / elements for a given type of events.
  * Hide other cards / elements.
- *
- * @param type MUST be 'keyboard' or 'gamepad'.
+ * @param {'keyboard' | 'gamepad'} type of event cards to show.
  */
 function toggleEventCards(type) {
   const keyboard = document.querySelector('#keyboard');
@@ -468,14 +466,53 @@ function onCardClick() {
 
 // #region Gamepad Polyfill Methods
 
+/**
+ * Returns an array of [Gamepad]{@link Gamepad}.
+ *
+ * Note: some browsers implementations returns an object with a set of gamepad indexed by a key.
+ * This function ensure a consistent way to retrieve gamepads across browsers.
+ *
+ * @returns {(Gamepad | null)[]}
+ */
+function getGamepads() {
+  const data = navigator.getGamepads();
 
+  if (data instanceof Array) {
+    return data;
+  }
+  const gamepads = [];
+
+  for (let id of Object.keys(data)) {
+    if (data[id]) {
+      gamepads.push(data[id]);
+    }
+  }
+  return gamepads;
+}
+
+/**
+ * Returns true when at least one gamepad is still connected, false otherwise.
+ * @returns {boolean} true when at least one gamepad is still connected, false otherwise.
+ */
+function hasRemainingGamepad() {
+  const gamepads = getGamepads();
+
+  if (!gamepads) {
+    return false;
+  }
+  return gamepads.find(gamepad => !!gamepad && gamepad.connected) !== undefined;
+}
 
 // #endregion
 
 // #region Gamepad Event Listeners
 
 window.addEventListener('gamepadconnected', e => {
-  createNotification('Gamepad connected!');
+  if (!gamepad) {
+    createNotification('Gamepad connected!');
+  } else {
+    createNotification('Gamepad connected! Note that only events of the first gamepad will be displayed.');
+  }
   toggleEventCards('gamepad');
 
   updateCardItem('id', e.gamepad.id);
@@ -491,10 +528,11 @@ window.addEventListener('gamepadconnected', e => {
  * Update buttons states and axes positions accordingly.
  */
 function gamepadLoop() {
-  const gamepads = navigator.getGamepads();
+  const gamepads = getGamepads();
+  const node = getGamepadSvgDocument();
 
-  // Stop loop if no gamepads were found.
-  if (!gamepads) {
+  // Stop loop if no gamepads were found or gamepad svg document isn't loaded yet.
+  if (!gamepads || !node) {
     return;
   }
 
@@ -519,7 +557,11 @@ function gamepadLoop() {
   requestAnimationFrame(gamepadLoop);
 }
 
-window.addEventListener('gamepaddisconnected', e => {
+window.addEventListener('gamepaddisconnected', () => {
+  if (hasRemainingGamepad()) {
+    createNotification('Gamepad disconnected. Disconnect them all to use keyboard / touch events.');
+    return;
+  }
   createNotification('Gamepad disconnected.');
   resetEventCards();
 });
@@ -528,11 +570,17 @@ window.addEventListener('gamepaddisconnected', e => {
 
 // #region Gamepad Drawing Methods
 
+function getGamepadSvgDocument() {
+  const node = document.querySelector('.gamepad-display').contentDocument;
+
+  return node ? node.querySelector("svg") : null;
+}
+
 /**
  * Initialize inlined gamepad SVG.
  */
 function prepareGamepadDisplayOverlay() {
-  const gamepad = document.querySelector('.gamepad-display').contentDocument;
+  const gamepad = getGamepadSvgDocument();
   const color = (theme === 'dark') ? '#5b60ff' : '#b9e9ff';
 
   if (!gamepad) {
@@ -558,15 +606,14 @@ function prepareGamepadDisplayOverlay() {
 
 /**
  * Updates opacity of a button with given value.
- *
- * @param index of the button with standard mapping (see [Gamepad W3C Editor's draft]{@link https://w3c.github.io/gamepad/#remapping}).
- * @param value between 0.0 and 1.0.
+ * @param {number} index of the button with standard mapping (see [Gamepad W3C Editor's draft]{@link https://w3c.github.io/gamepad/#remapping}).
+ * @param {number} value between 0.0 and 1.0.
  */
 function updateGamepadButtonOverlay(index, value) {
-  const gamepad = document.querySelector('.gamepad-display').contentDocument;
+  const gamepad = getGamepadSvgDocument();
 
   gamepad.querySelector(`#buttons`).querySelectorAll(`#_${index}`).forEach(child => {
-    child.style.opacity = value;
+    child.style.opacity = `${value}`;
   });
 }
 
@@ -574,10 +621,13 @@ function updateGamepadButtonOverlay(index, value) {
  * Show joystick values with new one.
  * Updates joystick position with capped range.
  *
- * @param axes array with normalized values between 0.0 and 1.0.
+ * Note: a minimum threshold could be used to force the joystick position to be centered. It is not implemented on
+ * purpose to show user what real value to expect.
+ *
+ * @param {number[]} axes array with normalized values between 0.0 and 1.0.
  */
 function updateGamepadJoystickOverlay(axes) {
-  const gamepad = document.querySelector('.gamepad-display').contentDocument;
+  const gamepad = getGamepadSvgDocument();
   let label;
 
   label = `[${axes[0].toFixed(2)}, ${axes[1].toFixed(2)}]<br>`;
