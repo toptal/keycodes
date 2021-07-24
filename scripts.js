@@ -228,7 +228,7 @@ function toggleTable() {
 
   // If hidden, show back arrow
   const hidden = table.classList.contains('hide');
-  document.querySelector('.table-toggle-button').textContent = hidden ? 'Table' : '⬅';
+  document.querySelector('#table-button').textContent = hidden ? 'Table' : '⬅';
 }
 
 function drawNumberToCanvas(number) {
