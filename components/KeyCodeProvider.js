@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext, useEffect } from 'react';
 import { keyCodeEvents } from '../lib/keycodes';
 
 const LocalStateContext = createContext();
@@ -6,9 +6,20 @@ const LocalStateProvider = LocalStateContext.Provider;
 
 function KeyCodeProvider({ children }) {
   const [key, setKey] = useState({});
+  const [keyHistory, setKeyHistory] = useState([]);
+  console.log(keyHistory);
   const [events, setEvents] = useState(keyCodeEvents);
   return (
-    <LocalStateProvider value={{ key, setKey, events, setEvents }}>
+    <LocalStateProvider
+      value={{
+        key,
+        setKey,
+        events,
+        setEvents,
+        keyHistory,
+        setKeyHistory,
+      }}
+    >
       {children}
     </LocalStateProvider>
   );

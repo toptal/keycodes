@@ -1,16 +1,16 @@
 /* Themes */
 :root {
 	--background: #f2f4f8;
-	--primary: #b9e9ff;
-	--primary-border: #a2e2ff;
+	--primary: #ffc600;
+	--primary-border: #ffc600;
 
-	--text: #424242;
+	--text: #2e2e2e;
 	--love-text: #d12026;
 	--muted-text: #ccc;
   --context-text: #6597b2;
   --link: #ffc600;
 
-	--button: #0091d4;
+	--button: var(--text);
 
 	--card-background: #fff;
 	--card-hover: rgba(220, 233, 255, 0.48);
@@ -118,6 +118,8 @@ span.love a {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   margin-bottom: 20px;
+  max-width: 1500px;
+  margin: 0 auto;
 }
 .card {
   background: var(--card-background);

@@ -12,9 +12,10 @@ import { keyCodesWithEvents } from '../../lib/keyCodesWithEvents';
 
 export default function HomePage({ staticKey }) {
   const { query } = useRouter();
-  const { key: generatedKey } = useKeyCode();
+  const { key: generatedKey, history: keyHistory } = useKeyCode();
   // Here we decide if we should show the code info from the users keyboard, or from our database of keys
   // The user's key is favourable, but if they are visiting the page directly, then we use the static key
+  console.log(keyHistory);
   const key = generatedKey.key ? generatedKey : staticKey;
   const hasKeyToShow = key.key === undefined;
   const similarKeys = findSimilarKeys(key);
@@ -31,7 +32,7 @@ export default function HomePage({ staticKey }) {
         <div className="cards">
           <div className="card item-key">
             <div className="card-header">
-              <span>event.key</span> <small>(Value of Key)</small>
+              <span>event.key</span>
             </div>
             <div className="card-main">
               <div className="main-description">
@@ -69,10 +70,7 @@ export default function HomePage({ staticKey }) {
             </footer>
           </div>
           <div className="card item-code">
-            <div className="card-header">
-              event.code
-              <small>(Physical Key)</small>
-            </div>
+            <div className="card-header">event.code</div>
             <div className="card-main">
               <div className="main-description">{key.code}</div>
             </div>
@@ -144,6 +142,10 @@ export default function HomePage({ staticKey }) {
             <div className="card-main">
               {keyCodesWithEvents[key.keyCode]?.unicode || ' '}
             </div>
+          </div>
+          <div className="card item-unicode">
+            <div className="card-header">History</div>
+            <div className="card-main">{keyHistory?.length}</div>
           </div>
         </div>
         <div className="mobile-input" />
