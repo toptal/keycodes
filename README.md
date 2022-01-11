@@ -2,7 +2,9 @@
 
 ![](http://wes.io/sQyC/content.gif)
 
-A simple webpage that responds to the key pressed and returns the JavaScript 'on-key pressed' keycode.
+A simple webpage that :
+- responds to the key pressed and returns the JavaScript 'on-key pressed' keycode.
+- responds to gamepad events and returns the JavaScript button index and joystick positions.
 
 ## Help Out :ok_hand::ok_hand::ok_hand:
 
