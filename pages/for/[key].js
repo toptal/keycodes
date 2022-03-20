@@ -19,6 +19,58 @@ export default function HomePage({ staticKey }) {
   const key = generatedKey.key ? generatedKey : staticKey;
   const hasKeyToShow = key.key === undefined;
   const similarKeys = findSimilarKeys(key);
+
+  const renderMetaKey = (metaKey) => {
+    if (metaKey?.metaKey)
+      return (
+        <button
+          key={metaKey.keyCode}
+          type="button"
+          className="key pressed history"
+          alt="Meta Key"
+          onClick={() => setKey(metaKey)}
+        >
+          ⌘
+        </button>
+      );
+    if (metaKey?.shiftKey)
+      return (
+        <button
+          key={metaKey.keyCode}
+          type="button"
+          className="key pressed history"
+          alt="Shift Key"
+          onClick={() => setKey(metaKey)}
+        >
+          ⇧
+        </button>
+      );
+    if (metaKey?.altKey)
+      return (
+        <button
+          key={metaKey.keyCode}
+          type="button"
+          className="key pressed history"
+          alt="Alt / Option"
+          onClick={() => setKey(metaKey)}
+        >
+          ⌥
+        </button>
+      );
+    if (metaKey?.ctrlKey)
+      return (
+        <button
+          key={metaKey.keyCode}
+          type="button"
+          className="key pressed history"
+          alt="Control Key"
+          onClick={() => setKey(metaKey)}
+        >
+          ^
+        </button>
+      );
+  };
+
   return (
     <>
       <Head>
@@ -148,18 +200,21 @@ export default function HomePage({ staticKey }) {
             <div className="card-main">
               <div className="main-description meta-keys">
                 {keyHistory.length > 0 &&
-                  keyHistory.map((kh) => (
-                    <button
-                      type="button"
-                      key={kh.keyCode}
-                      alt={`${kh.key} key`}
-                      onClick={() => setKey(kh)}
-                      className={`key ${kh.key ? 'pressed' : ''}`}
-                      style={{ background: 'inherit' }}
-                    >
-                      {kh.key}
-                    </button>
-                  ))}
+                  keyHistory.map((kh) => {
+                    const isMeta = kh?.metaKey || kh?.shiftKey || kh?.altKey || kh?.ctrlKey;
+                    if (isMeta) return renderMetaKey(kh, setKey);
+                    return (
+                      <button
+                        type="button"
+                        key={kh.keyCode}
+                        alt={`${kh.key} Key`}
+                        className="key pressed history"
+                        onClick={() => setKey(kh)}
+                      >
+                        {kh.key}
+                      </button>
+                    );
+                  })}
               </div>
             </div>
           </div>
