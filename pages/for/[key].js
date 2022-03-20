@@ -148,20 +148,18 @@ export default function HomePage({ staticKey }) {
             <div className="card-main">
               <div className="main-description meta-keys">
                 {keyHistory.length > 0 &&
-                  keyHistory.map((kh) => {
-                    return (
-                      <button
-                        type="button"
-                        key={kh.keyCode}
-                        alt={`${kh.key} key`}
-                        onClick={() => setKey(kh)}
-                        className={`key ${kh.key ? 'pressed' : ''}`}
-                        style={{ background: 'inherit' }}
-                      >
-                        {kh.key}
-                      </button>
-                    );
-                  })}
+                  keyHistory.map((kh) => (
+                    <button
+                      type="button"
+                      key={kh.keyCode}
+                      alt={`${kh.key} key`}
+                      onClick={() => setKey(kh)}
+                      className={`key ${kh.key ? 'pressed' : ''}`}
+                      style={{ background: 'inherit' }}
+                    >
+                      {kh.key}
+                    </button>
+                  ))}
               </div>
             </div>
           </div>
