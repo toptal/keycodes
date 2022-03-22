@@ -3,7 +3,7 @@ import { KeyCodeProvider } from '../components/KeyCodeProvider';
 import Page from '../components/Page';
 import '../style.css';
 
-function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
   return (
     <KeyCodeProvider>
       <Head>
@@ -26,5 +26,3 @@ function MyApp({ Component, pageProps }) {
     </KeyCodeProvider>
   );
 }
-
-export default MyApp;

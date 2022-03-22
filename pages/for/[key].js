@@ -284,30 +284,46 @@ export default function HomePage({ staticKey }) {
   );
 }
 
+// This function is used to generate static pages for ever single key
 export function getStaticPaths() {
   const keyEvents = Object.values(keyCodesWithEvents);
   // Get the keys as is
   const keys = keyEvents
     .map((key) => key.key)
-    .filter(Boolean)
+    // filter only for ones that have keys
+    .filter((key) => key)
+    .map(slugify)
+    // remove the space key - not URL friendly
     .filter((key) => key !== ' ')
+    .filter((key) => key !== '')
+    // remove the . key - not URL friendly
+    .filter((key) => key !== '.')
+    // remove the . key - not URL friendly
+    .filter((key) => key !== '\\')
+    .filter((key) => key !== '/')
+    .filter((key) => key !== '^Ù')
     .map((key) => key.toString());
   const oppositeCaseKeys = keys.map((key) => getOppositeCase(key));
   const codes = keyEvents.map((key) => key.code).filter(Boolean);
-  const keyCodes = keyEvents.map((key) => key.keyCode).filter(Boolean);
+  const keyCodes = keyEvents
+    .map((key) => key.keyCode.toString())
+    .filter(Boolean);
   const keyDescriptions = keyEvents
     .map((key) => key.description)
-    .filter(Boolean)
-    .map(slugify);
+    .filter((key) => key)
+    .map(slugify)
+    .filter((key) => key);
   const deDuped = Array.from(
     new Set([keys, oppositeCaseKeys, codes, keyCodes, keyDescriptions].flat())
-  );
+  ).map((key) => slugify(key));
+
   const paths = deDuped.map((key) => ({
     params: {
       // account for numbers, must be a string
       key: key.toString(),
     },
   }));
+
   return {
     paths,
     fallback: false,

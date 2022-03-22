@@ -11,7 +11,6 @@ export default function TableOfAllCodes() {
   useEffect(() => {
     setKey({});
   });
-  console.log(keyArray);
   return (
     <div>
       <p>This is a table of all Key Codes and their associated data</p>
