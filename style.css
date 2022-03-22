@@ -3,7 +3,6 @@
 	--background: #f2f4f8;
 	--primary: #ffc600;
 	--primary-border: #ffc600;
-
 	--text: #2e2e2e;
 	--love-text: #d12026;
 	--muted-text: #ccc;
@@ -354,4 +353,12 @@ small {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+div[tabindex] {
+  border: 2px solid transparent;
+}
+[tabindex]:focus {
+  border-color: var(--primary);
+  outline: 0;
 }

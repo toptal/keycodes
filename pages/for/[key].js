@@ -14,7 +14,6 @@ export default function HomePage({ staticKey }) {
   const { key: generatedKey, keyHistory, setKey } = useKeyCode();
   // Here we decide if we should show the code info from the users keyboard, or from our database of keys
   // The user's key is favourable, but if they are visiting the page directly, then we use the static key
-  console.log(keyHistory);
   const key = generatedKey.key ? generatedKey : staticKey;
   const hasKeyToShow = key.key === undefined;
   const similarKeys = findSimilarKeys(key);
@@ -89,7 +88,7 @@ export default function HomePage({ staticKey }) {
             <div className="card-header">
               <span>event.key</span>
             </div>
-            <div className="card-main" onClick={copyTextToClipboard}>
+            <div className="card-main" tabIndex="0" onKeyDown={copyTextToClipboard}onClick={copyTextToClipboard}>
               <div className="main-description">
                 {key.key}
                 {key.key === ' ' && <small>(blank space)</small>}
@@ -104,7 +103,7 @@ export default function HomePage({ staticKey }) {
           </div>
           <div className="card item-location">
             <div className="card-header">event.location</div>
-            <div className="card-main" onClick={copyTextToClipboard}>
+            <div className="card-main" tabIndex="0" onKeyDown={copyTextToClipboard}onClick={copyTextToClipboard}>
               <div className="main-description">
                 {keyLocations[key.location]}
                 <small>({key.location})</small>
@@ -126,7 +125,7 @@ export default function HomePage({ staticKey }) {
           </div>
           <div className="card item-code">
             <div className="card-header">event.code</div>
-            <div className="card-main" onClick={copyTextToClipboard}>
+            <div className="card-main" tabIndex="0" onKeyDown={copyTextToClipboard}onClick={copyTextToClipboard}>
               <div className="main-description">{key.code}</div>
             </div>
             <footer>
@@ -138,7 +137,7 @@ export default function HomePage({ staticKey }) {
           </div>
           <div className="card item-which">
             <div className="card-header">event.which</div>
-            <div className="card-main" onClick={copyTextToClipboard}>
+            <div className="card-main" tabIndex="0" onKeyDown={copyTextToClipboard}onClick={copyTextToClipboard}>
               <div className="main-description">{key.which}</div>
             </div>
             <footer>
@@ -158,7 +157,7 @@ export default function HomePage({ staticKey }) {
           </div>
           <div className="card item-description">
             <div className="card-header">Description</div>
-            <div className="card-main" onClick={copyTextToClipboard}>
+            <div className="card-main" tabIndex="0" onKeyDown={copyTextToClipboard}onClick={copyTextToClipboard}>
               <div className="main-description">
                 {keyCodesWithEvents[key.keyCode]?.description ||
                   'No Description. Add one?'}
@@ -175,13 +174,13 @@ export default function HomePage({ staticKey }) {
           <MetaKeys currentKey={key} />
           <div className="card item-event">
             <div className="card-header">Event Dump</div>
-            <div className="card-main" onClick={copyTextToClipboard}>
+            <div className="card-main" tabIndex="0" onKeyDown={copyTextToClipboard}onClick={copyTextToClipboard}>
               <pre>{JSON.stringify(key, '', ' ')}</pre>
             </div>
           </div>
           <div className="card item-similar">
             <div className="card-header">Similar Values</div>
-            <div className="card-main" onClick={copyTextToClipboard}>
+            <div className="card-main" tabIndex="0" onKeyDown={copyTextToClipboard}onClick={copyTextToClipboard}>
               <ul>
                 {similarKeys.map((key) => (
                   <li key={key.keyCode}>
@@ -194,13 +193,13 @@ export default function HomePage({ staticKey }) {
           </div>
           <div className="card item-unicode">
             <div className="card-header">Unicode</div>
-            <div className="card-main" onClick={copyTextToClipboard}>
+            <div className="card-main" tabIndex="0" onKeyDown={copyTextToClipboard}onClick={copyTextToClipboard}>
               {keyCodesWithEvents[key.keyCode]?.unicode || ' '}
             </div>
           </div>
           <div className="card item-unicode">
             <div className="card-header">History</div>
-            <div className="card-main" onClick={copyTextToClipboard}>
+            <div className="card-main" tabIndex="0" onKeyDown={copyTextToClipboard}onClick={copyTextToClipboard}>
               <div className="main-description meta-keys">
                 {keyHistory.length > 0 &&
                   keyHistory.map((kh) => {
@@ -230,7 +229,6 @@ export default function HomePage({ staticKey }) {
 }
 
 export function getStaticPaths() {
-  console.log('Getting Static Paths');
   const keyEvents = Object.values(keyCodesWithEvents);
   // Get the keys as is
   const keys = keyEvents

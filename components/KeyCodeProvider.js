@@ -7,7 +7,6 @@ const LocalStateProvider = LocalStateContext.Provider;
 function KeyCodeProvider({ children }) {
   const [key, setKey] = useState({});
   const [keyHistory, setKeyHistory] = useState([]);
-  console.log(keyHistory);
   const [events, setEvents] = useState(keyCodeEvents);
   return (
     <LocalStateProvider
