@@ -2,7 +2,7 @@ import slugify from '@sindresorhus/slugify';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { useKeyCode } from '../components/KeyCodeProvider';
-import { keyCodeEvents, keyCodes } from '../lib/keycodes';
+import { keyCodeEvents } from '../lib/keycodes';
 
 export default function TableOfAllCodes() {
   const keyArray = Object.values(keyCodeEvents).filter((x) => x);
@@ -10,7 +10,7 @@ export default function TableOfAllCodes() {
   const { setKey } = useKeyCode();
   useEffect(() => {
     setKey({});
-  }, []);
+  });
   console.log(keyArray);
   return (
     <div>

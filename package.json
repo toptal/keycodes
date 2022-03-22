@@ -9,7 +9,6 @@
   },
   "eslintConfig": {
     "extends": [
-      "plugin:@next/next/recommended",
       "wesbos"
     ],
     "rules": {

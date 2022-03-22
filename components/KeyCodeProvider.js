@@ -1,4 +1,4 @@
-import { createContext, useState, useContext, useEffect } from 'react';
+import { createContext, useState, useContext } from 'react';
 import { keyCodeEvents } from '../lib/keycodes';
 
 const LocalStateContext = createContext();
