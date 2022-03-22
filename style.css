@@ -16,7 +16,7 @@
 	--card-hover: rgba(220, 233, 255, 0.48);
   --table-separator: #dee2e6;
 }
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
 	:root {
 		--background: #424242;
 		--primary: #5b60ff;
@@ -32,13 +32,7 @@
 		--card-hover: rgba(47, 47, 47, 0.76);
 		--table-separator: #828282;
 	}
-}
-
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-}
+} */
 
 a {
   color: var(--text);
@@ -49,26 +43,22 @@ html,
 body {
   height: 100%;
   margin: 0;
-  font-family: 'Montserrat', 'sans-serif';
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   color: var(--text);
   /* overflow: hidden; */
   background: var(--background);
 }
 .display {
-  text-align: center;
-  display: table;
-  width: 100%;
+  max-width: 1500px;
   margin: 0 auto;
 }
-.wrap {
-  display: table-cell;
-  vertical-align: middle;
-}
+
 p.huge {
   font-size: 100px; /* For lamers who don't support viewport sizing */
   font-size: 40vmin;
   text-align: center;
   margin: 0;
+  display: block;
 }
 p {
   display: inline-block;
@@ -106,19 +96,10 @@ span.love a {
   vertical-align: text-bottom;
 }
 
-/*
-  Added New Card layout Css
-*/
 .cards {
-  /* display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: baseline; */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   margin-bottom: 20px;
-  max-width: 1500px;
   margin: 0 auto;
 }
 .card {
@@ -156,6 +137,7 @@ span.love a {
 
 .item-similar ul {
   margin: 0;
+  padding: 0;
   list-style: none;
   text-align: left;
 }
@@ -307,41 +289,6 @@ span.love a {
     0 24px 46px var(--card-hover);
 }
 
-@media (min-width: 601px) and (max-width: 980px) {
-  body {
-    overflow-y: auto;
-  }
-  .card {
-    flex: 45%;
-    max-width: 45%;
-  }
-  .display {
-    width: 80%;
-  }
-  .main-description {
-    min-height: 34px;
-  }
-}
-@media (max-width: 600px) {
-  body {
-    overflow-y: auto;
-  }
-  .card {
-    flex: 100%;
-    max-width: 100%;
-  }
-  .display {
-    width: 90%;
-  }
-  .table {
-    width: 100%;
-    margin-top: 4rem;
-  }
-  .table-body {
-    height: 60vh;
-  }
-}
-
 .hide {
   display: none !important;
 }
@@ -368,17 +315,43 @@ span.love a {
 
 .key.pressed {
   --color: var(--button);
-  box-shadow: 0 0 4px var(--button);
+  border: 2px solid var(--button);
 }
 
 .key.history {
   background: var(--card-background);
   cursor: pointer;
-  min-height: 83px;
-  min-width: 72px;
+  padding: 10px;
 }
 
 small {
   color:#5f5f5f;
   font-size: 10px;
+}
+
+.card-main {
+  transition: transform 0.1s;
+  transform: scale(1);
+}
+
+.copied {
+  transform: scale(1.4);
+}
+
+.welcome p {
+  text-align: center;
+  font-size: 2rem;
+  background: black;
+  display: block;
+  color: white;
+  padding: 2rem 4rem;
+  border-radius: 5rem;
+  margin: 0 2rem;
+}
+
+.welcome {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

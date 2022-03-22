@@ -1,14 +1,13 @@
 import slugify from '@sindresorhus/slugify';
 import Head from 'next/head';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
-import EventCollection from '../../components/EventCollection';
 import { useKeyCode } from '../../components/KeyCodeProvider';
 import MetaKeys from '../../components/MetaKeys';
 import { getOppositeCase } from '../../lib/caseUtils';
 import { findSimilarKeys } from '../../lib/findSimilarKeys';
-import { keyCodes, keyLocations } from '../../lib/keycodes';
+import { keyLocations } from '../../lib/keycodes';
 import { keyCodesWithEvents } from '../../lib/keyCodesWithEvents';
+import { copyTextToClipboard } from '../../lib/copyTextToClipboard';
 
 export default function HomePage({ staticKey }) {
   const { query } = useRouter();
@@ -75,6 +74,10 @@ export default function HomePage({ staticKey }) {
     <>
       <Head>
         <title>JavaScript Keycode - {query.key}</title>
+        <meta
+          name="twitter:title"
+          content={`JavaScript Event KeyCode for ${query.key}`}
+        />
       </Head>
       <div className="wrap" aria-live="polite" aria-atomic="true">
         <p className="keycode-display huge">{key.keyCode}</p>
@@ -86,7 +89,7 @@ export default function HomePage({ staticKey }) {
             <div className="card-header">
               <span>event.key</span>
             </div>
-            <div className="card-main">
+            <div className="card-main" onClick={copyTextToClipboard}>
               <div className="main-description">
                 {key.key}
                 {key.key === ' ' && <small>(blank space)</small>}
@@ -101,7 +104,7 @@ export default function HomePage({ staticKey }) {
           </div>
           <div className="card item-location">
             <div className="card-header">event.location</div>
-            <div className="card-main">
+            <div className="card-main" onClick={copyTextToClipboard}>
               <div className="main-description">
                 {keyLocations[key.location]}
                 <small>({key.location})</small>
@@ -123,7 +126,7 @@ export default function HomePage({ staticKey }) {
           </div>
           <div className="card item-code">
             <div className="card-header">event.code</div>
-            <div className="card-main">
+            <div className="card-main" onClick={copyTextToClipboard}>
               <div className="main-description">{key.code}</div>
             </div>
             <footer>
@@ -135,7 +138,7 @@ export default function HomePage({ staticKey }) {
           </div>
           <div className="card item-which">
             <div className="card-header">event.which</div>
-            <div className="card-main">
+            <div className="card-main" onClick={copyTextToClipboard}>
               <div className="main-description">{key.which}</div>
             </div>
             <footer>
@@ -155,7 +158,7 @@ export default function HomePage({ staticKey }) {
           </div>
           <div className="card item-description">
             <div className="card-header">Description</div>
-            <div className="card-main">
+            <div className="card-main" onClick={copyTextToClipboard}>
               <div className="main-description">
                 {keyCodesWithEvents[key.keyCode]?.description ||
                   'No Description. Add one?'}
@@ -172,13 +175,13 @@ export default function HomePage({ staticKey }) {
           <MetaKeys currentKey={key} />
           <div className="card item-event">
             <div className="card-header">Event Dump</div>
-            <div className="card-main">
+            <div className="card-main" onClick={copyTextToClipboard}>
               <pre>{JSON.stringify(key, '', ' ')}</pre>
             </div>
           </div>
           <div className="card item-similar">
             <div className="card-header">Similar Values</div>
-            <div className="card-main">
+            <div className="card-main" onClick={copyTextToClipboard}>
               <ul>
                 {similarKeys.map((key) => (
                   <li key={key.keyCode}>
@@ -191,17 +194,18 @@ export default function HomePage({ staticKey }) {
           </div>
           <div className="card item-unicode">
             <div className="card-header">Unicode</div>
-            <div className="card-main">
+            <div className="card-main" onClick={copyTextToClipboard}>
               {keyCodesWithEvents[key.keyCode]?.unicode || ' '}
             </div>
           </div>
           <div className="card item-unicode">
             <div className="card-header">History</div>
-            <div className="card-main">
+            <div className="card-main" onClick={copyTextToClipboard}>
               <div className="main-description meta-keys">
                 {keyHistory.length > 0 &&
                   keyHistory.map((kh) => {
-                    const isMeta = kh?.metaKey || kh?.shiftKey || kh?.altKey || kh?.ctrlKey;
+                    const isMeta =
+                      kh?.metaKey || kh?.shiftKey || kh?.altKey || kh?.ctrlKey;
                     if (isMeta) return renderMetaKey(kh, setKey);
                     return (
                       <button
@@ -211,7 +215,7 @@ export default function HomePage({ staticKey }) {
                         className="key pressed history"
                         onClick={() => setKey(kh)}
                       >
-                        {kh.key}
+                        {keyCodesWithEvents[kh.keyCode]?.unicode || kh.key}
                       </button>
                     );
                   })}
@@ -221,43 +225,6 @@ export default function HomePage({ staticKey }) {
         </div>
         <div className="mobile-input" />
       </div>
-
-      <span className="love">
-        Made with love by
-        <a href="https://wesbos.com" target="_blank" rel="noopener noreferrer">
-          Wes Bos
-        </a>{' '}
-        — fork or suggest edits on
-        <a
-          href="https://github.com/wesbos/keycodes"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub
-        </a>{' '}
-        —
-        <a
-          href="https://twitter.com/wesbos"
-          className="twitter-follow-button"
-          data-show-count="false"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Follow @wesbos
-        </a>
-        <a
-          href="https://twitter.com/share"
-          className="twitter-share-button"
-          data-url="https://keycode.info"
-          data-text="Nice tool for finding JavaScript event keycodes"
-          data-via="wesbos"
-          data-related="wesbos"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Tweet
-        </a>
-      </span>
     </>
   );
 }
