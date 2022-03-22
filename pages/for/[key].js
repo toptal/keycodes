@@ -12,13 +12,65 @@ import { keyCodesWithEvents } from '../../lib/keyCodesWithEvents';
 
 export default function HomePage({ staticKey }) {
   const { query } = useRouter();
-  const { key: generatedKey, history: keyHistory } = useKeyCode();
+  const { key: generatedKey, keyHistory, setKey } = useKeyCode();
   // Here we decide if we should show the code info from the users keyboard, or from our database of keys
   // The user's key is favourable, but if they are visiting the page directly, then we use the static key
   console.log(keyHistory);
   const key = generatedKey.key ? generatedKey : staticKey;
   const hasKeyToShow = key.key === undefined;
   const similarKeys = findSimilarKeys(key);
+
+  const renderMetaKey = (metaKey) => {
+    if (metaKey?.metaKey)
+      return (
+        <button
+          key={metaKey.keyCode}
+          type="button"
+          className="key pressed history"
+          alt="Meta Key"
+          onClick={() => setKey(metaKey)}
+        >
+          ⌘
+        </button>
+      );
+    if (metaKey?.shiftKey)
+      return (
+        <button
+          key={metaKey.keyCode}
+          type="button"
+          className="key pressed history"
+          alt="Shift Key"
+          onClick={() => setKey(metaKey)}
+        >
+          ⇧
+        </button>
+      );
+    if (metaKey?.altKey)
+      return (
+        <button
+          key={metaKey.keyCode}
+          type="button"
+          className="key pressed history"
+          alt="Alt / Option"
+          onClick={() => setKey(metaKey)}
+        >
+          ⌥
+        </button>
+      );
+    if (metaKey?.ctrlKey)
+      return (
+        <button
+          key={metaKey.keyCode}
+          type="button"
+          className="key pressed history"
+          alt="Control Key"
+          onClick={() => setKey(metaKey)}
+        >
+          ^
+        </button>
+      );
+  };
+
   return (
     <>
       <Head>
@@ -145,7 +197,26 @@ export default function HomePage({ staticKey }) {
           </div>
           <div className="card item-unicode">
             <div className="card-header">History</div>
-            <div className="card-main">{keyHistory?.length}</div>
+            <div className="card-main">
+              <div className="main-description meta-keys">
+                {keyHistory.length > 0 &&
+                  keyHistory.map((kh) => {
+                    const isMeta = kh?.metaKey || kh?.shiftKey || kh?.altKey || kh?.ctrlKey;
+                    if (isMeta) return renderMetaKey(kh, setKey);
+                    return (
+                      <button
+                        type="button"
+                        key={kh.keyCode}
+                        alt={`${kh.key} Key`}
+                        className="key pressed history"
+                        onClick={() => setKey(kh)}
+                      >
+                        {kh.key}
+                      </button>
+                    );
+                  })}
+              </div>
+            </div>
           </div>
         </div>
         <div className="mobile-input" />
@@ -153,14 +224,14 @@ export default function HomePage({ staticKey }) {
 
       <span className="love">
         Made with love by
-        <a href="https://wesbos.com" target="_blank" rel="noopener">
+        <a href="https://wesbos.com" target="_blank" rel="noopener noreferrer">
           Wes Bos
         </a>{' '}
         — fork or suggest edits on
         <a
           href="https://github.com/wesbos/keycodes"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           GitHub
         </a>{' '}

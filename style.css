@@ -371,6 +371,13 @@ span.love a {
   box-shadow: 0 0 4px var(--button);
 }
 
+.key.history {
+  background: var(--card-background);
+  cursor: pointer;
+  min-height: 83px;
+  min-width: 72px;
+}
+
 small {
   color:#5f5f5f;
   font-size: 10px;
