@@ -1,16 +1,16 @@
 import slugify from '@sindresorhus/slugify';
 import Link from 'next/link';
-import { useEffect } from 'react';
-import { useKeyCode } from '../components/KeyCodeProvider';
+// import { useEffect } from 'react';
+// import { useKeyCode } from '../components/KeyCodeProvider';
 import { keyCodeEvents } from '../lib/keycodes';
 
 export default function TableOfAllCodes() {
   const keyArray = Object.values(keyCodeEvents).filter((x) => x);
-  // We clear out the keycode when visiting this page so links to it will use the static key
-  const { setKey } = useKeyCode();
-  useEffect(() => {
-    setKey({});
-  });
+  // We clear out the keycode when visiting this page so links to it will use the static key. Pretty sure we no longer need this
+  // const { setKey } = useKeyCode();
+  // useEffect(() => {
+  //   setKey({});
+  // });
   return (
     <div>
       <p>This is a table of all Key Codes and their associated data</p>
