@@ -292,7 +292,7 @@ export function getStaticPaths() {
     .map((key) => key.key)
     // filter only for ones that have keys
     .filter((key) => key)
-    .map(slugify)
+    // .map(slugify)
     // remove the space key - not URL friendly
     .filter((key) => key !== ' ')
     .filter((key) => key !== '')
@@ -326,7 +326,7 @@ export function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 

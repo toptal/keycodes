@@ -5,7 +5,8 @@
   "main": "google-analytics.js",
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev -p 9999",
-    "build": "next build"
+    "build": "next build",
+    "start": "next"
   },
   "eslintConfig": {
     "extends": [
