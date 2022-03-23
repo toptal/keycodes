@@ -15,9 +15,9 @@ export default function HomePage({ staticKey }) {
   // Here we decide if we should show the code info from the users keyboard, or from our database of keys
   // The user's key is favourable, but if they are visiting the page directly, then we use the static key
   const key = generatedKey.key ? generatedKey : staticKey;
+  if (!key) return <p>No key found!</p>;
   const hasKeyToShow = key.key === undefined;
   const similarKeys = findSimilarKeys(key);
-
   const renderMetaKey = (metaKey) => {
     if (metaKey?.metaKey)
       return (
@@ -302,7 +302,8 @@ export function getStaticPaths() {
     .filter((key) => key !== '\\')
     .filter((key) => key !== '/')
     .filter((key) => key !== '^Ù')
-    .map((key) => key.toString());
+    .map((key) => key.toString())
+    .slice(1, 2);
   const oppositeCaseKeys = keys.map((key) => getOppositeCase(key));
   const codes = keyEvents.map((key) => key.code).filter(Boolean);
   const keyCodes = keyEvents
@@ -340,14 +341,16 @@ export async function getStaticProps({ params }) {
       return keyWithKey;
     }
     // 2. Search for a key the `key` lowercase / uppercase opposite version
-    const oppositeCase = getOppositeCase(key);
-    const keyWithLowercase = keys.find((x) => x.key === oppositeCase);
+    const regex = new RegExp(`^${key}$`, 'i');
+    const keyWithLowercase = keys.find((x) => x.key?.match(regex));
     if (keyWithLowercase) {
       return keyWithLowercase;
     }
     // 3. If it's a .code (Num4), find it
     const keyWithCode = keys.find((x) => x.code === key);
-    if (keyWithCode) return keyWithCode;
+    if (keyWithCode) {
+      return keyWithCode;
+    }
 
     // 4. If it's a number search for a key with the keycode
     const numberCode = parseInt(key);
@@ -364,12 +367,15 @@ export async function getStaticProps({ params }) {
     if (keyWithSlug) {
       return keyWithSlug;
     }
+
     return {};
   }
 
-  return {
+  const props = {
     props: {
       staticKey: getKeyData(key),
     },
   };
+
+  return props;
 }
