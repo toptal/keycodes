@@ -7,6 +7,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <KeyCodeProvider>
       <Head>
+        <link rel="icon" href="https://fav.farm/⌨️" />
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="JavaScript Event KeyCodes" />
