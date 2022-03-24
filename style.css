@@ -362,9 +362,20 @@ div[tabindex] {
   border-color: var(--primary);
   outline: 0;
 }
+
 .mobile-focus {
   width: 100%;
   font-size: 20px;
   color: black;
   text-align: center;
+  display: none;
+}
+
+@media (any-hover: none) {
+  .mobile-focus {
+    display: block;
+  }
+  .table-toggle-button {
+    top: 35px;
+  }
 }
