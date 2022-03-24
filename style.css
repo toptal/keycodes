@@ -362,3 +362,11 @@ div[tabindex] {
   border-color: var(--primary);
   outline: 0;
 }
+.mobile-focus {
+  width: 100%;
+  font-size: 20px;
+  opacity: 0.1;
+  position: absolute;
+  padding:0;
+  /* position: absolute; */
+}

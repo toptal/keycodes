@@ -9,6 +9,31 @@ import { keyLocations } from '../../lib/keycodes';
 import { keyCodesWithEvents } from '../../lib/keyCodesWithEvents';
 import { copyTextToClipboard } from '../../lib/copyTextToClipboard';
 
+// function focusInput(e) {
+//   console.log('focusInput');
+//   if (!document) return;
+//   const input = document.querySelector('input.mobile-focus');
+//   setTimeout(() => {
+//     input.setAttribute('autofocus', 'autofocus');
+//     input.focus();
+//     e.target.click();
+//     // input.dispatchEvent(new Event('keydown'));
+//   }, 500);
+//   // input.focus();
+// }
+
+function focusAndOpenKeyboard(e) {
+  // remove existing inputs
+  const inputs = document.querySelectorAll('input.mobile-focus');
+  inputs.forEach((x) => x.remove());
+
+  // create the new one
+  const input = document.createElement('input');
+  input.classList.add('mobile-focus');
+  document.body.prepend(input);
+  input.focus();
+}
+
 export default function HomePage({ staticKey }) {
   const { query } = useRouter();
   const { key: generatedKey, keyHistory, setKey } = useKeyCode();
@@ -78,7 +103,12 @@ export default function HomePage({ staticKey }) {
           content={`JavaScript Event KeyCode for ${query.key}`}
         />
       </Head>
-      <div className="wrap" aria-live="polite" aria-atomic="true">
+      <div
+        className="wrap"
+        aria-live="polite"
+        aria-atomic="true"
+        onTouchEnd={focusAndOpenKeyboard}
+      >
         <p className="keycode-display huge">{key.keyCode}</p>
         <p className={`text-display ${!hasKeyToShow && 'hide'}`}>
           Press any key to get the JavaScript event keycode
