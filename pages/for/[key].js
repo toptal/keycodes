@@ -103,11 +103,12 @@ export default function HomePage({ staticKey }) {
           content={`JavaScript Event KeyCode for ${query.key}`}
         />
       </Head>
+      <input type="text" className="mobile-focus" placeholder="Mobile Input" />
       <div
         className="wrap"
         aria-live="polite"
         aria-atomic="true"
-        onTouchEnd={focusAndOpenKeyboard}
+        // onTouchEnd={focusAndOpenKeyboard}
       >
         <p className="keycode-display huge">{key.keyCode}</p>
         <p className={`text-display ${!hasKeyToShow && 'hide'}`}>

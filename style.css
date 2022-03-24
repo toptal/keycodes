@@ -365,8 +365,6 @@ div[tabindex] {
 .mobile-focus {
   width: 100%;
   font-size: 20px;
-  opacity: 0.1;
-  position: absolute;
-  padding:0;
-  /* position: absolute; */
+  color: black;
+  text-align: center;
 }
