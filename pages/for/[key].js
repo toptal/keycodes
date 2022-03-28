@@ -228,7 +228,7 @@ export default function HomePage({ staticKey }) {
               <p>
                 This is the description we have created. Think it can be
                 improved?{' '}
-                <a href="github.com/wesbos/keycodes">PR us on GitHub</a>
+                <a href="https://github.com/wesbos/keycodes">PR us on GitHub</a>
               </p>
             </footer>
           </div>
