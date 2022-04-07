@@ -1,13 +1,13 @@
-import { createContext, useState, useContext } from 'react';
-import { keyCodeEvents } from '../lib/keycodes';
+import { createContext, useState, useContext } from 'react'
+import { keyCodeEvents } from '../lib/keycodes'
 
-const LocalStateContext = createContext();
-const LocalStateProvider = LocalStateContext.Provider;
+const LocalStateContext = createContext()
+const LocalStateProvider = LocalStateContext.Provider
 
 function KeyCodeProvider({ children }) {
-  const [key, setKey] = useState({});
-  const [keyHistory, setKeyHistory] = useState([]);
-  const [events, setEvents] = useState(keyCodeEvents);
+  const [key, setKey] = useState({})
+  const [keyHistory, setKeyHistory] = useState([])
+  const [events, setEvents] = useState(keyCodeEvents)
   return (
     <LocalStateProvider
       value={{
@@ -21,11 +21,11 @@ function KeyCodeProvider({ children }) {
     >
       {children}
     </LocalStateProvider>
-  );
+  )
 }
 
 function useKeyCode() {
-  return useContext(LocalStateContext);
+  return useContext(LocalStateContext)
 }
 
-export { KeyCodeProvider, LocalStateContext, useKeyCode };
+export { KeyCodeProvider, LocalStateContext, useKeyCode }

@@ -1,0 +1,21 @@
+# http://editorconfig.org
+root = true
+
+# For all file types
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Ignore final new line for SVG files
+[*.svg]
+insert_final_newline = false
+
+# Ignore trailing whitespace for Markdown files
+[*.md]
+trim_trailing_whitespace = false
+
+[*.{js,scss}]
+indent_style = space
+indent_size = 2

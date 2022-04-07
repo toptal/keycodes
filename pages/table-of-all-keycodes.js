@@ -1,16 +1,10 @@
-import slugify from '@sindresorhus/slugify';
-import Link from 'next/link';
-// import { useEffect } from 'react';
-// import { useKeyCode } from '../components/KeyCodeProvider';
-import { keyCodeEvents } from '../lib/keycodes';
+import slugify from '@sindresorhus/slugify'
+import Link from 'next/link'
+import { keyCodeEvents } from '../lib/keycodes'
 
 export default function TableOfAllCodes() {
-  const keyArray = Object.values(keyCodeEvents).filter((x) => x);
-  // We clear out the keycode when visiting this page so links to it will use the static key. Pretty sure we no longer need this
-  // const { setKey } = useKeyCode();
-  // useEffect(() => {
-  //   setKey({});
-  // });
+  const keyArray = Object.values(keyCodeEvents).filter((x) => x)
+
   return (
     <div>
       <p>This is a table of all Key Codes and their associated data</p>
@@ -28,26 +22,46 @@ export default function TableOfAllCodes() {
           {keyArray.map((key) => (
             <tr key={key.keyCode}>
               <td>
-                <Link href={`/for/${key.keyCode}`}>
-                  <a>{key.keyCode}</a>
-                </Link>
+                {key.keyCode && (
+                  <Link href={`/for/${key.keyCode}`}>
+                    <a>{key.keyCode}</a>
+                  </Link>
+                )}
               </td>
               <td>
-                <Link href={`/for/${key.key}`}>
-                  <a>{key.key}</a>
-                </Link>
+                {key.key && (
+                  // eslint-disable-next-line react/jsx-no-useless-fragment
+                  <>
+                    {['.', '/', '\\'].includes(key.key) ? (
+                      key.key
+                    ) : (
+                      <Link href={`/for/${key.key}`}>
+                        <a>{key.key}</a>
+                      </Link>
+                    )}
+                  </>
+                )}
               </td>
               <td>
-                <Link href={`/for/${key.code}`}>
-                  <a>{key.code}</a>
-                </Link>
+                {key.code && (
+                  <Link href={`/for/${key.code}`}>
+                    <a>{key.code}</a>
+                  </Link>
+                )}
               </td>
               <td>{key.unicode}</td>
               <td>
                 {key.description && (
-                  <Link href={`/for/${slugify(key.description)}`}>
-                    <a>{key.description}</a>
-                  </Link>
+                  // eslint-disable-next-line react/jsx-no-useless-fragment
+                  <>
+                    {slugify(key.description) ? (
+                      <Link href={`/for/${slugify(key.description)}`}>
+                        <a>{key.description}</a>
+                      </Link>
+                    ) : (
+                      key.description
+                    )}
+                  </>
                 )}
               </td>
             </tr>
@@ -55,5 +69,5 @@ export default function TableOfAllCodes() {
         </tbody>
       </table>
     </div>
-  );
+  )
 }

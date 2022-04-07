@@ -1,7 +1,7 @@
-import Head from 'next/head';
-import { KeyCodeProvider } from '../components/KeyCodeProvider';
-import Page from '../components/Page';
-import '../style.css';
+import Head from 'next/head'
+import { KeyCodeProvider } from '../components/KeyCodeProvider'
+import Page from '../components/Page'
+import '../style.css'
 
 export default function MyApp({ Component, pageProps }) {
   return (
@@ -42,5 +42,5 @@ export default function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       </Page>
     </KeyCodeProvider>
-  );
+  )
 }

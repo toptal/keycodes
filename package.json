@@ -4,9 +4,9 @@
   "description": "![](http://wes.io/sQyC/content.gif)",
   "main": "google-analytics.js",
   "scripts": {
-    "dev": "NODE_OPTIONS='--inspect' next dev -p 9999",
+    "dev": "NODE_OPTIONS='--inspect' next dev -p 3000",
     "build": "next build",
-    "start": "next"
+    "start": "next start"
   },
   "eslintConfig": {
     "extends": [
