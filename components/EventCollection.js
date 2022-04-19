@@ -1,8 +1,8 @@
-import { keyCodes } from '../lib/keycodes';
-import { useKeyCode } from './KeyCodeProvider';
+import { keyCodes } from '../lib/keycodes'
+import { useKeyCode } from './KeyCodeProvider'
 
 export default function EventCollection() {
-  const { events } = useKeyCode();
+  const { events } = useKeyCode()
   return (
     <div
       style={{
@@ -28,5 +28,5 @@ export default function EventCollection() {
         </span>
       ))}
     </div>
-  );
+  )
 }

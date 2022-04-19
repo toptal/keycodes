@@ -31,5 +31,5 @@ export default function MetaKeys({ currentKey: key }) {
         </div>
       </div>
     </div>
-  );
+  )
 }
