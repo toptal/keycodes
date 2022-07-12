@@ -1,5 +1,43 @@
-# JavaScript Keycodes → [KeyCode.info](https://keycode.info)
+# Site Acquisition Project Template
 
-![](http://wes.io/sQyC/content.gif)
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-A simple webpage that responds to the key pressed and returns the JavaScript 'on-key pressed' keycode.
+This project uses TypeScript by default.
+
+- [Getting Started](/docs/00-getting-started.md#getting-started)
+- [Testing](/docs/01-testing.md#testing)
+  - [Unit tests](/docs/01-testing.md#unit-tests)
+    - [Code coverage for unit tests](/docs/01-testing.md#code-coverage-for-unit-tests)
+  - [End-to-end tests](/docs/01-testing.md#end-to-end-tests)
+    - [Code coverage for end-to-end tests](/docs/01-testing.md#code-coverage-for-end-to-end-tests)
+  - [Generate combined coverage report](/docs/01-testing.md#generate-combined-coverage-report)
+  - [Visual regression tests](/docs/01-testing.md#visual-regression-tests)
+    - [Happo settings](/docs/01-testing.md#happo-settings)
+    - [Running Happo tests](/docs/01-testing.md#running-happo-tests)
+    - [Accessibility tests](/docs/01-testing.md#accessibility-tests)
+- [Linting](/docs/02-linting.md#linting)
+  - [Editor setup](/docs/02-linting.md#editor-setup)
+    - [VS Code](/docs/02-linting.md#vs-code)
+  - [Javascript and Typescript](/docs/02-linting.md#javascript-and-typescript)
+  - [Styles](/docs/02-linting.md#styles)
+- [CI](/docs/03-ci.md#ci)
+- [Logging](/docs/04-logging.md#logging)
+- [Events Tracking](/docs/05-event-tracking.md#events-tracking)
+- [Deployment & Sandbox](/docs/06-deploy.md#deployment-&-sandbox)
+  - [Kubernetes Docs](/docs/06-deploy.md#kubernetes-docs)
+    - [Configuring your own app](/docs/06-deploy.md#configuring-your-own-app)
+    - [Deploy on Toptal K8s Sandbox](/docs/06-deploy.md#deploy-on-toptal-k8s-sandbox)
+      - [Install sandbox](/docs/06-deploy.md#install-sandbox)
+      - [Deploy using sandbox](/docs/06-deploy.md#deploy-using-sandbox)
+- [Services Healthcheck](/docs/07-healthcheck.md#services-healthcheck)
+- [New project set-up](/docs/08-new-project-setup.md#new-project-set-up)
+  - [GitHub configuration](/docs/08-new-project-setup.md#github-configuration)
+  - [Happo settings](/docs/08-new-project-setup.md#happo-settings)
+  - [Code adjustments](/docs/08-new-project-setup.md#code-adjustments)
+  - [GithubBot setup](/docs/08-new-project-setup.md#githubbot-setup)
+  - [Slack bullhorn setup](/docs/08-new-project-setup.md#slack-bullhorn-setup)
+  - [Sandbox Google oAuth](/docs/08-new-project-setup.md#sandbox-google-oauth)
+  - [Anvil reporting setup](/docs/08-new-project-setup.md#anvil-reporting-setup)
+- [How to use Picasso in SAT Project Template](/docs/09-picasso-integration.md#how-to-use-picasso-in-sat-project-template)
+  - [Consult official Picasso SSR documentation](/docs/09-picasso-integration.md#consult-official-picasso-ssr-documentation)
+

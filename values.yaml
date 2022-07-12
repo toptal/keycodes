@@ -1,0 +1,19 @@
+---
+toptal-apps:
+  app:
+    replicaCount: 1
+    port: &port 3000
+
+service:
+  healthCheck: /
+  type: ClusterIP
+  port: *port
+
+settings:
+  environments:
+    app:
+      PORT: *port
+
+ingressRoute:
+  oauth: true
+  host: keycodes.toptal.rocks

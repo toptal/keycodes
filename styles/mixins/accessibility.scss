@@ -1,0 +1,61 @@
+%screen-reader-only {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+
+  border: 0;
+
+  clip: rect(0, 0, 0, 0);
+}
+
+%focus-styles {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-offset: 2px;
+}
+
+%mouse-focus-styles {
+  &:focus:not(:focus-visible) {
+    outline: 0;
+    outline-offset: 0;
+  }
+}
+
+@mixin focus-styles($z-index: 1) {
+  &:focus {
+    @extend %focus-styles;
+    /*
+    Some items need to be brought to the front to make the outline entirely visible.
+    z-index value needs to be below the Navbar's z-index value
+    */
+    @if $z-index {
+      z-index: $z-index;
+    }
+    outline-color: $blue-main;
+  }
+
+  @extend %mouse-focus-styles;
+}
+
+@mixin focus-styles-inverted($z-index: 1) {
+  &:focus {
+    @extend %focus-styles;
+    @if $z-index {
+      z-index: $z-index;
+    }
+    outline-color: $white;
+  }
+
+  @extend %mouse-focus-styles;
+}
+
+@mixin not-focus-visible-class($class: focus-visible) {
+  &:focus:not(.#{$class}) {
+    outline: 0;
+    outline-offset: 0;
+  }
+}
