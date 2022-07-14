@@ -5,7 +5,7 @@ env:
 
 on:
   pull_request:
-    branches: [master]
+    branches: [v2]
 
 jobs:
   e2e_tests_pr:
