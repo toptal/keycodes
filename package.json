@@ -7,8 +7,8 @@
     "dev": "next dev",
     "dev:clean": "yarn clean && yarn dev",
     "dev:analyze": "ANALYZE=true yarn dev:clean",
-    "build": "next build && yarn prepare:docs",
-    "build:clean": "yarn clean && yarn build && yarn prepare:docs",
+    "build": "next build",
+    "build:clean": "yarn clean && yarn build",
     "build:analyze": "ANALYZE=true yarn build:clean",
     "build:babel": "mv babel_.config.js babel.config.js && next build; mv babel.config.js babel_.config.js",
     "build:babel:clean": "mv babel_.config.js babel.config.js && rimraf .next && next build; mv babel.config.js babel_.config.js",
@@ -30,8 +30,7 @@
     "types:check": "tsc --noEmit --pretty",
     "happo": "happo",
     "deploy": "./sandbox build && ./sandbox push && ./sandbox deploy",
-    "prepare": "husky install",
-    "prepare:docs": "node prepare-docs.js"
+    "prepare": "husky install"
   },
   "dependencies": {
     "next": "^12.1.6",

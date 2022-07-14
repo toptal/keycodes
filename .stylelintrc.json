@@ -1,0 +1,56 @@
+{
+  "extends": [
+    "stylelint-config-recommended-scss",
+    "stylelint-config-rational-order",
+    "stylelint-config-css-modules"
+  ],
+  "plugins": [
+    "stylelint-scss",
+    "stylelint-order",
+    "stylelint-config-rational-order/plugin"
+  ],
+  "rules": {
+    "order/order": [
+      "dollar-variables",
+      {
+        "type": "at-rule",
+        "name": "include",
+        "hasBlock": false
+      },
+      {
+        "type": "at-rule",
+        "name": "extend"
+      },
+      "declarations"
+    ],
+    "order/properties-order": [],
+    "plugin/rational-order": [
+      true,
+      {
+        "border-in-box-model": false,
+        "empty-line-between-groups": true
+      }
+    ],
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "indentation": 2,
+    "string-quotes": "double",
+    "selector-class-pattern": "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
+    "scss/dollar-variable-pattern": "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
+    "declaration-block-trailing-semicolon": "always",
+    "declaration-colon-space-after": "always-single-line",
+    "scss/dollar-variable-colon-space-after": "always-single-line",
+    "max-empty-lines": 1,
+    "block-opening-brace-space-before": "always",
+    "block-opening-brace-newline-after": "always",
+    "block-closing-brace-newline-before": "always",
+    "rule-empty-line-before": [
+      "always",
+      {
+        "ignore": ["first-nested", "after-comment"]
+      }
+    ],
+    "number-leading-zero": "always",
+    "color-hex-case": "lower"
+  }
+}
