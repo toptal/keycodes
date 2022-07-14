@@ -34,10 +34,15 @@
     "prepare:docs": "node prepare-docs.js"
   },
   "dependencies": {
+    "@sindresorhus/slugify": "^2.1.0",
+    "@toptal/picasso": "^26.4.0",
+    "@toptal/site-acq-ui-library": "^2.6.5",
     "next": "^12.1.6",
     "pino": "^7.1.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "slugify": "^1.6.5",
+    "string-similarity": "^4.0.4",
     "web-vitals": "^3.0.0-beta.2"
   },
   "devDependencies": {
@@ -50,6 +55,7 @@
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "@types/react": "^18.0.12",
+    "@types/string-similarity": "^4.0.0",
     "@typescript-eslint/eslint-plugin": "^4.26.0",
     "@typescript-eslint/parser": "^4.28.4",
     "axe-playwright": "^1.1.11",
@@ -83,6 +89,9 @@
     "jest": "^27.5.1",
     "jest-html-reporters": "^3.0.6",
     "lint-staged": "^11.0.1",
+    "mock-require": "^3.0.3",
+    "next-router-mock": "^0.7.4",
+    "next-transpile-modules": "^9.0.0",
     "node-polyfill-webpack-plugin": "^1.1.4",
     "nyc": "^15.1.0",
     "pino-pretty": "^7.2.0",

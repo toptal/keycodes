@@ -1,8 +1,22 @@
 const path = require('path')
 
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true'
-})
+const mock = require('mock-require')
+const nextTranspileModules = require('next-transpile-modules')
+
+const modulesToTranspile = ['@toptal/site-acq-ui-library', '@toptal/picasso']
+
+if (process.env.NODE_ENV === 'development') {
+  // `mock-require` package needs it :(
+  modulesToTranspile.push('date-fns')
+
+  const QUILL_MOCK_PATH = path.join(__dirname, '/lib/patched-quill')
+
+  mock('quill', QUILL_MOCK_PATH)
+  mock('quill-delta', QUILL_MOCK_PATH)
+  mock('quill-paste-smart', QUILL_MOCK_PATH)
+}
+
+const withTM = nextTranspileModules(modulesToTranspile)
 
 const transformClassNamesToCamelCase = config => {
   const rules = config.module.rules
@@ -102,8 +116,10 @@ const nextConfig = {
   headers: buildHeaders
 }
 
-module.exports = () => {
-  const plugins = [withBundleAnalyzer] // add plugins here: [withTM, withSomethingElse]
+const moduleExports = () => {
+  const plugins = [withTM] // add plugins here: [withTM, withSomethingElse]
 
   return plugins.reduce((config, next) => next(config), nextConfig)
 }
+
+module.exports = moduleExports

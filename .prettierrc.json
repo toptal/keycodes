@@ -1,9 +1,11 @@
 {
   "semi": false,
   "singleQuote": true,
+  "arrowParens": "avoid",
+  "trailingComma": "none",
   "overrides": [
     {
-      "files": ["*.scss","*.css"],
+      "files": "*.scss",
       "options": {
         "singleQuote": false
       }

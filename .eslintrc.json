@@ -1,0 +1,166 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "standard",
+    "prettier",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:react/recommended"
+  ],
+  "globals": {
+    "BASE_API_URL": "readonly",
+    "BASE_URL": "readonly",
+    "page": "writable"
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "react-hooks",
+    "prettier",
+    "standard",
+    "import",
+    "jest"
+  ],
+  "rules": {
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "react/react-in-jsx-scope": "off",
+    "prettier/prettier": "error",
+    "no-console": "warn",
+    "jsx-quotes": ["error", "prefer-double"],
+    "arrow-parens": ["error", "as-needed"],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/jsx-key": ["error", { "checkFragmentShorthand": true }],
+    "react/no-direct-mutation-state": "error",
+    "react/no-redundant-should-component-update": "error",
+    "react/no-typos": "error",
+    "react/no-this-in-sfc": "error",
+    "react/no-unknown-property": "error",
+    "react/self-closing-comp": "error",
+    "react/require-render-return": "error",
+    "react/void-dom-elements-no-children": "error",
+    "react/jsx-closing-bracket-location": "error",
+    "react/jsx-equals-spacing": "error",
+    "react/jsx-wrap-multilines": [
+      "error",
+      {
+        "declaration": "parens-new-line",
+        "assignment": "parens-new-line",
+        "return": "parens-new-line",
+        "arrow": "parens-new-line",
+        "logical": "parens-new-line",
+        "condition": "parens",
+        "prop": "parens"
+      }
+    ],
+    "react/jsx-tag-spacing": "error",
+    "react/jsx-props-no-multi-spaces": "error",
+    "react/jsx-curly-brace-presence": "error",
+    "react/jsx-max-props-per-line": [
+      "error",
+      {
+        "maximum": 1,
+        "when": "multiline"
+      }
+    ],
+    "space-in-parens": ["error", "never"],
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "groups": [
+          "builtin",
+          "external",
+          "unknown",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "~/{components,pages}/**",
+            "group": "unknown",
+            "position": "after"
+          }
+        ]
+      }
+    ],
+    "import/no-cycle": "error",
+    "import/first": "error",
+    "import/no-useless-path-segments": "error",
+    "import/no-duplicates": "error",
+    "import/no-unresolved": "error",
+    "import/newline-after-import": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "space-before-blocks": "error",
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "arrow-spacing": ["error", { "before": true, "after": true }],
+    "keyword-spacing": ["error", { "before": true, "after": true }],
+    "no-template-curly-in-string": "off",
+    "standard/no-callback-literal": "off",
+    "no-prototype-builtins": "off",
+    "import/no-webpack-loader-syntax": "off", // to suppress warnings related to using svg-react-loader
+    "curly": ["error", "all"],
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "*", "next": "return" },
+      { "blankLine": "always", "prev": ["const", "let"], "next": "*" },
+      {
+        "blankLine": "any",
+        "prev": ["const", "let"],
+        "next": ["const", "let"]
+      },
+      {
+        "blankLine": "always",
+        "prev": "multiline-expression",
+        "next": "multiline-expression"
+      }
+    ],
+    "@typescript-eslint/no-var-requires": "off",
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error",
+    "jest/lowercase-name": [
+      "error",
+      {
+        "ignore": ["describe"]
+      }
+    ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "webpack": true,
+      "alias": [["~", "./"]],
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": ["./tsconfig.json", "./test/tsconfig.json"]
+      }
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    }
+  }
+}
