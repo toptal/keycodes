@@ -1,0 +1,22 @@
+@import "base.scss";
+
+.layout {
+  overflow-x: hidden;
+
+  .container {
+    @include flex-container(column);
+
+    @include for-tablet {
+      @include flex-container(row);
+    }
+
+    height: calc(100vh - #{$header-height});
+    max-width: 1440px;
+
+
+    main {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}

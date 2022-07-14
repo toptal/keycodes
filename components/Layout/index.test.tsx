@@ -7,6 +7,7 @@ import {
   PROJECT_DESCRIPTION,
   OG_IMAGE_URL
 } from '~/lib/constants/common'
+import PicassoProvider from '~/test/lib/picasso-provider'
 
 import Layout from '~/components/Layout'
 
@@ -35,9 +36,11 @@ jest.mock('next/head', () => {
 describe('Default layout', () => {
   it('correctly Prints Open Graph Meta Tags', async () => {
     const tree = render(
-      <Layout>
-        <title>test</title>
-      </Layout>
+      <PicassoProvider>
+        <Layout>
+          <title>test</title>
+        </Layout>
+      </PicassoProvider>
     )
 
     const head = tree.baseElement.parentElement?.firstChild as HTMLHeadElement

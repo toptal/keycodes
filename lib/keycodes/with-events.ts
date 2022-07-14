@@ -1,0 +1,1577 @@
+import { KeyCodeEvent } from '~/lib/types/key-code-events'
+
+export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
+  0: {
+    key: '',
+    keyCode: 0,
+    which: 0,
+    code: 'Unidentified',
+    location: 0,
+    description: 'These keys do not have a key code'
+  },
+  3: {
+    key: 'Cancel',
+    keyCode: 3,
+    which: 3,
+    code: 'Pause',
+    location: 0,
+    altKey: false,
+    ctrlKey: true,
+    metaKey: false,
+    shiftKey: false,
+    description: 'break'
+  },
+  8: {
+    key: 'Backspace',
+    keyCode: 8,
+    which: 8,
+    code: 'Backspace',
+    location: 0,
+    description: 'backspace / delete',
+    unicode: '⌫'
+  },
+  9: {
+    key: 'Tab',
+    keyCode: 9,
+    which: 9,
+    code: 'Tab',
+    location: 0,
+    description: 'tab',
+    unicode: '↹'
+  },
+  12: {
+    key: 'Clear',
+    keyCode: 12,
+    which: 12,
+    code: 'NumLock',
+    location: 0,
+    description: 'clear',
+    unicode: '⌧'
+  },
+  13: {
+    key: 'Enter',
+    keyCode: 13,
+    which: 13,
+    code: 'Enter',
+    location: 0,
+    description: 'Enter / Return',
+    unicode: '↵'
+  },
+  16: {
+    key: 'Shift',
+    keyCode: 16,
+    which: 16,
+    code: 'ShiftLeft',
+    location: 1,
+    description: 'shift',
+    unicode: '⇧'
+  },
+  17: {
+    key: 'Control',
+    keyCode: 17,
+    which: 17,
+    code: 'ControlLeft',
+    location: 1,
+    altKey: true,
+    ctrlKey: false,
+    metaKey: true,
+    shiftKey: true,
+    description: 'ctrl',
+    unicode: '^'
+  },
+  18: {
+    key: 'Alt',
+    keyCode: 18,
+    which: 18,
+    code: 'AltLeft',
+    location: 1,
+    altKey: true,
+    ctrlKey: false,
+    metaKey: true,
+    shiftKey: false,
+    description: 'Alt / Option',
+    unicode: '⎇ / ⌥'
+  },
+  19: {
+    key: 'Pause',
+    keyCode: 19,
+    which: 19,
+    code: 'Pause',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'pause/break'
+  },
+  20: {
+    key: 'CapsLock',
+    keyCode: 20,
+    which: 20,
+    code: 'CapsLock',
+    location: 0,
+    description: 'caps lock',
+    unicode: '⇪'
+  },
+  21: {
+    key: 'Unidentified',
+    keyCode: 21,
+    which: 21,
+    code: 'Lang1',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'hangul'
+  },
+  25: {
+    key: 'Unidentified',
+    keyCode: 25,
+    which: 25,
+    code: 'Lang2',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'hanja'
+  },
+  27: {
+    key: 'Escape',
+    keyCode: 27,
+    which: 27,
+    code: 'Escape',
+    location: 0,
+    description: 'escape',
+    unicode: '⎋'
+  },
+  28: { key: '', description: 'conversion', keyCode: 28, which: '28' },
+  29: { key: '', description: 'non-conversion', keyCode: 29, which: '29' },
+  32: {
+    key: '',
+    keyCode: 32,
+    which: 32,
+    code: 'Space',
+    location: 0,
+    description: 'spacebar'
+  },
+  33: {
+    key: 'PageUp',
+    keyCode: 33,
+    which: 33,
+    code: 'Numpad9',
+    location: 3,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'page up',
+    unicode: '⇞'
+  },
+  34: {
+    key: 'PageDown',
+    keyCode: 34,
+    which: 34,
+    code: 'Numpad3',
+    location: 3,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'page down',
+    unicode: '⇟'
+  },
+  35: {
+    key: 'End',
+    keyCode: 35,
+    which: 35,
+    code: 'Numpad1',
+    location: 3,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'end'
+  },
+  36: {
+    key: 'Home',
+    keyCode: 36,
+    which: 36,
+    code: 'Numpad7',
+    location: 3,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'home',
+    unicode: '⌂'
+  },
+  37: {
+    key: 'ArrowLeft',
+    keyCode: 37,
+    which: 37,
+    code: 'ArrowLeft',
+    location: 0,
+    description: 'left arrow',
+    unicode: '←'
+  },
+  38: {
+    key: 'ArrowUp',
+    keyCode: 38,
+    which: 38,
+    code: 'ArrowUp',
+    location: 0,
+    description: 'up arrow',
+    unicode: '↑'
+  },
+  39: {
+    key: 'ArrowRight',
+    keyCode: 39,
+    which: 39,
+    code: 'ArrowRight',
+    location: 0,
+    description: 'right arrow',
+    unicode: '→'
+  },
+  40: {
+    key: 'ArrowDown',
+    keyCode: 40,
+    which: 40,
+    code: 'ArrowDown',
+    location: 0,
+    description: 'down arrow',
+    unicode: '↓'
+  },
+  41: { key: '', description: 'select', keyCode: 41, which: '41' },
+  42: { key: '', description: 'print', keyCode: 42, which: '42' },
+  43: { key: '', description: 'execute', keyCode: 43, which: '43' },
+  44: {
+    key: 'F13',
+    keyCode: 44,
+    which: 44,
+    code: 'F13',
+    location: 0,
+    description: 'Print Screen / F13 (firefox)',
+    unicode: '⎙'
+  },
+  45: {
+    key: 'Insert',
+    keyCode: 45,
+    which: 45,
+    code: 'Numpad0',
+    location: 3,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'insert',
+    unicode: 'x'
+  },
+  46: {
+    key: 'Delete',
+    keyCode: 46,
+    which: 46,
+    code: 'NumpadDecimal',
+    location: 3,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'delete',
+    unicode: '⌦'
+  },
+  47: { key: '', description: 'help', keyCode: 47, which: '47', unicode: '⍰' },
+  48: {
+    key: '0',
+    keyCode: 48,
+    which: 48,
+    code: 'Digit0',
+    location: 0,
+    description: '0',
+    unicode: '⓪'
+  },
+  49: {
+    key: '1',
+    keyCode: 49,
+    which: 49,
+    code: 'Digit1',
+    location: 0,
+    description: '1 Key',
+    unicode: '①'
+  },
+  50: {
+    key: '2',
+    keyCode: 50,
+    which: 50,
+    code: 'Digit2',
+    location: 0,
+    description: '2 Key',
+    unicode: '②'
+  },
+  51: {
+    key: '3',
+    keyCode: 51,
+    which: 51,
+    code: 'Digit3',
+    location: 0,
+    description: '3 Key',
+    unicode: '③'
+  },
+  52: {
+    key: '4',
+    keyCode: 52,
+    which: 52,
+    code: 'Digit4',
+    location: 0,
+    description: '4 Key',
+    unicode: '④'
+  },
+  53: {
+    key: '5',
+    keyCode: 53,
+    which: 53,
+    code: 'Digit5',
+    location: 0,
+    description: '5 Key',
+    unicode: '⑤'
+  },
+  54: {
+    key: '6',
+    keyCode: 54,
+    which: 54,
+    code: 'Digit6',
+    location: 0,
+    description: '6 Key',
+    unicode: '⑥'
+  },
+  55: {
+    key: '7',
+    keyCode: 55,
+    which: 55,
+    code: 'Digit7',
+    location: 0,
+    description: '7 Key',
+    unicode: '⑦'
+  },
+  56: {
+    key: '8',
+    keyCode: 56,
+    which: 56,
+    code: 'Digit8',
+    location: 0,
+    description: '8 Key',
+    unicode: '⑧'
+  },
+  57: {
+    key: '9',
+    keyCode: 57,
+    which: 57,
+    code: 'Digit9',
+    location: 0,
+    description: '9 Key',
+    unicode: '⑨'
+  },
+  58: {
+    key: ':',
+    keyCode: 58,
+    which: 58,
+    code: 'Period',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: ':'
+  },
+  59: {
+    key: ';',
+    keyCode: 59,
+    which: 59,
+    code: 'Semicolon',
+    location: 0,
+    description: 'semicolon (firefox), equals'
+  },
+  60: {
+    key: '<',
+    keyCode: 60,
+    which: 60,
+    code: 'Backquote',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: '<'
+  },
+  61: {
+    key: '=',
+    keyCode: 61,
+    which: 61,
+    code: 'Equal',
+    location: 0,
+    description: 'equals (firefox)'
+  },
+  63: {
+    key: 'ß',
+    keyCode: 63,
+    which: 63,
+    code: 'Minus',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'ß'
+  },
+  64: { key: '', description: '@ (firefox)', keyCode: 64, which: '64' },
+  65: {
+    key: 'a',
+    keyCode: 65,
+    which: 65,
+    code: 'KeyA',
+    location: 0,
+    description: 'a'
+  },
+  66: {
+    key: 'b',
+    keyCode: 66,
+    which: 66,
+    code: 'KeyB',
+    location: 0,
+    description: 'b'
+  },
+  67: {
+    key: 'c',
+    keyCode: 67,
+    which: 67,
+    code: 'KeyC',
+    location: 0,
+    description: 'c'
+  },
+  68: {
+    key: 'd',
+    keyCode: 68,
+    which: 68,
+    code: 'KeyD',
+    location: 0,
+    description: 'd'
+  },
+  69: {
+    key: 'e',
+    keyCode: 69,
+    which: 69,
+    code: 'KeyE',
+    location: 0,
+    description: 'e'
+  },
+  70: {
+    key: 'f',
+    keyCode: 70,
+    which: 70,
+    code: 'KeyF',
+    location: 0,
+    description: 'f'
+  },
+  71: {
+    key: 'g',
+    keyCode: 71,
+    which: 71,
+    code: 'KeyG',
+    location: 0,
+    description: 'g'
+  },
+  72: {
+    key: 'h',
+    keyCode: 72,
+    which: 72,
+    code: 'KeyH',
+    location: 0,
+    description: 'h'
+  },
+  73: {
+    key: 'i',
+    keyCode: 73,
+    which: 73,
+    code: 'KeyI',
+    location: 0,
+    description: 'i'
+  },
+  74: {
+    key: 'j',
+    keyCode: 74,
+    which: 74,
+    code: 'KeyJ',
+    location: 0,
+    description: 'j'
+  },
+  75: {
+    key: 'k',
+    keyCode: 75,
+    which: 75,
+    code: 'KeyK',
+    location: 0,
+    altKey: true,
+    ctrlKey: false,
+    metaKey: true,
+    shiftKey: false,
+    description: 'k'
+  },
+  76: {
+    key: 'l',
+    keyCode: 76,
+    which: 76,
+    code: 'KeyL',
+    location: 0,
+    altKey: true,
+    ctrlKey: false,
+    metaKey: true,
+    shiftKey: false,
+    description: 'l'
+  },
+  77: {
+    key: 'm',
+    keyCode: 77,
+    which: 77,
+    code: 'KeyM',
+    location: 0,
+    description: 'm'
+  },
+  78: {
+    key: 'n',
+    keyCode: 78,
+    which: 78,
+    code: 'KeyN',
+    location: 0,
+    description: 'n'
+  },
+  79: {
+    key: 'o',
+    keyCode: 79,
+    which: 79,
+    code: 'KeyO',
+    location: 0,
+    description: 'o'
+  },
+  80: {
+    key: 'p',
+    keyCode: 80,
+    which: 80,
+    code: 'KeyP',
+    location: 0,
+    description: 'p'
+  },
+  81: {
+    key: 'q',
+    keyCode: 81,
+    which: 81,
+    code: 'KeyQ',
+    location: 0,
+    description: 'q'
+  },
+  82: {
+    key: 'r',
+    keyCode: 82,
+    which: 82,
+    code: 'KeyR',
+    location: 0,
+    description: 'r'
+  },
+  83: {
+    key: 's',
+    keyCode: 83,
+    which: 83,
+    code: 'KeyS',
+    location: 0,
+    description: 's'
+  },
+  84: {
+    key: 't',
+    keyCode: 84,
+    which: 84,
+    code: 'KeyT',
+    location: 0,
+    description: 't'
+  },
+  85: {
+    key: 'u',
+    keyCode: 85,
+    which: 85,
+    code: 'KeyU',
+    location: 0,
+    description: 'u'
+  },
+  86: {
+    key: 'v',
+    keyCode: 86,
+    which: 86,
+    code: 'KeyV',
+    location: 0,
+    description: 'v'
+  },
+  87: {
+    key: 'w',
+    keyCode: 87,
+    which: 87,
+    code: 'KeyW',
+    location: 0,
+    description: 'w'
+  },
+  88: {
+    key: 'x',
+    keyCode: 88,
+    which: 88,
+    code: 'KeyX',
+    location: 0,
+    description: 'x'
+  },
+  89: {
+    key: 'y',
+    keyCode: 89,
+    which: 89,
+    code: 'KeyY',
+    location: 0,
+    description: 'y'
+  },
+  90: {
+    key: 'z',
+    keyCode: 90,
+    which: 90,
+    code: 'KeyZ',
+    location: 0,
+    description: 'z'
+  },
+  91: {
+    key: 'Meta',
+    keyCode: 91,
+    which: 91,
+    code: 'MetaLeft',
+    location: 1,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: true,
+    shiftKey: false,
+    description: 'Windows Key / Left ⌘ / Chromebook Search key',
+    unicode: '⌘ ⊞'
+  },
+  92: {
+    key: 'Meta',
+    keyCode: 92,
+    which: 92,
+    code: 'MetaRight',
+    location: 2,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: true,
+    shiftKey: true,
+    description: 'Right Windows',
+    unicode: '⌘ ⊞'
+  },
+  93: {
+    key: 'ContextMenu',
+    keyCode: 93,
+    which: 93,
+    code: 'ContextMenu',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'Windows Menu / Right ⌘',
+    unicode: '▤'
+  },
+  95: { key: '', description: 'sleep', keyCode: 95, which: '95', unicode: '☾' },
+  96: {
+    key: '0',
+    keyCode: 96,
+    which: 96,
+    code: 'Numpad0',
+    location: 3,
+    description: 'Number Pad 0',
+    unicode: '⓪'
+  },
+  97: {
+    key: '1',
+    keyCode: 97,
+    which: 97,
+    code: 'Numpad1',
+    location: 3,
+    description: 'Number Pad 1',
+    unicode: '①'
+  },
+  98: {
+    key: '2',
+    keyCode: 98,
+    which: 98,
+    code: 'Numpad2',
+    location: 3,
+    description: 'Number Pad 2',
+    unicode: '②'
+  },
+  99: {
+    key: '3',
+    keyCode: 99,
+    which: 99,
+    code: 'Numpad3',
+    location: 3,
+    description: 'Number Pad 3',
+    unicode: '③'
+  },
+  100: {
+    key: '4',
+    keyCode: 100,
+    which: 100,
+    code: 'Numpad4',
+    location: 3,
+    description: 'Number Pad 4',
+    unicode: '④'
+  },
+  101: {
+    key: '5',
+    keyCode: 101,
+    which: 101,
+    code: 'Numpad5',
+    location: 3,
+    description: 'Number Pad 5',
+    unicode: '⑤'
+  },
+  102: {
+    key: '6',
+    keyCode: 102,
+    which: 102,
+    code: 'Numpad6',
+    location: 3,
+    description: 'Number Pad 6',
+    unicode: '⑥'
+  },
+  103: {
+    key: '7',
+    keyCode: 103,
+    which: 103,
+    code: 'Numpad7',
+    location: 3,
+    description: 'Number Pad 7',
+    unicode: '⑦'
+  },
+  104: {
+    key: '8',
+    keyCode: 104,
+    which: 104,
+    code: 'Numpad8',
+    location: 3,
+    description: 'Number Pad 8',
+    unicode: '⑧'
+  },
+  105: {
+    key: '9',
+    keyCode: 105,
+    which: 105,
+    code: 'Numpad9',
+    location: 3,
+    description: 'Number Pad 9',
+    unicode: '⑨'
+  },
+  106: {
+    key: '*',
+    keyCode: 106,
+    which: 106,
+    code: 'NumpadMultiply',
+    location: 3,
+    description: 'multiply',
+    unicode: '×'
+  },
+  107: {
+    key: '+',
+    keyCode: 107,
+    which: 107,
+    code: 'NumpadAdd',
+    location: 3,
+    description: 'add'
+  },
+  108: {
+    key: ',',
+    keyCode: 108,
+    which: 108,
+    code: 'NumpadDecimal',
+    location: 3,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'numpad period (firefox)'
+  },
+  109: {
+    key: '-',
+    keyCode: 109,
+    which: 109,
+    code: 'NumpadSubtract',
+    location: 3,
+    description: 'subtract'
+  },
+  110: {
+    key: '.',
+    keyCode: 110,
+    which: 110,
+    code: 'NumpadDecimal',
+    location: 3,
+    description: 'decimal point'
+  },
+  111: {
+    key: '/',
+    keyCode: 111,
+    which: 111,
+    code: 'NumpadDivide',
+    location: 3,
+    description: 'divide',
+    unicode: '÷'
+  },
+  112: {
+    key: 'F1',
+    keyCode: 112,
+    which: 112,
+    code: 'F1',
+    location: 0,
+    description: 'f1'
+  },
+  113: {
+    key: 'F2',
+    keyCode: 113,
+    which: 113,
+    code: 'F2',
+    location: 0,
+    description: 'f2'
+  },
+  114: {
+    key: 'F3',
+    keyCode: 114,
+    which: 114,
+    code: 'F3',
+    location: 0,
+    description: 'f3'
+  },
+  115: {
+    key: 'F4',
+    keyCode: 115,
+    which: 115,
+    code: 'F4',
+    location: 0,
+    description: 'f4'
+  },
+  116: {
+    key: 'F5',
+    keyCode: 116,
+    which: 116,
+    code: 'F5',
+    location: 0,
+    description: 'f5'
+  },
+  117: {
+    key: 'F6',
+    keyCode: 117,
+    which: 117,
+    code: 'F6',
+    location: 0,
+    description: 'f6'
+  },
+  118: {
+    key: 'F7',
+    keyCode: 118,
+    which: 118,
+    code: 'F7',
+    location: 0,
+    description: 'f7'
+  },
+  119: {
+    key: 'F8',
+    keyCode: 119,
+    which: 119,
+    code: 'F8',
+    location: 0,
+    description: 'f8'
+  },
+  120: {
+    key: 'F9',
+    keyCode: 120,
+    which: 120,
+    code: 'F9',
+    location: 0,
+    description: 'f9'
+  },
+  121: {
+    key: 'F10',
+    keyCode: 121,
+    which: 121,
+    code: 'F10',
+    location: 0,
+    description: 'f10'
+  },
+  122: {
+    key: 'F11',
+    keyCode: 122,
+    which: 122,
+    code: 'F11',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'f11'
+  },
+  123: {
+    key: 'F12',
+    keyCode: 123,
+    which: 123,
+    code: 'F12',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'f12'
+  },
+  124: {
+    key: 'F13',
+    keyCode: 124,
+    which: 124,
+    code: 'F13',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'f13'
+  },
+  125: {
+    key: 'F14',
+    keyCode: 125,
+    which: 125,
+    code: 'F14',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: true,
+    description: 'f14'
+  },
+  126: {
+    key: 'F15',
+    keyCode: 126,
+    which: 126,
+    code: 'F15',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: true,
+    description: 'f15'
+  },
+  127: {
+    key: 'F16',
+    keyCode: 127,
+    which: 127,
+    code: 'F16',
+    location: 0,
+    description: 'f16'
+  },
+  128: {
+    key: 'F17',
+    keyCode: 128,
+    which: 128,
+    code: 'F17',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'f17'
+  },
+  129: {
+    key: 'F18',
+    keyCode: 129,
+    which: 129,
+    code: 'F18',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'f18'
+  },
+  130: {
+    key: 'F19',
+    keyCode: 130,
+    which: 130,
+    code: 'F19',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'f19'
+  },
+  131: {
+    key: 'F20',
+    code: 'F20',
+    description: 'F20',
+    keyCode: 131,
+    which: '131'
+  },
+  132: {
+    key: 'F21',
+    code: 'F21',
+    description: 'F21',
+    keyCode: 132,
+    which: '132'
+  },
+  133: {
+    key: 'F22',
+    code: 'F22',
+    description: 'F22',
+    keyCode: 133,
+    which: '133'
+  },
+  134: {
+    key: 'F23',
+    code: 'F23',
+    description: 'F23',
+    keyCode: 134,
+    which: '134'
+  },
+  135: {
+    key: 'F24',
+    code: 'F24',
+    description: 'F24',
+    keyCode: 135,
+    which: '135'
+  },
+  136: {
+    key: 'F25',
+    code: 'F25',
+    description: 'F25',
+    keyCode: 136,
+    which: '136'
+  },
+  137: {
+    key: 'F26',
+    code: 'F26',
+    description: 'F26',
+    keyCode: 137,
+    which: '137'
+  },
+  138: {
+    key: 'F27',
+    code: 'F27',
+    description: 'F27',
+    keyCode: 138,
+    which: '138'
+  },
+  139: {
+    key: 'F28',
+    code: 'F28',
+    description: 'F28',
+    keyCode: 139,
+    which: '139'
+  },
+  140: {
+    key: 'F29',
+    code: 'F29',
+    description: 'F29',
+    keyCode: 140,
+    which: '140'
+  },
+  141: {
+    key: 'F30',
+    code: 'F30',
+    description: 'F30',
+    keyCode: 141,
+    which: '141'
+  },
+  142: {
+    key: 'F31',
+    code: 'F31',
+    description: 'F31',
+    keyCode: 142,
+    which: '142'
+  },
+  143: {
+    key: 'F32',
+    code: 'F32',
+    description: 'F32',
+    keyCode: 143,
+    which: '143'
+  },
+  144: {
+    key: 'NumLock',
+    keyCode: 144,
+    which: 144,
+    code: 'NumLock',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'num lock',
+    unicode: '⇭'
+  },
+  145: {
+    key: 'ScrollLock',
+    keyCode: 145,
+    which: 145,
+    code: 'ScrollLock',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'scroll lock',
+    unicode: '⤓'
+  },
+  151: { key: '', description: 'airplane mode', keyCode: 151, which: '151' },
+  160: {
+    key: '[',
+    keyCode: 160,
+    which: 160,
+    code: 'BracketLeft',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: '^'
+  },
+  161: {
+    key: 'Dead',
+    keyCode: 161,
+    which: 161,
+    code: 'BracketRight',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: '!'
+  },
+  162: {
+    key: '',
+    description: '؛ (arabic semicolon)',
+    keyCode: 162,
+    which: '162'
+  },
+  163: {
+    key: '\\',
+    keyCode: 163,
+    which: 163,
+    code: 'Backquote',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: '#'
+  },
+  164: {
+    key: '$',
+    keyCode: 164,
+    which: 164,
+    code: 'Backslash',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: '$'
+  },
+  165: {
+    key: '^ù',
+    keyCode: 165,
+    which: 165,
+    code: 'Quote',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'ù'
+  },
+  166: { key: '', description: 'page backward', keyCode: 166, which: '166' },
+  167: { key: '', description: 'page forward', keyCode: 167, which: '167' },
+  168: { key: '', description: 'refresh', keyCode: 168, which: '168' },
+  169: {
+    key: ')',
+    keyCode: 169,
+    which: 169,
+    code: 'Minus',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'closing paren (AZERTY)'
+  },
+  170: {
+    key: '*',
+    keyCode: 170,
+    which: 170,
+    code: 'Backslash',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: '*'
+  },
+  171: {
+    key: '+',
+    keyCode: 171,
+    which: 171,
+    code: 'BracketRight',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: '~ + * key'
+  },
+  172: { key: '', description: 'home key', keyCode: 172, which: '172' },
+  173: {
+    key: '-',
+    keyCode: 173,
+    which: 173,
+    code: 'Minus',
+    location: 0,
+    description: 'minus (firefox), mute/unmute'
+  },
+  174: {
+    key: 'AudioVolumeDown',
+    keyCode: 174,
+    which: 174,
+    code: '',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'decrease volume level'
+  },
+  175: {
+    key: 'AudioVolumeUp',
+    keyCode: 175,
+    which: 175,
+    code: '',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'increase volume level'
+  },
+  176: {
+    key: 'MediaTrackNext',
+    keyCode: 176,
+    which: 176,
+    code: 'MediaTrackNext',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'next'
+  },
+  177: {
+    key: 'MediaTrackPrevious',
+    keyCode: 177,
+    which: 177,
+    code: 'MediaTrackPrevious',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'previous'
+  },
+  178: { key: '', description: 'stop', keyCode: 178, which: '178' },
+  179: {
+    key: 'MediaPlayPause',
+    keyCode: 179,
+    which: 179,
+    code: '',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'play/pause'
+  },
+  180: {
+    key: 'LaunchMail',
+    keyCode: 180,
+    which: 180,
+    code: '',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'e-mail',
+    unicode: '✉'
+  },
+  181: {
+    key: 'AudioVolumeMute',
+    keyCode: 181,
+    which: 181,
+    code: 'VolumeMute',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'mute/unmute (firefox)'
+  },
+  182: {
+    key: 'AudioVolumeDown',
+    keyCode: 182,
+    which: 182,
+    code: 'VolumeDown',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'decrease volume level (firefox)'
+  },
+  183: {
+    key: 'AudioVolumeUp',
+    keyCode: 183,
+    which: 183,
+    code: 'VolumeUp',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'increase volume level (firefox)'
+  },
+  186: {
+    key: ';',
+    keyCode: 186,
+    which: 186,
+    code: 'Semicolon',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'semi-colon / ñ'
+  },
+  187: {
+    key: '+',
+    keyCode: 187,
+    which: 187,
+    code: 'Equal',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'equal sign'
+  },
+  188: {
+    key: ',',
+    keyCode: 188,
+    which: 188,
+    code: 'Comma',
+    location: 0,
+    description: 'comma'
+  },
+  189: {
+    key: '-',
+    keyCode: 189,
+    which: 189,
+    code: 'Minus',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'dash'
+  },
+  190: {
+    key: '.',
+    keyCode: 190,
+    which: 190,
+    code: 'Period',
+    location: 0,
+    description: 'period'
+  },
+  191: {
+    key: '/',
+    keyCode: 191,
+    which: 191,
+    code: 'Slash',
+    location: 0,
+    description: 'forward slash / ç'
+  },
+  192: {
+    key: '`',
+    keyCode: 192,
+    which: 192,
+    code: 'Backquote',
+    location: 0,
+    description: 'Backtick / grave accent / ñ / æ / ö'
+  },
+  193: {
+    key: '/',
+    keyCode: 193,
+    which: 193,
+    code: 'IntlRo',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: '?, / or °'
+  },
+  194: {
+    key: '.',
+    keyCode: 194,
+    which: 194,
+    code: 'NumpadComma',
+    location: 3,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'numpad period (chrome)'
+  },
+  219: {
+    key: '[',
+    keyCode: 219,
+    which: 219,
+    code: 'BracketLeft',
+    location: 0,
+    description: 'open bracket'
+  },
+  220: {
+    key: '\\',
+    keyCode: 220,
+    which: 220,
+    code: 'Backslash',
+    location: 0,
+    description: 'back slash'
+  },
+  221: {
+    key: ']',
+    keyCode: 221,
+    which: 221,
+    code: 'BracketRight',
+    location: 0,
+    description: 'close bracket / å'
+  },
+  222: {
+    key: "'",
+    keyCode: 222,
+    which: 222,
+    code: 'Quote',
+    location: 0,
+    description: 'single quote / ø / ä'
+  },
+  223: {
+    key: '`',
+    keyCode: 223,
+    which: 223,
+    code: 'Backquote',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: '`'
+  },
+  224: {
+    key: 'Meta',
+    keyCode: 224,
+    which: 224,
+    code: 'OSLeft',
+    location: 1,
+    description: 'left or right ⌘ key (firefox)',
+    unicode: '⌘'
+  },
+  225: {
+    key: 'AltGraph',
+    keyCode: 225,
+    which: 225,
+    code: 'AltRight',
+    location: 2,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'altgr',
+    unicode: '⎇ or ⌥'
+  },
+  226: {
+    key: '\\',
+    keyCode: 226,
+    which: 226,
+    code: 'IntlBackslash',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: '< /git >, left back slash'
+  },
+  229: {
+    key: 'Dead',
+    keyCode: 229,
+    which: 229,
+    code: 'Backquote',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false
+  },
+  230: {
+    key: '',
+    description: 'GNOME Compose Key',
+    keyCode: 230,
+    which: '230'
+  },
+  231: { key: '', description: 'ç', keyCode: 231, which: '231' },
+  233: { key: '', description: 'XF86Forward', keyCode: 233, which: '233' },
+  234: { key: '', description: 'XF86Back', keyCode: 234, which: '234' },
+  235: { key: '', description: 'non-conversion', keyCode: 235, which: '235' },
+  240: { key: '', description: 'alphanumeric', keyCode: 240, which: '240' },
+  242: {
+    key: '',
+    description: 'hiragana/katakana',
+    keyCode: 242,
+    which: '242'
+  },
+  243: {
+    key: '',
+    description: 'half-width/full-width',
+    keyCode: 243,
+    which: '243'
+  },
+  244: { key: '', description: 'kanji', keyCode: 244, which: '244' },
+  251: {
+    key: '',
+    description: 'unlock track pad (Chrome/Edge)',
+    keyCode: 251,
+    which: '251'
+  },
+  255: {
+    key: 'Unidentified',
+    keyCode: 255,
+    which: 255,
+    code: 'WakeUp',
+    location: 0,
+    altKey: false,
+    ctrlKey: false,
+    metaKey: false,
+    shiftKey: false,
+    description: 'toggle touchpad'
+  }
+}

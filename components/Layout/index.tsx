@@ -1,4 +1,7 @@
 import Head from 'next/head'
+import { Header, Footer, CookieBanner } from '@toptal/site-acq-ui-library'
+import { Container } from '@toptal/picasso'
+import { ReactNode } from 'react'
 
 import routes from '~/lib/constants/routes'
 import {
@@ -9,6 +12,9 @@ import {
   OG_TITLE,
   OG_IMAGE_URL
 } from '~/lib/constants/common'
+import { withBasePath } from '~/lib/utils/with-base-path'
+
+import styles from './layout.module.scss'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -16,11 +22,15 @@ interface LayoutProps {
   pageDescription?: string
 }
 
-export default function Layout({
+const Main = ({ children }: { children: ReactNode }): JSX.Element => {
+  return <main className={styles.main}>{children}</main>
+}
+
+const Layout = ({
   children,
   pageTitle,
   pageDescription
-}: LayoutProps): JSX.Element {
+}: LayoutProps): JSX.Element => {
   return (
     <>
       <Head>
@@ -80,7 +90,24 @@ export default function Layout({
         )}
         <title>{PROJECT_DISPLAY_NAME}</title>
       </Head>
-      <div role="main">{children}</div>
+      <div className={styles.layout}>
+        <Header
+          name={PROJECT_DISPLAY_NAME}
+          homeUrl={withBasePath(routes.home)}
+          withHeaderTag={false}
+        />
+        <Container className={styles.container} flex>
+          {children}
+        </Container>
+        <Footer verticalUrl={routes.developers} />
+        <div data-happo-hide={true}>
+          <CookieBanner />
+        </div>
+      </div>
     </>
   )
 }
+
+Layout.Main = Main
+
+export default Layout

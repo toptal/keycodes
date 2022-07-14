@@ -1,5 +1,5 @@
 // FIXME: fill up with actual data
-const PROJECT_DISPLAY_NAME = 'Site Acquisitions Template Project'
+const PROJECT_DISPLAY_NAME = 'Keycodes'
 const PROJECT_URL = 'http://localhost:3000/'
 const PROJECT_DESCRIPTION = `${PROJECT_DISPLAY_NAME} project description`
 const TWITTER_HANDLE = '@toptal'
