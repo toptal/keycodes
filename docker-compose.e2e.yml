@@ -1,0 +1,18 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      args:
+        user: ${RUN_AS_USER:-node}
+    command: bash -c "yarn build:e2e && yarn start"
+    volumes:
+      - ./:/app
+      - nextbuild:/app/.next
+    ports:
+      - 3000:3000
+    environment:
+      PORT: 3000
+
+volumes:
+  nextbuild:

@@ -1,0 +1,45 @@
+@font-face {
+  font-display: swap;
+
+  font-weight: 100;
+  font-family: "proxima-nova";
+  font-style: normal;
+  src: url($basePath + "/assets/fonts/ProximaNova-Thin.woff2") format("woff2"),
+    url($basePath + "/assets/fonts/ProximaNova-Thin.woff") format("woff"),
+    url($basePath + "/assets/fonts/ProximaNova-Thin.otf") format("opentype");
+}
+
+@font-face {
+  font-display: swap;
+
+  font-weight: 300;
+  font-family: "proxima-nova";
+  font-style: normal;
+  src: url($basePath + "/assets/fonts/ProximaNova-Light.woff2") format("woff2"),
+    url($basePath + "/assets/fonts/ProximaNova-Light.woff") format("woff"),
+    url($basePath + "/assets/fonts/ProximaNova-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-display: swap;
+
+  font-weight: 400;
+  font-family: "proxima-nova";
+  font-style: normal;
+  src: url($basePath + "/assets/fonts/ProximaNova-Regular.woff2")
+    format("woff2"),
+    url($basePath + "/assets/fonts/ProximaNova-Regular.woff") format("woff"),
+    url($basePath + "/assets/fonts/ProximaNova-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-display: swap;
+
+  font-weight: 600 700;
+  font-family: "proxima-nova";
+  font-style: normal;
+  src: url($basePath + "/assets/fonts/ProximaNova-Semibold.woff2")
+    format("woff2"),
+    url($basePath + "/assets/fonts/ProximaNova-Semibold.woff") format("woff"),
+    url($basePath + "/assets/fonts/ProximaNova-Semibold.otf") format("opentype");
+}

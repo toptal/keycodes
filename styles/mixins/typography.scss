@@ -1,0 +1,79 @@
+@mixin typography(
+  $size: false,
+  $color: false,
+  $weight: false,
+  $line-height: $size,
+  $font-family: false
+) {
+  @if $size {
+    font-size: $size;
+  }
+
+  @if $color {
+    color: $color;
+  }
+
+  @if $weight {
+    @if $weight == inherit or index($font-weights-sans, $weight) {
+      font-weight: $weight;
+    } @else {
+      @error "font weight #{$weight} isn't supported. Expected one of #{$font-weights-sans}.";
+    }
+  }
+
+  @if $line-height {
+    line-height: $line-height;
+  }
+
+  @if $font-family {
+    font-family: $font-family;
+  }
+}
+
+@mixin font-h1($color: false, $weight: 600) {
+  @include typography(28px, $color, $weight, 42px);
+}
+
+@mixin font-h2($color: false, $weight: 600) {
+  @include typography(20px, $color, $weight, 30px);
+}
+
+@mixin font-h3($color: false, $weight: 600) {
+  @include typography(16px, $color, $weight, 24px);
+}
+
+@mixin font-h4($color: false, $weight: 600) {
+  @include typography(14px, $color, $weight, 22px);
+}
+
+@mixin font-body-large($color: false, $weight: 400) {
+  @include typography(16px, $color, $weight, 24px);
+}
+
+@mixin font-body-medium($color: false, $weight: 400) {
+  @include typography(14px, $color, $weight, 22px);
+}
+
+@mixin font-body-small($color: false, $weight: 400) {
+  @include typography(13px, $color, $weight, 20px);
+}
+
+@mixin font-body-extra-small($color: false, $weight: 400) {
+  @include typography(12px, $color, $weight, 18px);
+}
+
+@mixin font-link-medium($color: $blue-main, $weight: 400) {
+  @include typography(14px, $color, $weight, 22px);
+}
+
+@mixin font-link-small($color: $blue-main, $weight: 400) {
+  @include typography(12px, $color, $weight, 18px);
+}
+
+@mixin font-hint($color: $grey-dark, $weight: 400) {
+  @include typography(11px, $color, $weight, 16px);
+}
+
+@mixin font-validation-error($color: $red-main, $weight: 400) {
+  @include typography(11px, $color, $weight, 16px);
+}

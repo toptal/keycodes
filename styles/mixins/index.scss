@@ -1,0 +1,106 @@
+@import "typography";
+@import "media";
+@import "accessibility";
+
+@function gutter($multiplier: 1, $base: $gutter-base) {
+  @return $base * $multiplier;
+}
+
+@each $weight in $font-weights-sans {
+  %font-sans-#{$weight} {
+    font-weight: $weight;
+    font-family: $font-stack-sans;
+  }
+}
+
+@each $weight in $font-weights-serif {
+  %font-serif-#{$weight} {
+    font-weight: $weight;
+    font-family: $font-stack-serif;
+  }
+}
+
+@mixin flex-container(
+  $flex-direction: row,
+  $justify-content: flex-start,
+  $align-items: stretch,
+  $flex-wrap: false
+) {
+  display: flex;
+
+  @if $flex-direction {
+    flex-direction: $flex-direction;
+  }
+
+  @if $align-items {
+    align-items: $align-items;
+  }
+
+  @if $justify-content {
+    justify-content: $justify-content;
+  }
+
+  @if $flex-wrap {
+    flex-wrap: $flex-wrap;
+  }
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+%text-truncate {
+  overflow: hidden;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// extend cannot be used with media queries. todo: find a way to avoid duplication
+@mixin text-truncate {
+  overflow: hidden;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+%hidden-scroll {
+  // hide scroll bar
+  -ms-overflow-style: none; // IE 10+
+  scrollbar-width: none; // Firefox
+
+  &::-webkit-scrollbar {
+    display: none; // Safari and Chrome
+  }
+}
+
+@mixin background-logo($size, $background-color: $blue-main) {
+  background: url("../../assets/ico-logo.svg") center center/($size / $logo-ratio)
+    $size no-repeat $background-color;
+}
+
+@mixin for-ie-11 {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
+// useful to "double" a class name, e.g. ".item.item"
+@mixin increase-specificity {
+  &#{&} {
+    @content;
+  }
+}
+
+@mixin multiline-ellipsis($lines-to-show: 1, $line-height: 1.5) {
+  display: block;
+  display: -webkit-box;
+  max-height: $line-height * $lines-to-show;
+  overflow: hidden;
+
+  line-height: $line-height;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $lines-to-show;
+  -webkit-box-orient: vertical;
+}
