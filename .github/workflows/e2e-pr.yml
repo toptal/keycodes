@@ -1,0 +1,47 @@
+name: End-to-end on pull request
+
+on:
+  pull_request:
+    branches: [v2]
+
+jobs:
+  e2e_tests_pr:
+    env:
+      NEXT_PUBLIC_GA_ID: xxx
+      NEXT_PUBLIC_GTM_ID: xxx
+    name: End-to-end tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Cancel previous runs
+        uses: styfle/cancel-workflow-action@0.9.0
+        with:
+          access_token: ${{ github.token }}
+
+      - uses: actions/checkout@v2
+
+      - name: Set up steps
+        uses: ./.github/actions/setup-steps
+        with:
+
+      - name: Build steps
+        run: yarn build:e2e
+
+      - name: End-to-end tests
+        run: yarn ci:e2e
+
+      - name: Upload Jest HTML report
+        if: failure()
+        uses: actions/upload-artifact@v2
+        with:
+          name: jest-e2e-tests-report
+          path: reports/jest-report-e2e.html
+          retention-days: 1
+
+      - name: Upload Playwright failure screenshots
+        if: failure()
+        uses: actions/upload-artifact@v2
+        with:
+          name: e2e-tests-failure-screenshots
+          path: screenshots
+          retention-days: 1

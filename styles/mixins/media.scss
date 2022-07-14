@@ -1,0 +1,45 @@
+@mixin for-mobile-only {
+  @include media("<tablet") {
+    @content;
+  }
+}
+
+@mixin for-tablet {
+  @include media(">=tablet") {
+    @content;
+  }
+}
+
+@mixin for-tablet-only {
+  @include for-tablet {
+    @include media("<desktop") {
+      @content;
+    }
+  }
+}
+
+@mixin for-desktop {
+  @include media(">=desktop") {
+    @content;
+  }
+}
+
+@mixin for-desktop-only {
+  @include for-desktop {
+    @include media("<desktopLarge") {
+      @content;
+    }
+  }
+}
+
+@mixin for-desktop-large {
+  @include media(">=desktopLarge") {
+    @content;
+  }
+}
+
+@mixin for-mobile-large-exclusive {
+  @include media(">mobileLarge") {
+    @content;
+  }
+}

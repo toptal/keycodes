@@ -1,0 +1,14 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      args:
+        user: ${RUN_AS_USER:-node}
+    command: bash -c "yarn install && yarn dev"
+    volumes:
+      - ./:/app
+    ports:
+      - 3000:3000
+    environment:
+      PORT: 3000
