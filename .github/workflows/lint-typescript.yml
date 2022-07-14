@@ -6,8 +6,10 @@ env:
 on:
   push:
     branches: [master]
+    branches: [v2]
   pull_request:
     branches: [master]
+    branches: [v2]
 
 jobs:
   lint_typescript:
