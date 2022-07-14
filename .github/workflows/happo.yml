@@ -1,0 +1,131 @@
+name: Happo
+
+env:
+  HAPPO_API_KEY: ${{ secrets.HAPPO_API_KEY }}
+  HAPPO_API_SECRET: ${{ secrets.HAPPO_API_SECRET }}
+  HAPPO_DEBUG: true
+  # HAPPO_PROJECT_NAME: ${{ secrets.HAPPO_PROJECT_NAME }}
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN_READ_ONLY }}
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  happo:
+    name: Happo visual regression tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Cancel previous runs
+        uses: styfle/cancel-workflow-action@0.9.0
+        with:
+          access_token: ${{ github.token }}
+
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set up steps
+        uses: ./.github/actions/setup-steps
+        with:
+          npm_token: ${{ secrets.NPM_TOKEN_READ_ONLY }}
+
+      - name: Build steps
+        uses: ./.github/actions/build-steps
+
+      - name: Set previous and current commit hashes
+        id: set-commits
+        run: |
+          ref=${{ github.ref }}
+
+          if [[ "$ref" == 'refs/heads/master' ]]; then
+            echo ::set-output name=previous-sha::$(git rev-parse HEAD^1)
+            echo ::set-output name=current-sha::${{ github.sha }}
+          else
+            echo ::set-output name=previous-sha::${{ github.event.pull_request.base.sha }}
+            echo ::set-output name=current-sha::${{ github.event.pull_request.head.sha }}
+          fi
+        shell: bash
+
+      - name: Check if current hash report exists
+        id: check-current-report
+        run: |
+          set +e
+          current_sha=${{ steps.set-commits.outputs.current-sha }}
+          yarn happo has-report "$current_sha"
+
+          exit_code=$?
+
+          if [[ $exit_code != 0 ]]; then
+            echo ::set-output name=has-report::false
+          else
+            echo ::set-output name=has-report::true
+          fi
+          set -e
+        shell: bash
+
+      - name: Run Happo for current commit hash
+        if: steps.check-current-report.outputs.has-report == 'false'
+        run: yarn happo run ${{ steps.set-commits.outputs.current-sha }}
+
+      - name: Check if previous hash report exists
+        id: check-previous-report
+        run: |
+          set +e
+          previous_sha=${{ steps.set-commits.outputs.previous-sha }}
+          yarn happo has-report "$previous_sha"
+
+          exit_code=$?
+
+          if [[ $exit_code != 0 ]]; then
+            echo ::set-output name=has-report::false
+          else
+            echo ::set-output name=has-report::true
+          fi
+          set -e
+        shell: bash
+
+      - name: Checkout previous commit hash
+        if: steps.check-previous-report.outputs.has-report == 'false'
+        uses: actions/checkout@v2
+        with:
+          clean: false
+          ref: ${{ steps.set-commits.outputs.previous-sha }}
+          fetch-depth: 0
+
+      - name: Run Happo for previous commit hash
+        if: steps.check-previous-report.outputs.has-report == 'false'
+        run: yarn happo run ${{ steps.set-commits.outputs.previous-sha }}
+
+      - name: Run Happo compare
+        id: happo-compare
+        run: |
+          previous_sha=${{ steps.set-commits.outputs.previous-sha }}
+          current_sha=${{ steps.set-commits.outputs.current-sha }}
+
+          yarn happo compare "$previous_sha" "$current_sha" |& tee happo_log
+          echo ::set-output name=happo-log::$(cat happo_log)
+
+      - name: Check for errors in compare command
+        if: contains(steps.happo-compare.outputs.happo-log, 'No report exists')
+        run: |
+          echo "Error in compare command, please check previous step logs for more details"
+          exit 1
+
+      - name: Parse report URL
+        if: contains(steps.happo-compare.outputs.happo-log, 'Differences were found')
+        id: parse-report
+        run: |
+          echo ::set-output name=report-url::$(awk /happo.io/ happo_log | awk NR==1)
+
+      - name: Post comment with report URL
+        if: steps.parse-report.outputs.report-url != '' && github.ref != 'refs/heads/master'
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Differences were found. Please review Happo report :eyes:
+            ${{ steps.parse-report.outputs.report-url }}

@@ -1,0 +1,52 @@
+name: Unit
+
+env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN_READ_ONLY }}
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  unit_tests:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Cancel previous runs
+        uses: styfle/cancel-workflow-action@0.9.0
+        with:
+          access_token: ${{ github.token }}
+
+      - uses: actions/checkout@v2
+
+      - name: Set up steps
+        uses: ./.github/actions/setup-steps
+        with:
+          npm_token: ${{ secrets.NPM_TOKEN_READ_ONLY }}
+
+      - name: Unit tests
+        if: ${{ github.ref != 'refs/heads/master' }}
+        run: yarn test:unit:ci
+      
+      - name: Run test coverage
+        if: ${{ github.ref == 'refs/heads/master' }}
+        run: yarn test:coverage
+
+      - name: Upload Jest HTML report
+        if: failure()
+        uses: actions/upload-artifact@v2
+        with:
+          name: jest-unit-tests-report
+          path: reports/jest-report-unit.html
+          retention-days: 1
+
+      - name: Upload test coverage HTML report
+        if: ${{ github.ref == 'refs/heads/master' }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: jest-unit-coverage-report
+          path: test-coverage/unit
+          retention-days: 1

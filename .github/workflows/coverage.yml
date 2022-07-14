@@ -1,0 +1,63 @@
+name: Coverage
+
+env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN_READ_ONLY }}
+
+on:
+  workflow_run:
+    workflows: End-to-end on push
+    types: 
+      - completed
+
+jobs:
+  coverage:
+    name: Combined coverage report
+    if: ${{ github.ref == 'refs/heads/master' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up steps
+        uses: ./.github/actions/setup-steps
+        with:
+          npm_token: ${{ secrets.NPM_TOKEN_READ_ONLY }}
+
+      - name: Create folder structure
+        run: |
+          mkdir -p test-coverage/unit test-coverage/e2e test-coverage/all
+
+      - name: Download unit tests coverage report
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: unit.yml
+          branch: master
+          path: test-coverage/unit
+
+      - name: Download e2e tests coverage report
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: e2e-push.yml
+          branch: master
+          path: test-coverage/e2e
+
+      - name: Display structure of downloaded files
+        run: ls -R
+        shell: bash
+        working-directory: test-coverage
+
+      - name: Generate combined coverage report
+        run: |
+          mkdir test-coverage-all
+          mv test-coverage/unit/jest-unit-coverage-report/coverage-final.json test-coverage/e2e/coverage-final-unit.json
+          find test-coverage -type f -name '*.json' -exec cp {} test-coverage-all ';'
+          mkdir -p test-coverage/temp
+          yarn nyc merge test-coverage-all test-coverage/temp/coverage-final.json
+          yarn nyc report --temp-dir test-coverage/temp --reporter html --report-dir test-coverage/coverage-report-all
+
+      - name: Save combined coverage report
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-report-all
+          path: test-coverage/coverage-report-all
+          retention-days: 1
