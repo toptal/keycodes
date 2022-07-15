@@ -25,14 +25,7 @@ const EventLocationCard = ({ keyLocation }: EventLocationCard): JSX.Element => {
       <footer>
         <p>
           Some keys exist more than once on your keyboard. This provides the
-          location of the key pressed. Try it with both shifts.{' '}
-          <a
-            href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/location"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            More here
-          </a>
+          location of the key pressed. Try it with both shifts.
         </p>
       </footer>
     </Paper>

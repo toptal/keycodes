@@ -19,7 +19,7 @@ const DescriptionCard = ({ description }: DescriptionCard): JSX.Element => {
       <footer>
         <p>
           This is the description we have created. Think it can be improved?{' '}
-          <a href="https://github.com/wesbos/keycodes">PR us on GitHub</a>
+          <a href="https://github.com/toptal/keycodes">PR us on GitHub</a>
         </p>
       </footer>
     </Paper>
