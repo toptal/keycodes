@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "@toptal/picasso": "^26.4.0",
+    "@toptal/picasso-provider": "^1.2.2",
     "next": "^12.1.6",
     "pino": "^7.1.0",
     "react": "^18.1.0",
