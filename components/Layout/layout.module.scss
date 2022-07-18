@@ -10,9 +10,8 @@
       @include flex-container(row);
     }
 
-    height: calc(100vh - #{$header-height});
     max-width: 1440px;
-
+    height: calc(100vh - #{$header-height});
 
     main {
       margin-right: auto;
