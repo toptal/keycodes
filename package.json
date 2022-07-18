@@ -102,6 +102,7 @@
     "start-server-and-test": "^1.14.0",
     "stylelint": "^13.13.1",
     "stylelint-config-css-modules": "^2.2.0",
+    "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-rational-order-fix": "^0.1.9",
     "stylelint-config-recommended-scss": "^4.3.0",
     "stylelint-order": "^4.1.0",

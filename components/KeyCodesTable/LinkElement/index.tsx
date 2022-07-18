@@ -3,7 +3,7 @@ import TableCell from '@toptal/picasso/TableCell'
 import slugify from 'slugify'
 import { useRouter } from 'next/router'
 
-import { useKeyCodeContext } from '~/lib/state/key-code-provider'
+import { useKeyCodeContext } from '~/lib/state/key-code-context'
 
 // TODO: Fix component
 

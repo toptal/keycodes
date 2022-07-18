@@ -6,10 +6,11 @@ import Picasso from '@toptal/picasso-provider'
 import { ErrorProps as NextErrorProps } from 'next/error'
 
 import { trackPageView, sendToGoogleAnalytics } from '~/lib/analytics'
-import { KeyCodeProvider } from '~/lib/state/key-code-provider'
 import { isHappo } from '~/lib/utils/is-happo'
 import '../styles/globals.scss'
 import { useKeyWatcher } from '~/lib/state/use-key-watcher'
+
+import KeyCodeProvider from '~/components/KeyCodeProvider'
 
 export type MyAppProps = {
   error: NextErrorProps

@@ -1,6 +1,6 @@
 import slugify from 'slugify'
 
-import { useKeyCodeContext } from '~/lib/state/key-code-provider'
+import { useKeyCodeContext } from '~/lib/state/key-code-context'
 import { keyCodesWithEvents } from '~/lib/keycodes/with-events'
 import { getOppositeCase } from '~/lib/utils/case-utils'
 import { KeyCodeEvent } from '~/lib/types/key-code-events'

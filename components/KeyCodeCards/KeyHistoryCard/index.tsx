@@ -1,6 +1,6 @@
 import Paper from '@toptal/picasso/Paper'
 
-import { useKeyCodeContext } from '~/lib/state/key-code-provider'
+import { useKeyCodeContext } from '~/lib/state/key-code-context'
 import { KeyCodeEvent } from '~/lib/types/key-code-events'
 
 // TODO: Fix component

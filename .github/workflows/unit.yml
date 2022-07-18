@@ -1,10 +1,11 @@
-name: Unit
+name: Unit tests
 
 on:
   push:
     branches: [v2]
   pull_request:
     branches: [v2]
+
 
 jobs:
   unit_tests:
@@ -23,12 +24,7 @@ jobs:
         uses: ./.github/actions/setup-steps
 
       - name: Unit tests
-        if: ${{ github.ref != 'refs/heads/master' }}
-        run: yarn test:unit:ci
-      
-      - name: Run test coverage
-        if: ${{ github.ref == 'refs/heads/master' }}
-        run: yarn test:coverage
+        run: yarn test:unit:coverage
 
       - name: Upload Jest HTML report
         if: failure()
@@ -38,8 +34,7 @@ jobs:
           path: reports/jest-report-unit.html
           retention-days: 1
 
-      - name: Upload test coverage HTML report
-        if: ${{ github.ref == 'refs/heads/master' }}
+      - name: Upload unit tests coverage report
         uses: actions/upload-artifact@v2
         with:
           name: jest-unit-coverage-report

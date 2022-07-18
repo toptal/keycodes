@@ -2,7 +2,7 @@ import { useEffect, useCallback } from 'react'
 import { useRouter } from 'next/router'
 
 import { KeyCodeEvent, KeyCodeEventWatcher } from '~/lib/types/key-code-events'
-import { useKeyCodeContext } from '~/lib/state/key-code-provider'
+import { useKeyCodeContext } from '~/lib/state/key-code-context'
 import { urlFriendly } from '~/lib/utils/url-friendly'
 
 // TODO: This components will be fixed
