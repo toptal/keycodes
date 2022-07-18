@@ -39,7 +39,7 @@ type StaticPaths = {
 }
 
 export default function KeyCodePage({
-  staticKey,
+  staticKey
 }: KeyCodePageProps): JSX.Element {
   const { key: generatedKey } = useKeyCodeContext()
   // Here we decide if we should show the code info from the users keyboard, or from our database of keys
@@ -96,18 +96,18 @@ export function getStaticPaths(): StaticPaths {
   const paths = deDuped.map((key: string | undefined) => ({
     params: {
       // account for numbers, must be a string
-      key: key?.toString(),
-    },
+      key: key?.toString()
+    }
   }))
 
   return {
     paths,
-    fallback: true,
+    fallback: true
   }
 }
 
 export async function getStaticProps({
-  params,
+  params
 }: StaticType): Promise<StaticProps> {
   const { key } = params
 
@@ -171,7 +171,7 @@ export async function getStaticProps({
 
   return {
     props: {
-      staticKey: getKeyData(),
-    },
+      staticKey: getKeyData()
+    }
   }
 }

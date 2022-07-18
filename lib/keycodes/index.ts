@@ -181,13 +181,13 @@ export const keyCodes: Record<number, string> = {
   243: 'half-width/full-width',
   244: 'kanji',
   251: 'unlock trackpad (Chrome/Edge)',
-  255: 'toggle touchpad',
+  255: 'toggle touchpad'
 }
 
 export const keyCodeEvents = Object.fromEntries(
   Object.keys(keyCodes).map((key: number | string) => [
     key,
-    keyCodesWithEvents[key as number] || undefined,
+    keyCodesWithEvents[key as number] || undefined
   ])
 )
 
@@ -195,5 +195,5 @@ export const keyLocations: Record<number, string> = {
   0: 'General keys',
   1: 'Left-side modifier keys',
   2: 'Right-side modifier keys',
-  3: 'Numpad',
+  3: 'Numpad'
 }

@@ -1,7 +1,7 @@
 export enum HealthStatus {
   UP = 'UP',
   DOWN = 'DOWN',
-  DEGRADED = 'DEGRADED',
+  DEGRADED = 'DEGRADED'
 }
 
 export type SingleServiceStatus = HealthStatus.UP | HealthStatus.DOWN

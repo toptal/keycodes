@@ -5,7 +5,7 @@ import {
   TWITTER_HANDLE,
   OG_TITLE,
   PROJECT_DESCRIPTION,
-  OG_IMAGE_URL,
+  OG_IMAGE_URL
 } from '~/lib/constants/common'
 import PicassoProvider from '~/test/lib/picasso-provider'
 
@@ -17,7 +17,7 @@ jest.mock('next/head', () => {
   return {
     __esModule: true,
     default: ({
-      children,
+      children
     }: {
       children: Array<React.ReactElement> | React.ReactElement | null
     }) => {
@@ -29,7 +29,7 @@ jest.mock('next/head', () => {
       }
 
       return null
-    },
+    }
   }
 })
 

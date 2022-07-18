@@ -7,7 +7,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 0,
     code: 'Unidentified',
     location: 0,
-    description: 'These keys do not have a key code',
+    description: 'These keys do not have a key code'
   },
   3: {
     key: 'Cancel',
@@ -19,7 +19,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: true,
     metaKey: false,
     shiftKey: false,
-    description: 'break',
+    description: 'break'
   },
   8: {
     key: 'Backspace',
@@ -28,7 +28,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Backspace',
     location: 0,
     description: 'backspace / delete',
-    unicode: '⌫',
+    unicode: '⌫'
   },
   9: {
     key: 'Tab',
@@ -37,7 +37,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Tab',
     location: 0,
     description: 'tab',
-    unicode: '↹',
+    unicode: '↹'
   },
   12: {
     key: 'Clear',
@@ -46,7 +46,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'NumLock',
     location: 0,
     description: 'clear',
-    unicode: '⌧',
+    unicode: '⌧'
   },
   13: {
     key: 'Enter',
@@ -55,7 +55,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Enter',
     location: 0,
     description: 'Enter / Return',
-    unicode: '↵',
+    unicode: '↵'
   },
   16: {
     key: 'Shift',
@@ -64,7 +64,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'ShiftLeft',
     location: 1,
     description: 'shift',
-    unicode: '⇧',
+    unicode: '⇧'
   },
   17: {
     key: 'Control',
@@ -77,7 +77,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     metaKey: true,
     shiftKey: true,
     description: 'ctrl',
-    unicode: '^',
+    unicode: '^'
   },
   18: {
     key: 'Alt',
@@ -90,7 +90,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     metaKey: true,
     shiftKey: false,
     description: 'Alt / Option',
-    unicode: '⎇ / ⌥',
+    unicode: '⎇ / ⌥'
   },
   19: {
     key: 'Pause',
@@ -102,7 +102,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'pause/break',
+    description: 'pause/break'
   },
   20: {
     key: 'CapsLock',
@@ -111,7 +111,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'CapsLock',
     location: 0,
     description: 'caps lock',
-    unicode: '⇪',
+    unicode: '⇪'
   },
   21: {
     key: 'Unidentified',
@@ -123,7 +123,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'hangul',
+    description: 'hangul'
   },
   25: {
     key: 'Unidentified',
@@ -135,7 +135,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'hanja',
+    description: 'hanja'
   },
   27: {
     key: 'Escape',
@@ -144,7 +144,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Escape',
     location: 0,
     description: 'escape',
-    unicode: '⎋',
+    unicode: '⎋'
   },
   28: { key: '', description: 'conversion', keyCode: 28, which: '28' },
   29: { key: '', description: 'non-conversion', keyCode: 29, which: '29' },
@@ -154,7 +154,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 32,
     code: 'Space',
     location: 0,
-    description: 'spacebar',
+    description: 'spacebar'
   },
   33: {
     key: 'PageUp',
@@ -167,7 +167,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     metaKey: false,
     shiftKey: false,
     description: 'page up',
-    unicode: '⇞',
+    unicode: '⇞'
   },
   34: {
     key: 'PageDown',
@@ -180,7 +180,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     metaKey: false,
     shiftKey: false,
     description: 'page down',
-    unicode: '⇟',
+    unicode: '⇟'
   },
   35: {
     key: 'End',
@@ -192,7 +192,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'end',
+    description: 'end'
   },
   36: {
     key: 'Home',
@@ -205,7 +205,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     metaKey: false,
     shiftKey: false,
     description: 'home',
-    unicode: '⌂',
+    unicode: '⌂'
   },
   37: {
     key: 'ArrowLeft',
@@ -214,7 +214,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'ArrowLeft',
     location: 0,
     description: 'left arrow',
-    unicode: '←',
+    unicode: '←'
   },
   38: {
     key: 'ArrowUp',
@@ -223,7 +223,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'ArrowUp',
     location: 0,
     description: 'up arrow',
-    unicode: '↑',
+    unicode: '↑'
   },
   39: {
     key: 'ArrowRight',
@@ -232,7 +232,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'ArrowRight',
     location: 0,
     description: 'right arrow',
-    unicode: '→',
+    unicode: '→'
   },
   40: {
     key: 'ArrowDown',
@@ -241,7 +241,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'ArrowDown',
     location: 0,
     description: 'down arrow',
-    unicode: '↓',
+    unicode: '↓'
   },
   41: { key: '', description: 'select', keyCode: 41, which: '41' },
   42: { key: '', description: 'print', keyCode: 42, which: '42' },
@@ -253,7 +253,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'F13',
     location: 0,
     description: 'Print Screen / F13 (firefox)',
-    unicode: '⎙',
+    unicode: '⎙'
   },
   45: {
     key: 'Insert',
@@ -266,7 +266,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     metaKey: false,
     shiftKey: false,
     description: 'insert',
-    unicode: 'x',
+    unicode: 'x'
   },
   46: {
     key: 'Delete',
@@ -279,7 +279,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     metaKey: false,
     shiftKey: false,
     description: 'delete',
-    unicode: '⌦',
+    unicode: '⌦'
   },
   47: { key: '', description: 'help', keyCode: 47, which: '47', unicode: '⍰' },
   48: {
@@ -289,7 +289,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Digit0',
     location: 0,
     description: '0',
-    unicode: '⓪',
+    unicode: '⓪'
   },
   49: {
     key: '1',
@@ -298,7 +298,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Digit1',
     location: 0,
     description: '1 Key',
-    unicode: '①',
+    unicode: '①'
   },
   50: {
     key: '2',
@@ -307,7 +307,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Digit2',
     location: 0,
     description: '2 Key',
-    unicode: '②',
+    unicode: '②'
   },
   51: {
     key: '3',
@@ -316,7 +316,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Digit3',
     location: 0,
     description: '3 Key',
-    unicode: '③',
+    unicode: '③'
   },
   52: {
     key: '4',
@@ -325,7 +325,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Digit4',
     location: 0,
     description: '4 Key',
-    unicode: '④',
+    unicode: '④'
   },
   53: {
     key: '5',
@@ -334,7 +334,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Digit5',
     location: 0,
     description: '5 Key',
-    unicode: '⑤',
+    unicode: '⑤'
   },
   54: {
     key: '6',
@@ -343,7 +343,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Digit6',
     location: 0,
     description: '6 Key',
-    unicode: '⑥',
+    unicode: '⑥'
   },
   55: {
     key: '7',
@@ -352,7 +352,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Digit7',
     location: 0,
     description: '7 Key',
-    unicode: '⑦',
+    unicode: '⑦'
   },
   56: {
     key: '8',
@@ -361,7 +361,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Digit8',
     location: 0,
     description: '8 Key',
-    unicode: '⑧',
+    unicode: '⑧'
   },
   57: {
     key: '9',
@@ -370,7 +370,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Digit9',
     location: 0,
     description: '9 Key',
-    unicode: '⑨',
+    unicode: '⑨'
   },
   58: {
     key: ':',
@@ -382,7 +382,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: ':',
+    description: ':'
   },
   59: {
     key: ';',
@@ -390,7 +390,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 59,
     code: 'Semicolon',
     location: 0,
-    description: 'semicolon (firefox), equals',
+    description: 'semicolon (firefox), equals'
   },
   60: {
     key: '<',
@@ -402,7 +402,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: '<',
+    description: '<'
   },
   61: {
     key: '=',
@@ -410,7 +410,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 61,
     code: 'Equal',
     location: 0,
-    description: 'equals (firefox)',
+    description: 'equals (firefox)'
   },
   63: {
     key: 'ß',
@@ -422,7 +422,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'ß',
+    description: 'ß'
   },
   64: { key: '', description: '@ (firefox)', keyCode: 64, which: '64' },
   65: {
@@ -431,7 +431,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 65,
     code: 'KeyA',
     location: 0,
-    description: 'a',
+    description: 'a'
   },
   66: {
     key: 'b',
@@ -439,7 +439,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 66,
     code: 'KeyB',
     location: 0,
-    description: 'b',
+    description: 'b'
   },
   67: {
     key: 'c',
@@ -447,7 +447,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 67,
     code: 'KeyC',
     location: 0,
-    description: 'c',
+    description: 'c'
   },
   68: {
     key: 'd',
@@ -455,7 +455,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 68,
     code: 'KeyD',
     location: 0,
-    description: 'd',
+    description: 'd'
   },
   69: {
     key: 'e',
@@ -463,7 +463,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 69,
     code: 'KeyE',
     location: 0,
-    description: 'e',
+    description: 'e'
   },
   70: {
     key: 'f',
@@ -471,7 +471,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 70,
     code: 'KeyF',
     location: 0,
-    description: 'f',
+    description: 'f'
   },
   71: {
     key: 'g',
@@ -479,7 +479,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 71,
     code: 'KeyG',
     location: 0,
-    description: 'g',
+    description: 'g'
   },
   72: {
     key: 'h',
@@ -487,7 +487,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 72,
     code: 'KeyH',
     location: 0,
-    description: 'h',
+    description: 'h'
   },
   73: {
     key: 'i',
@@ -495,7 +495,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 73,
     code: 'KeyI',
     location: 0,
-    description: 'i',
+    description: 'i'
   },
   74: {
     key: 'j',
@@ -503,7 +503,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 74,
     code: 'KeyJ',
     location: 0,
-    description: 'j',
+    description: 'j'
   },
   75: {
     key: 'k',
@@ -515,7 +515,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: true,
     shiftKey: false,
-    description: 'k',
+    description: 'k'
   },
   76: {
     key: 'l',
@@ -527,7 +527,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: true,
     shiftKey: false,
-    description: 'l',
+    description: 'l'
   },
   77: {
     key: 'm',
@@ -535,7 +535,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 77,
     code: 'KeyM',
     location: 0,
-    description: 'm',
+    description: 'm'
   },
   78: {
     key: 'n',
@@ -543,7 +543,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 78,
     code: 'KeyN',
     location: 0,
-    description: 'n',
+    description: 'n'
   },
   79: {
     key: 'o',
@@ -551,7 +551,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 79,
     code: 'KeyO',
     location: 0,
-    description: 'o',
+    description: 'o'
   },
   80: {
     key: 'p',
@@ -559,7 +559,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 80,
     code: 'KeyP',
     location: 0,
-    description: 'p',
+    description: 'p'
   },
   81: {
     key: 'q',
@@ -567,7 +567,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 81,
     code: 'KeyQ',
     location: 0,
-    description: 'q',
+    description: 'q'
   },
   82: {
     key: 'r',
@@ -575,7 +575,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 82,
     code: 'KeyR',
     location: 0,
-    description: 'r',
+    description: 'r'
   },
   83: {
     key: 's',
@@ -583,7 +583,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 83,
     code: 'KeyS',
     location: 0,
-    description: 's',
+    description: 's'
   },
   84: {
     key: 't',
@@ -591,7 +591,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 84,
     code: 'KeyT',
     location: 0,
-    description: 't',
+    description: 't'
   },
   85: {
     key: 'u',
@@ -599,7 +599,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 85,
     code: 'KeyU',
     location: 0,
-    description: 'u',
+    description: 'u'
   },
   86: {
     key: 'v',
@@ -607,7 +607,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 86,
     code: 'KeyV',
     location: 0,
-    description: 'v',
+    description: 'v'
   },
   87: {
     key: 'w',
@@ -615,7 +615,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 87,
     code: 'KeyW',
     location: 0,
-    description: 'w',
+    description: 'w'
   },
   88: {
     key: 'x',
@@ -623,7 +623,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 88,
     code: 'KeyX',
     location: 0,
-    description: 'x',
+    description: 'x'
   },
   89: {
     key: 'y',
@@ -631,7 +631,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 89,
     code: 'KeyY',
     location: 0,
-    description: 'y',
+    description: 'y'
   },
   90: {
     key: 'z',
@@ -639,7 +639,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 90,
     code: 'KeyZ',
     location: 0,
-    description: 'z',
+    description: 'z'
   },
   91: {
     key: 'Meta',
@@ -652,7 +652,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     metaKey: true,
     shiftKey: false,
     description: 'Windows Key / Left ⌘ / Chromebook Search key',
-    unicode: '⌘ ⊞',
+    unicode: '⌘ ⊞'
   },
   92: {
     key: 'Meta',
@@ -665,7 +665,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     metaKey: true,
     shiftKey: true,
     description: 'Right Windows',
-    unicode: '⌘ ⊞',
+    unicode: '⌘ ⊞'
   },
   93: {
     key: 'ContextMenu',
@@ -678,7 +678,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     metaKey: false,
     shiftKey: false,
     description: 'Windows Menu / Right ⌘',
-    unicode: '▤',
+    unicode: '▤'
   },
   95: { key: '', description: 'sleep', keyCode: 95, which: '95', unicode: '☾' },
   96: {
@@ -688,7 +688,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Numpad0',
     location: 3,
     description: 'Number Pad 0',
-    unicode: '⓪',
+    unicode: '⓪'
   },
   97: {
     key: '1',
@@ -697,7 +697,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Numpad1',
     location: 3,
     description: 'Number Pad 1',
-    unicode: '①',
+    unicode: '①'
   },
   98: {
     key: '2',
@@ -706,7 +706,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Numpad2',
     location: 3,
     description: 'Number Pad 2',
-    unicode: '②',
+    unicode: '②'
   },
   99: {
     key: '3',
@@ -715,7 +715,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Numpad3',
     location: 3,
     description: 'Number Pad 3',
-    unicode: '③',
+    unicode: '③'
   },
   100: {
     key: '4',
@@ -724,7 +724,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Numpad4',
     location: 3,
     description: 'Number Pad 4',
-    unicode: '④',
+    unicode: '④'
   },
   101: {
     key: '5',
@@ -733,7 +733,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Numpad5',
     location: 3,
     description: 'Number Pad 5',
-    unicode: '⑤',
+    unicode: '⑤'
   },
   102: {
     key: '6',
@@ -742,7 +742,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Numpad6',
     location: 3,
     description: 'Number Pad 6',
-    unicode: '⑥',
+    unicode: '⑥'
   },
   103: {
     key: '7',
@@ -751,7 +751,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Numpad7',
     location: 3,
     description: 'Number Pad 7',
-    unicode: '⑦',
+    unicode: '⑦'
   },
   104: {
     key: '8',
@@ -760,7 +760,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Numpad8',
     location: 3,
     description: 'Number Pad 8',
-    unicode: '⑧',
+    unicode: '⑧'
   },
   105: {
     key: '9',
@@ -769,7 +769,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'Numpad9',
     location: 3,
     description: 'Number Pad 9',
-    unicode: '⑨',
+    unicode: '⑨'
   },
   106: {
     key: '*',
@@ -778,7 +778,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'NumpadMultiply',
     location: 3,
     description: 'multiply',
-    unicode: '×',
+    unicode: '×'
   },
   107: {
     key: '+',
@@ -786,7 +786,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 107,
     code: 'NumpadAdd',
     location: 3,
-    description: 'add',
+    description: 'add'
   },
   108: {
     key: ',',
@@ -798,7 +798,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'numpad period (firefox)',
+    description: 'numpad period (firefox)'
   },
   109: {
     key: '-',
@@ -806,7 +806,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 109,
     code: 'NumpadSubtract',
     location: 3,
-    description: 'subtract',
+    description: 'subtract'
   },
   110: {
     key: '.',
@@ -814,7 +814,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 110,
     code: 'NumpadDecimal',
     location: 3,
-    description: 'decimal point',
+    description: 'decimal point'
   },
   111: {
     key: '/',
@@ -823,7 +823,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'NumpadDivide',
     location: 3,
     description: 'divide',
-    unicode: '÷',
+    unicode: '÷'
   },
   112: {
     key: 'F1',
@@ -831,7 +831,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 112,
     code: 'F1',
     location: 0,
-    description: 'f1',
+    description: 'f1'
   },
   113: {
     key: 'F2',
@@ -839,7 +839,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 113,
     code: 'F2',
     location: 0,
-    description: 'f2',
+    description: 'f2'
   },
   114: {
     key: 'F3',
@@ -847,7 +847,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 114,
     code: 'F3',
     location: 0,
-    description: 'f3',
+    description: 'f3'
   },
   115: {
     key: 'F4',
@@ -855,7 +855,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 115,
     code: 'F4',
     location: 0,
-    description: 'f4',
+    description: 'f4'
   },
   116: {
     key: 'F5',
@@ -863,7 +863,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 116,
     code: 'F5',
     location: 0,
-    description: 'f5',
+    description: 'f5'
   },
   117: {
     key: 'F6',
@@ -871,7 +871,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 117,
     code: 'F6',
     location: 0,
-    description: 'f6',
+    description: 'f6'
   },
   118: {
     key: 'F7',
@@ -879,7 +879,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 118,
     code: 'F7',
     location: 0,
-    description: 'f7',
+    description: 'f7'
   },
   119: {
     key: 'F8',
@@ -887,7 +887,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 119,
     code: 'F8',
     location: 0,
-    description: 'f8',
+    description: 'f8'
   },
   120: {
     key: 'F9',
@@ -895,7 +895,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 120,
     code: 'F9',
     location: 0,
-    description: 'f9',
+    description: 'f9'
   },
   121: {
     key: 'F10',
@@ -903,7 +903,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 121,
     code: 'F10',
     location: 0,
-    description: 'f10',
+    description: 'f10'
   },
   122: {
     key: 'F11',
@@ -915,7 +915,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'f11',
+    description: 'f11'
   },
   123: {
     key: 'F12',
@@ -927,7 +927,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'f12',
+    description: 'f12'
   },
   124: {
     key: 'F13',
@@ -939,7 +939,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'f13',
+    description: 'f13'
   },
   125: {
     key: 'F14',
@@ -951,7 +951,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: true,
-    description: 'f14',
+    description: 'f14'
   },
   126: {
     key: 'F15',
@@ -963,7 +963,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: true,
-    description: 'f15',
+    description: 'f15'
   },
   127: {
     key: 'F16',
@@ -971,7 +971,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 127,
     code: 'F16',
     location: 0,
-    description: 'f16',
+    description: 'f16'
   },
   128: {
     key: 'F17',
@@ -983,7 +983,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'f17',
+    description: 'f17'
   },
   129: {
     key: 'F18',
@@ -995,7 +995,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'f18',
+    description: 'f18'
   },
   130: {
     key: 'F19',
@@ -1007,98 +1007,98 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'f19',
+    description: 'f19'
   },
   131: {
     key: 'F20',
     code: 'F20',
     description: 'F20',
     keyCode: 131,
-    which: '131',
+    which: '131'
   },
   132: {
     key: 'F21',
     code: 'F21',
     description: 'F21',
     keyCode: 132,
-    which: '132',
+    which: '132'
   },
   133: {
     key: 'F22',
     code: 'F22',
     description: 'F22',
     keyCode: 133,
-    which: '133',
+    which: '133'
   },
   134: {
     key: 'F23',
     code: 'F23',
     description: 'F23',
     keyCode: 134,
-    which: '134',
+    which: '134'
   },
   135: {
     key: 'F24',
     code: 'F24',
     description: 'F24',
     keyCode: 135,
-    which: '135',
+    which: '135'
   },
   136: {
     key: 'F25',
     code: 'F25',
     description: 'F25',
     keyCode: 136,
-    which: '136',
+    which: '136'
   },
   137: {
     key: 'F26',
     code: 'F26',
     description: 'F26',
     keyCode: 137,
-    which: '137',
+    which: '137'
   },
   138: {
     key: 'F27',
     code: 'F27',
     description: 'F27',
     keyCode: 138,
-    which: '138',
+    which: '138'
   },
   139: {
     key: 'F28',
     code: 'F28',
     description: 'F28',
     keyCode: 139,
-    which: '139',
+    which: '139'
   },
   140: {
     key: 'F29',
     code: 'F29',
     description: 'F29',
     keyCode: 140,
-    which: '140',
+    which: '140'
   },
   141: {
     key: 'F30',
     code: 'F30',
     description: 'F30',
     keyCode: 141,
-    which: '141',
+    which: '141'
   },
   142: {
     key: 'F31',
     code: 'F31',
     description: 'F31',
     keyCode: 142,
-    which: '142',
+    which: '142'
   },
   143: {
     key: 'F32',
     code: 'F32',
     description: 'F32',
     keyCode: 143,
-    which: '143',
+    which: '143'
   },
   144: {
     key: 'NumLock',
@@ -1111,7 +1111,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     metaKey: false,
     shiftKey: false,
     description: 'num lock',
-    unicode: '⇭',
+    unicode: '⇭'
   },
   145: {
     key: 'ScrollLock',
@@ -1124,7 +1124,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     metaKey: false,
     shiftKey: false,
     description: 'scroll lock',
-    unicode: '⤓',
+    unicode: '⤓'
   },
   151: { key: '', description: 'airplane mode', keyCode: 151, which: '151' },
   160: {
@@ -1137,7 +1137,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: '^',
+    description: '^'
   },
   161: {
     key: 'Dead',
@@ -1149,13 +1149,13 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: '!',
+    description: '!'
   },
   162: {
     key: '',
     description: '؛ (arabic semicolon)',
     keyCode: 162,
-    which: '162',
+    which: '162'
   },
   163: {
     key: '\\',
@@ -1167,7 +1167,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: '#',
+    description: '#'
   },
   164: {
     key: '$',
@@ -1179,7 +1179,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: '$',
+    description: '$'
   },
   165: {
     key: '^ù',
@@ -1191,7 +1191,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'ù',
+    description: 'ù'
   },
   166: { key: '', description: 'page backward', keyCode: 166, which: '166' },
   167: { key: '', description: 'page forward', keyCode: 167, which: '167' },
@@ -1206,7 +1206,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'closing paren (AZERTY)',
+    description: 'closing paren (AZERTY)'
   },
   170: {
     key: '*',
@@ -1218,7 +1218,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: '*',
+    description: '*'
   },
   171: {
     key: '+',
@@ -1230,7 +1230,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: '~ + * key',
+    description: '~ + * key'
   },
   172: { key: '', description: 'home key', keyCode: 172, which: '172' },
   173: {
@@ -1239,7 +1239,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 173,
     code: 'Minus',
     location: 0,
-    description: 'minus (firefox), mute/unmute',
+    description: 'minus (firefox), mute/unmute'
   },
   174: {
     key: 'AudioVolumeDown',
@@ -1251,7 +1251,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'decrease volume level',
+    description: 'decrease volume level'
   },
   175: {
     key: 'AudioVolumeUp',
@@ -1263,7 +1263,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'increase volume level',
+    description: 'increase volume level'
   },
   176: {
     key: 'MediaTrackNext',
@@ -1275,7 +1275,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'next',
+    description: 'next'
   },
   177: {
     key: 'MediaTrackPrevious',
@@ -1287,7 +1287,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'previous',
+    description: 'previous'
   },
   178: { key: '', description: 'stop', keyCode: 178, which: '178' },
   179: {
@@ -1300,7 +1300,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'play/pause',
+    description: 'play/pause'
   },
   180: {
     key: 'LaunchMail',
@@ -1313,7 +1313,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     metaKey: false,
     shiftKey: false,
     description: 'e-mail',
-    unicode: '✉',
+    unicode: '✉'
   },
   181: {
     key: 'AudioVolumeMute',
@@ -1325,7 +1325,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'mute/unmute (firefox)',
+    description: 'mute/unmute (firefox)'
   },
   182: {
     key: 'AudioVolumeDown',
@@ -1337,7 +1337,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'decrease volume level (firefox)',
+    description: 'decrease volume level (firefox)'
   },
   183: {
     key: 'AudioVolumeUp',
@@ -1349,7 +1349,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'increase volume level (firefox)',
+    description: 'increase volume level (firefox)'
   },
   186: {
     key: ';',
@@ -1361,7 +1361,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'semi-colon / ñ',
+    description: 'semi-colon / ñ'
   },
   187: {
     key: '+',
@@ -1373,7 +1373,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'equal sign',
+    description: 'equal sign'
   },
   188: {
     key: ',',
@@ -1381,7 +1381,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 188,
     code: 'Comma',
     location: 0,
-    description: 'comma',
+    description: 'comma'
   },
   189: {
     key: '-',
@@ -1393,7 +1393,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'dash',
+    description: 'dash'
   },
   190: {
     key: '.',
@@ -1401,7 +1401,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 190,
     code: 'Period',
     location: 0,
-    description: 'period',
+    description: 'period'
   },
   191: {
     key: '/',
@@ -1409,7 +1409,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 191,
     code: 'Slash',
     location: 0,
-    description: 'forward slash / ç',
+    description: 'forward slash / ç'
   },
   192: {
     key: '`',
@@ -1417,7 +1417,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 192,
     code: 'Backquote',
     location: 0,
-    description: 'Backtick / grave accent / ñ / æ / ö',
+    description: 'Backtick / grave accent / ñ / æ / ö'
   },
   193: {
     key: '/',
@@ -1429,7 +1429,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: '?, / or °',
+    description: '?, / or °'
   },
   194: {
     key: '.',
@@ -1441,7 +1441,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'numpad period (chrome)',
+    description: 'numpad period (chrome)'
   },
   219: {
     key: '[',
@@ -1449,7 +1449,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 219,
     code: 'BracketLeft',
     location: 0,
-    description: 'open bracket',
+    description: 'open bracket'
   },
   220: {
     key: '\\',
@@ -1457,7 +1457,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 220,
     code: 'Backslash',
     location: 0,
-    description: 'back slash',
+    description: 'back slash'
   },
   221: {
     key: ']',
@@ -1465,7 +1465,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 221,
     code: 'BracketRight',
     location: 0,
-    description: 'close bracket / å',
+    description: 'close bracket / å'
   },
   222: {
     key: "'",
@@ -1473,7 +1473,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     which: 222,
     code: 'Quote',
     location: 0,
-    description: 'single quote / ø / ä',
+    description: 'single quote / ø / ä'
   },
   223: {
     key: '`',
@@ -1485,7 +1485,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: '`',
+    description: '`'
   },
   224: {
     key: 'Meta',
@@ -1494,7 +1494,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     code: 'OSLeft',
     location: 1,
     description: 'left or right ⌘ key (firefox)',
-    unicode: '⌘',
+    unicode: '⌘'
   },
   225: {
     key: 'AltGraph',
@@ -1507,7 +1507,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     metaKey: false,
     shiftKey: false,
     description: 'altgr',
-    unicode: '⎇ or ⌥',
+    unicode: '⎇ or ⌥'
   },
   226: {
     key: '\\',
@@ -1519,7 +1519,7 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: '< /git >, left back slash',
+    description: '< /git >, left back slash'
   },
   229: {
     key: 'Dead',
@@ -1530,13 +1530,13 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     altKey: false,
     ctrlKey: false,
     metaKey: false,
-    shiftKey: false,
+    shiftKey: false
   },
   230: {
     key: '',
     description: 'GNOME Compose Key',
     keyCode: 230,
-    which: '230',
+    which: '230'
   },
   231: { key: '', description: 'ç', keyCode: 231, which: '231' },
   233: { key: '', description: 'XF86Forward', keyCode: 233, which: '233' },
@@ -1547,20 +1547,20 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     key: '',
     description: 'hiragana/katakana',
     keyCode: 242,
-    which: '242',
+    which: '242'
   },
   243: {
     key: '',
     description: 'half-width/full-width',
     keyCode: 243,
-    which: '243',
+    which: '243'
   },
   244: { key: '', description: 'kanji', keyCode: 244, which: '244' },
   251: {
     key: '',
     description: 'unlock track pad (Chrome/Edge)',
     keyCode: 251,
-    which: '251',
+    which: '251'
   },
   255: {
     key: 'Unidentified',
@@ -1572,6 +1572,6 @@ export const keyCodesWithEvents: Record<number, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'toggle touchpad',
-  },
+    description: 'toggle touchpad'
+  }
 }

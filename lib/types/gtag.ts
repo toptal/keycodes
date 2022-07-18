@@ -1,3 +1,3 @@
 export enum GTagActions {
-  Read = 'read',
+  Read = 'read'
 }

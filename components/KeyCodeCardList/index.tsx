@@ -10,7 +10,7 @@ import {
   EventDumpCard,
   EventWhichCard,
   DescriptionCard,
-  UnicodeCard,
+  UnicodeCard
 } from '~/components/KeyCodeCards/BasicCards'
 import MetaKeysCard from '~/components/KeyCodeCards/MetaKeysCard'
 import KeyHistoryCard from '~/components/KeyCodeCards/KeyHistoryCard'

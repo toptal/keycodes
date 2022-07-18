@@ -18,7 +18,7 @@ const getGeneratedKey = (keyEvent: KeyCodeEventWatcher) => ({
   ctrlKey: keyEvent.ctrlKey,
   metaKey: keyEvent.metaKey,
   shiftKey: keyEvent.shiftKey,
-  repeat: keyEvent.repeat,
+  repeat: keyEvent.repeat
 })
 
 export const useKeyWatcher = (): void => {
@@ -51,7 +51,7 @@ export const useKeyWatcher = (): void => {
             generatedKey,
             ...prevState.filter(
               (prevKey: KeyCodeEvent) => prevKey.key !== generatedKey.key
-            ),
+            )
           ]
         }
 

@@ -21,7 +21,7 @@ export interface TrackEventType {
 export const trackPageView = (url: string): void => {
   isGtagDefined &&
     window.gtag('config', process.env.NEXT_PUBLIC_GA_ID || '', {
-      page_path: url,
+      page_path: url
     })
 }
 
@@ -36,7 +36,7 @@ export const sendToGoogleAnalytics = ({ name, delta, id }: Metric): void => {
     params: {
       category: 'web_vitals',
       label: id,
-      value: Math.round(name === 'CLS' ? delta * 1000 : delta),
-    },
+      value: Math.round(name === 'CLS' ? delta * 1000 : delta)
+    }
   })
 }

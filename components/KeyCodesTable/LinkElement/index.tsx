@@ -14,7 +14,7 @@ type TableLinkElement = {
 
 const TableLinkElement = ({
   value,
-  slugifyLink = false,
+  slugifyLink = false
 }: TableLinkElement): JSX.Element | null => {
   const { push } = useRouter()
   const { setFromTable } = useKeyCodeContext()

@@ -22,7 +22,7 @@ const KeyCodeProvider = ({ children }: KeyCodeProvider): JSX.Element => {
         keyHistory,
         setKeyHistory,
         fromTable,
-        setFromTable,
+        setFromTable
       }}
     >
       {children}

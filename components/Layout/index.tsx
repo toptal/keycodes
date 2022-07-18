@@ -9,7 +9,7 @@ import {
   PROJECT_DESCRIPTION,
   TWITTER_HANDLE,
   OG_TITLE,
-  OG_IMAGE_URL,
+  OG_IMAGE_URL
 } from '~/lib/constants/common'
 
 import styles from './layout.module.scss'
@@ -32,7 +32,7 @@ const Main = ({ children }: { children: ReactNode }): JSX.Element => {
 const Layout = ({
   children,
   pageTitle,
-  pageDescription,
+  pageDescription
 }: LayoutProps): JSX.Element => {
   return (
     <>

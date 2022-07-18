@@ -9,7 +9,7 @@ const KeyCodeStateContext = createContext<KeyCodeContextInterface>({
   keyHistory: [],
   setKeyHistory: noop,
   fromTable: false,
-  setFromTable: noop,
+  setFromTable: noop
 })
 
 const KeyCodeStateProvider = KeyCodeStateContext.Provider

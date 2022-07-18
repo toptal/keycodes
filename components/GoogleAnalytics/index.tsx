@@ -31,7 +31,7 @@ const GoogleAnalytics = (): JSX.Element => {
             setTimeout(function() {
               gtag('event', 'read', { 'event_category': '15_seconds' });
           }, ${BOUNCE_RATE_TIMEOUT});
-          `,
+          `
         }}
       />
     </>

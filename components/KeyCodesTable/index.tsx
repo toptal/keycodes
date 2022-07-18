@@ -13,7 +13,7 @@ import TableLinkElement from './LinkElement'
 const KeyCodesTable = (): JSX.Element => {
   const keyArray = Object.keys(keyCodeEvents).map((key: string) => ({
     id: key,
-    ...keyCodeEvents[key],
+    ...keyCodeEvents[key]
   }))
 
   return (

@@ -16,8 +16,8 @@ const services: Array<CheckerType> = [
         'https://gitignore.io',
         'https://www.toptal.com/developers/gitignore'
       )
-    },
-  },
+    }
+  }
 ]
 
 const healthcheckAPI = async (

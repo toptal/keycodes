@@ -10,8 +10,8 @@ export default function Home(): JSX.Element {
     trackEvent({
       action: Events.ButtonClick,
       params: {
-        category: EventsCategories.General,
-      },
+        category: EventsCategories.General
+      }
     })
   }
 

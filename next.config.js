@@ -18,13 +18,13 @@ if (process.env.NODE_ENV === 'development') {
 
 const withTM = nextTranspileModules(modulesToTranspile)
 
-const transformClassNamesToCamelCase = (config) => {
+const transformClassNamesToCamelCase = config => {
   const rules = config.module.rules
-    .find((rule) => typeof rule.oneOf === 'object')
-    .oneOf.filter((rule) => Array.isArray(rule.use))
+    .find(rule => typeof rule.oneOf === 'object')
+    .oneOf.filter(rule => Array.isArray(rule.use))
 
-  rules.forEach((rule) => {
-    rule.use.forEach((moduleLoader) => {
+  rules.forEach(rule => {
+    rule.use.forEach(moduleLoader => {
       if (
         typeof moduleLoader === 'object' &&
         moduleLoader.loader.includes('css-loader') &&
@@ -34,8 +34,8 @@ const transformClassNamesToCamelCase = (config) => {
           ...moduleLoader.options,
           modules: {
             ...moduleLoader.options.modules,
-            exportLocalsConvention: 'camelCase',
-          },
+            exportLocalsConvention: 'camelCase'
+          }
         }
       }
     })
@@ -43,7 +43,7 @@ const transformClassNamesToCamelCase = (config) => {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const addSVGLoader = (config) => {
+const addSVGLoader = config => {
   config.module.rules.push({
     test: /\.svg$/i,
     issuer: { and: [/\.(js|ts|md)x?$/] },
@@ -55,12 +55,12 @@ const addSVGLoader = (config) => {
           svgo: true,
           svgoConfig: {
             plugins: [{ removeViewBox: false }],
-            floatPrecision: 2,
+            floatPrecision: 2
           },
-          titleProp: true,
-        },
-      },
-    ],
+          titleProp: true
+        }
+      }
+    ]
   })
 }
 
@@ -76,9 +76,9 @@ const buildHeaders = async () => {
       headers: [
         {
           key: 'X-Robots-Tag',
-          value: 'noindex, nofollow, nosnippet, noarchive',
-        },
-      ],
+          value: 'noindex, nofollow, nosnippet, noarchive'
+        }
+      ]
     })
   }
 
@@ -90,12 +90,12 @@ const nextConfig = {
   basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')], // this is to use `@import 'base.scss';` in scss files
-    additionalData: `$basePath: "${process.env.NEXT_PUBLIC_BASE_PATH || ''}";`,
+    additionalData: `$basePath: "${process.env.NEXT_PUBLIC_BASE_PATH || ''}";`
   },
   env: {
-    noindexEnabled,
+    noindexEnabled
   },
-  webpack: (config) => {
+  webpack: config => {
     transformClassNamesToCamelCase(config)
 
     /**
@@ -113,7 +113,7 @@ const nextConfig = {
     return config
   },
 
-  headers: buildHeaders,
+  headers: buildHeaders
 }
 
 const moduleExports = () => {
