@@ -15,7 +15,7 @@ import {
 import styles from './layout.module.scss'
 
 // TODO: temp until we use site-acq-ui-library
-const Header = () => <header />
+const Header = () => <header>{PROJECT_DISPLAY_NAME}</header>
 const Footer = () => <footer />
 const CookieBanner = () => <div />
 

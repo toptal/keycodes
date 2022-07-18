@@ -5,7 +5,6 @@ env:
   HAPPO_API_SECRET: ${{ secrets.HAPPO_API_SECRET }}
   HAPPO_DEBUG: true
   # HAPPO_PROJECT_NAME: ${{ secrets.HAPPO_PROJECT_NAME }}
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN_READ_ONLY }}
 
 on:
   push:
@@ -29,8 +28,6 @@ jobs:
 
       - name: Set up steps
         uses: ./.github/actions/setup-steps
-        with:
-          npm_token: ${{ secrets.NPM_TOKEN_READ_ONLY }}
 
       - name: Build steps
         uses: ./.github/actions/build-steps
