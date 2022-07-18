@@ -3,8 +3,6 @@ import Link from 'next/link'
 import { trackEvent } from '~/lib/analytics'
 import { Events, EventsCategories } from '~/lib/constants/analytics'
 
-import styles from '../../styles/Home.module.scss'
-
 export default function Home(): JSX.Element {
   const trackButtonClick = () => {
     trackEvent({
@@ -16,7 +14,7 @@ export default function Home(): JSX.Element {
   }
 
   return (
-    <div className={styles.container}>
+    <div>
       <h1>Analytics test page</h1>
       <button onClick={trackButtonClick}>Event tracked button</button>
       <br />
