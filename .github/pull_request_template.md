@@ -1,4 +1,4 @@
-[ABC-1234](https://toptal-core.atlassian.net/browse/ABC-1234)
+## Title
 
 ### Description
 
@@ -10,10 +10,6 @@ Describe the changes and motivations for the pull request, unless obvious from t
 
 - `npm ci && npm run dev`
 - FIXME: Add the steps describing how to test your changes manually
-
-### Acceptance Criteria
-
-- [ ] Add acceptance criteria from Jira task [ABC-1234]
 
 ### Pre-merge checklist
 
