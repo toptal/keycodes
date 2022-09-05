@@ -97,7 +97,8 @@ export default function HomePage({ staticKey }) {
             <footer>
               <p>
                 The value of the key pressed. Accounts for modifiers keys that
-                return CAPS and alternate chars.
+                return CAPS and alternate chars. Also respects different
+                keyboard layouts.
               </p>
             </footer>
           </div>
@@ -131,7 +132,8 @@ export default function HomePage({ staticKey }) {
             <footer>
               <p>
                 The physical key on the keyboard. Doesn't care if you are
-                holding a modifier like Shift.
+                holding a modifier like Shift. Only reports the key's physical
+                location in a US standard QWERTY layout.
               </p>
             </footer>
           </div>
@@ -148,7 +150,7 @@ export default function HomePage({ staticKey }) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  (deprecated)
+                  deprecated
                 </a>{' '}
                 in modern browsers. Use <code>.key</code> or <code>.code</code>{' '}
                 instead.

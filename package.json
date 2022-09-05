@@ -4,7 +4,7 @@
   "description": "![](http://wes.io/sQyC/content.gif)",
   "main": "google-analytics.js",
   "scripts": {
-    "dev": "NODE_OPTIONS='--inspect' next dev -p 3000",
+    "dev": "cross-env NODE_OPTIONS='--inspect' next dev -p 3000",
     "build": "next build",
     "start": "next start"
   },
@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.11.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
