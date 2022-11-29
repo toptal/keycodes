@@ -6,7 +6,7 @@ const nextTranspileModules = require('next-transpile-modules')
 const modulesToTranspile = [
   '@toptal/picasso',
   '@toptal/picasso-provider',
-  '@toptal/site-acq-ui-library'
+  '@toptal/utilities-ui-library'
 ]
 
 const sentryWebpackPluginOptions = {

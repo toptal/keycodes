@@ -1,4 +1,4 @@
-import { NotFoundPage } from '@toptal/site-acq-ui-library'
+import { NotFoundPage } from '@toptal/utilities-ui-library'
 
 const NotFound = (): JSX.Element => {
   return <NotFoundPage />

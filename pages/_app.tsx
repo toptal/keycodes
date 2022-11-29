@@ -12,7 +12,7 @@ import {
 import { KeyCodeProvider } from '~/lib/state/use-key-code'
 import { trackPageView, trackPageRead } from '~/lib/analytics'
 import { isHappo } from '~/lib/utils/is-happo'
-import '@toptal/site-acq-ui-library/src/index.css'
+import '@toptal/utilities-ui-library/dist-package/index.css'
 import '../styles/globals.scss'
 import { BOUNCE_RATE_TIMEOUT } from '~/lib/constants/common'
 import { reportWebVitals } from '~/lib/analytics/report-web-vitals'

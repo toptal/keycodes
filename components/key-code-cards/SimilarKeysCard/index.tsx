@@ -1,4 +1,4 @@
-import { Card } from '@toptal/site-acq-ui-library'
+import { Card } from '@toptal/utilities-ui-library'
 
 import styles from './similar-keys-card.module.scss'
 import KeyLink from './KeyLink'

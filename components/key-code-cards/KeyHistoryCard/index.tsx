@@ -1,5 +1,5 @@
 import Container from '@toptal/picasso/Container'
-import { Card } from '@toptal/site-acq-ui-library'
+import { Card } from '@toptal/utilities-ui-library'
 
 import styles from './key-history-card.module.scss'
 import { TestIdKeyHistoryCard } from './test-id'

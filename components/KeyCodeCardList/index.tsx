@@ -1,4 +1,4 @@
-import { CardList } from '@toptal/site-acq-ui-library'
+import { CardList } from '@toptal/utilities-ui-library'
 
 import MetaKeysCard from '~/components/key-code-cards/MetaKeysCard'
 import KeyHistoryCard from '~/components/key-code-cards/KeyHistoryCard'

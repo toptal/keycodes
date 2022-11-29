@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import Head from 'next/head'
 import Container from '@toptal/picasso/Container'
 import Button from '@toptal/picasso/Button'
-import { Header, Footer, CookieBanner } from '@toptal/site-acq-ui-library'
+import { Header, Footer, CookieBanner } from '@toptal/utilities-ui-library'
 import { useRouter } from 'next/router'
 import cx from 'classnames'
 

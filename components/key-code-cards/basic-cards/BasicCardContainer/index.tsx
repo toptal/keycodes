@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { Card } from '@toptal/site-acq-ui-library'
+import { Card } from '@toptal/utilities-ui-library'
 import Container from '@toptal/picasso/Container'
 
 import styles from './basic-card-container.module.scss'

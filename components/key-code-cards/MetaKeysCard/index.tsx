@@ -1,4 +1,4 @@
-import { Card } from '@toptal/site-acq-ui-library'
+import { Card } from '@toptal/utilities-ui-library'
 import Container from '@toptal/picasso/Container'
 import cx from 'classnames'
 
