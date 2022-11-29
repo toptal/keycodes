@@ -16,3 +16,9 @@ body {
 
   margin: unset;
 }
+
+@media (pointer: fine) {
+  #mobile-input {
+    display: none;
+  }
+}

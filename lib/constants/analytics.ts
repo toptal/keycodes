@@ -1,7 +1,8 @@
 export enum EventsCategories {
-  General = 'General'
+  General = 'general',
+  Interaction = 'interaction'
 }
 
 export enum Events {
-  ButtonClick = 'Button Click'
+  OpenKeysTable = 'openKeysTable'
 }

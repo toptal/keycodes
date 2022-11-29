@@ -1,10 +1,12 @@
 name: Lint and Typescript
 
+env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN_READ_ONLY }}
+
 on:
   push:
-    branches: [v2]
+    branches: [main]
   pull_request:
-    branches: [v2]
 
 jobs:
   lint_typescript:
@@ -21,6 +23,8 @@ jobs:
       
       - name: Set up steps
         uses: ./.github/actions/setup-steps
+        with:
+          npm_token: ${{ secrets.NPM_TOKEN_READ_ONLY }}
 
       - name: Run styles lint
         run: yarn lint:styles:ci

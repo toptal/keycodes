@@ -36,24 +36,24 @@ module.exports = {
   targets: {
     chrome: new RemoteBrowserTarget('chrome', {
       viewport: DESKTOP_VIEWPORT,
-      maxHeight: 30000,
+      maxHeight: 30000
     }),
     safari: new RemoteBrowserTarget('safari', {
       viewport: DESKTOP_VIEWPORT,
-      maxHeight: 30000,
+      maxHeight: 30000
     }),
     ipad: new RemoteBrowserTarget('ipad-safari', {
       viewport: TABLET_VIEWPORT,
-      maxHeight: 30000,
+      maxHeight: 30000
     }),
     firefox: new RemoteBrowserTarget('firefox', {
       viewport: DESKTOP_VIEWPORT,
-      maxHeight: 30000,
+      maxHeight: 30000
     }),
     ios: new RemoteBrowserTarget('ios-safari', {
       viewport: MOBILE_VIEWPORT,
-      maxHeight: 30000,
-    }),
+      maxHeight: 30000
+    })
   },
   compareThreshold: 0.005,
   project: process.env.HAPPO_PROJECT_NAME || 'keycodes',
@@ -72,12 +72,13 @@ module.exports = {
       entrypoints: {},
       pagesDir: findPagesDir(process.cwd()).pages,
       rewrites: { beforeFiles: [], afterFiles: [], fallback: [] },
-      runWebpackSpan: trace('next-build'),
+      runWebpackSpan: trace('next-build')
     })
 
-    config.plugins = base.plugins
     config.resolve = base.resolve
+    config.resolve.mainFields = ['main']
     config.resolveLoader = base.resolveLoader
+
     Object.keys(config.resolve.alias).forEach(key => {
       if (!config.resolve.alias[key]) {
         delete config.resolve.alias[key]
@@ -92,7 +93,7 @@ module.exports = {
 
         return plugin
       }),
-      new NodePolyfillPlugin(),
+      new NodePolyfillPlugin()
     ]
 
     return config
@@ -108,6 +109,6 @@ module.exports = {
   jsdomOptions: {
     beforeParse(window) {
       window.CSS = { escape }
-    },
-  },
+    }
+  }
 }

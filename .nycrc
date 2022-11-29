@@ -1,0 +1,22 @@
+{
+  "include": [
+    "components/**/*.{ts,tsx}",
+    "lib/**/*.{ts,tsx}",
+    "pages/**/*.{ts,tsx}"
+  ],
+  "exclude": [
+    "lib/constants/*.{ts,tsx}",
+    "lib/types/*.{ts,tsx}"
+  ],
+  "report-dir": "test-coverage/e2e/",
+  "reporter": [
+    "json",
+    "html"
+  ],
+  "require": [
+    "@babel/register"
+  ],
+  "all": true,
+  "sourceMap": false,
+  "instrument": false
+}

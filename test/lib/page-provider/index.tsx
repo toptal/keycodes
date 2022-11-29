@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react'
-import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider'
+import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider/next-12'
 
 import PicassoProvider from '../picasso-provider'
 

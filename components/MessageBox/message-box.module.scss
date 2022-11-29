@@ -1,0 +1,24 @@
+@import "base.scss";
+
+.paper {
+  width: 288px;
+  padding: 29px 49px;
+
+  text-align: center;
+
+  border: 1px solid $gray-lighter-2;
+  border-radius: 8px;
+
+  @include for-tablet {
+    width: 600px;
+    padding: 55px 110px;
+  }
+
+  .text {
+    @include font-h4($gray-darker);
+
+    @include for-tablet {
+      @include font-h1($gray-darker);
+    }
+  }
+}

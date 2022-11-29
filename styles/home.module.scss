@@ -1,0 +1,22 @@
+@import "base.scss";
+
+.layout {
+  main {
+    height: calc(100vh - #{$header-height} - 64px);
+    min-height: 200px;
+
+    @include for-tablet {
+      min-height: 300px;
+    }
+
+    @include for-desktop {
+      height: calc(100vh - #{$header-height});
+    }
+  }
+
+  .message-container {
+    @include flex-container(row, center, center);
+    height: 100%;
+    margin-top: gutter(-1);
+  }
+}

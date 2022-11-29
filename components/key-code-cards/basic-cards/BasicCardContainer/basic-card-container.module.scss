@@ -1,0 +1,23 @@
+@import "base.scss";
+
+.card {
+  @include card-with-description();
+  min-width: 217px;
+
+  .description {
+    @include font-body-small($gray-darker);
+    text-align: start;
+  }
+
+  .container {
+    @include font-h1($gray-darker);
+    @include flex-container(row, center, center);
+
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  small {
+    @include font-body-medium($gray-darker);
+  }
+}

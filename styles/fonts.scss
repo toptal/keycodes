@@ -43,3 +43,15 @@
     url($basePath + "/assets/fonts/ProximaNova-Semibold.woff") format("woff"),
     url($basePath + "/assets/fonts/ProximaNova-Semibold.otf") format("opentype");
 }
+
+@font-face {
+  font-display: swap;
+
+  font-family: "PT Mono";
+  font-style: normal;
+  src:
+    url($basePath + "/assets/fonts/PTMono-Regular.woff2") format("woff2")
+    url($basePath + "/assets/fonts/PTMono-Regular.woff") format("woff")
+    url($basePath + "/assets/fonts/PTMono-Regular.ttf") format("truetype")
+    url($basePath + "/assets/fonts/PTMono-Regular.eot") format("eot");
+}

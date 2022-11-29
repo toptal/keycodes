@@ -1,0 +1,17 @@
+@import "base.scss";
+
+.title {
+  @include increase-specificity {
+    margin-bottom: gutter(4);
+  }
+}
+
+.table {
+  main {
+    @include flex-container(column, center, center);
+  }
+
+  div[role=alert] {
+    margin-bottom: 32px;
+  }
+}

@@ -14,7 +14,9 @@ module.exports = {
     '<rootDir>/node_modules/',
     '\\.e2e.test.(js|jsx|ts|tsx)$'
   ],
-  transformIgnorePatterns: [`/node_modules/(?!@toptal)`],
+  transformIgnorePatterns: [
+    `/node_modules/(?!@toptal|@sindresorhus|escape-string-regexp)`
+  ],
   transform: {
     '^.+\\.(t|j)(s|sx)?$': ['@swc/jest']
   },
@@ -33,6 +35,7 @@ module.exports = {
     'components/**/*.(js|jsx|ts|tsx)',
     'lib/**/*.(js|jsx|ts|tsx)',
     '!lib/constants/*.(js|jsx|ts|tsx)',
-    '!lib/types/*.(js|jsx|ts|tsx)'
+    '!lib/types/*.(js|jsx|ts|tsx)',
+    '!lib/utils/*.(js|jsx|ts|tsx)'
   ]
 }

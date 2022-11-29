@@ -1,0 +1,27 @@
+@import "base.scss";
+
+.card {
+  @include card();
+
+  .content {
+    @include flex-container(row, center, center, wrap);
+    gap: 10px;
+    max-width: 150px;
+
+    .key-history {
+      @include card-key-symbol($gray-darker);
+
+      &:hover {
+        color: $blue-main;
+
+        border: 2px solid $blue-main;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      &:active {
+        color: $blue-darker;
+      }
+    }
+  }
+}

@@ -1,9 +1,8 @@
-import { expect, PlaywrightTestConfig } from '@playwright/test'
-import { matchers } from 'expect-playwright'
-
-expect.extend(matchers)
+import { PlaywrightTestConfig } from '@playwright/test'
 
 const config: PlaywrightTestConfig = {
+  fullyParallel: true,
+  retries: 2,
   use: {
     headless: true,
     screenshot: 'only-on-failure',
@@ -19,34 +18,33 @@ const config: PlaywrightTestConfig = {
       ]
     }
   },
-  webServer: {
-    command: 'yarn build:e2e && yarn start',
-    url: 'http://localhost:3000',
-    env: {
-      E2E_COVERAGE: 'true',
-      NODE_ENV: 'production'
-    },
-    timeout: 120 * 1000
-  },
   projects: [
     {
       name: 'e2e',
+      testDir: 'test/e2e',
       outputDir: 'screenshots',
-      testMatch: '**/*.e2e.test.ts',
       timeout: 30000,
       use: {
         baseURL: 'http://localhost:3000'
       }
     }
   ],
+  webServer: {
+    command: 'yarn build:e2e:start',
+    url: 'http://localhost:3000',
+    env: {
+      E2E_COVERAGE: 'true',
+      NODE_ENV: 'production'
+    },
+    timeout: 120 * 100000
+  },
   reporter: [
     ['list'],
     [
       'html',
       {
         open: 'never',
-        outputFolder: 'reports',
-        outputFile: 'playwright-report-e2e.html'
+        outputFolder: 'reports'
       }
     ]
   ]

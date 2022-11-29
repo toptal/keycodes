@@ -1,0 +1,8 @@
+node_nodules/
+
+**/*-happo.js
+!.happo.js
+happo-tmp/
+public/
+.next/
+reports/

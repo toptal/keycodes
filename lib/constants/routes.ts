@@ -4,6 +4,7 @@ const routes = {
   developers: 'https://www.toptal.com/developers',
   freelance: 'https://www.toptal.com/freelance-jobs',
   home: `/`,
+  table: '/table',
   tos: 'https://www.toptal.com/tos',
   privacy: 'https://www.toptal.com/privacy',
   toptalHome: 'https://www.toptal.com/',

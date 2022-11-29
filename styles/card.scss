@@ -1,0 +1,61 @@
+@import "mixins/media";
+
+@mixin shadow($size) {
+  box-shadow: $size rgba(0, 0, 0, 0.04), 0px 8px 12px -3px rgba(0, 0, 0, 0.08), 0px 4px 8px -2px rgba(0, 0, 0, 0.04);
+}
+
+@mixin card-with-description {
+  min-height: 310px;
+
+  text-align: center;
+
+  @include increase-specificity {
+    .body {
+      padding: gutter(3);
+    }
+  }
+
+  @include increase-specificity {
+    @include shadow(0px 0px 0px 1px);
+    transform: translateY(0) scale(1, 1);
+
+    transition: transform 150ms ease-in-out, box-shadow 100ms ease-in-out;
+
+    &:hover {
+      @include shadow(10px 10px 10px 1px);
+
+      transform: translateY(-5px) scale(1.032894);
+    }
+  }
+}
+
+@mixin card {
+  @include card-with-description();
+
+  @include for-desktop-large {
+    height: 100%;
+    min-height: 198px;
+  }
+}
+
+@mixin card-key-symbol($color: false) {
+  position: relative;
+
+  box-sizing: border-box;
+  min-width: 50px;
+  min-height: 50px;
+
+  color: $color;
+  text-align: center;
+
+  background-color: $white;
+  border: 2px solid $color ;
+  border-radius: 3px;
+
+  span {
+    @include font-h1();
+    @include size(50px);
+
+    line-height: 50px;
+  }
+}

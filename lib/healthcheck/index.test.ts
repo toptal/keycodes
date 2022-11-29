@@ -1,6 +1,6 @@
-import { CheckerType } from '~/lib/types/healthcheck'
-
 import healthcheck from '.'
+
+import { CheckerType } from '~/lib/types/healthcheck'
 
 const mockError = new Error('Service is down')
 

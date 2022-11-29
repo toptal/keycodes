@@ -1,15 +1,18 @@
 name: Coverage
 
+env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN_READ_ONLY }}
+
 on:
-  workflow_run:
-    workflows: End-to-end on push
-    types: 
-      - completed
+  workflow_dispatch:
+    inputs:
+      GIT_BRANCH:
+        description: Branch name to run coverage
+        required: true
 
 jobs:
   coverage:
     name: Combined coverage report
-    if: ${{ github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -17,6 +20,8 @@ jobs:
 
       - name: Set up steps
         uses: ./.github/actions/setup-steps
+        with:
+          npm_token: ${{ secrets.NPM_TOKEN_READ_ONLY }}
 
       - name: Create folder structure
         run: |
@@ -26,20 +31,15 @@ jobs:
         uses: dawidd6/action-download-artifact@v2
         with:
           workflow: unit.yml
-          branch: master
+          branch: ${{ github.event.inputs.GIT_BRANCH }}
           path: test-coverage/unit
 
       - name: Download e2e tests coverage report
         uses: dawidd6/action-download-artifact@v2
         with:
-          workflow: e2e-push.yml
-          branch: master
+          workflow: e2e.yml
+          branch: ${{ github.event.inputs.GIT_BRANCH }}
           path: test-coverage/e2e
-
-      - name: Display structure of downloaded files
-        run: ls -R
-        shell: bash
-        working-directory: test-coverage
 
       - name: Generate combined coverage report
         run: |

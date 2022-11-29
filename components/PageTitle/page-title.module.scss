@@ -1,0 +1,14 @@
+@import "base.scss";
+
+.title {
+  text-align: center;
+
+  @include increase-specificity {
+    @include font-h2();
+    color: $gray-darker;
+
+    @include for-tablet {
+      @include font-h1();
+    }
+  }
+}
