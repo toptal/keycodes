@@ -1,4 +1,4 @@
-[ABC-1234](https://toptal-core.atlassian.net/browse/ABC-1234)
+## Title
 
 ### Description
 
@@ -13,7 +13,7 @@ Describe the changes and motivations for the pull request, unless obvious from t
 
 ### Acceptance Criteria
 
-- [ ] Add acceptance criterias from Jira task [ABC-1234]
+- [ ] Add acceptance criterias from Jira task
 
 ### Pre-merge checklist
 

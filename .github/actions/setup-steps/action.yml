@@ -1,11 +1,6 @@
 name: 'Set up steps'
 description: 'Steps to set up node, yarn and install dependencies'
 
-inputs:
-  npm_token:
-    description: 'NPM token to install dependencies from private registry'
-    required: true
-
 runs:
   using: 'composite'
   steps:
@@ -13,8 +8,6 @@ runs:
       id: yarn-cache-dir-path
       run: echo "::set-output name=dir::$(yarn cache dir)"
       shell: bash
-      env:
-        NPM_TOKEN: ${{ inputs.npm_token }}
 
     - uses: actions/cache@v2
       id: yarn-cache
@@ -32,5 +25,3 @@ runs:
     - name: Install dependencies
       run: yarn install --frozen-lockfile
       shell: bash
-      env:
-        NPM_TOKEN: ${{ inputs.npm_token }}

@@ -59,4 +59,4 @@ This project has adopted the [Contributor Covenant](https://www.contributor-cove
 
 ### Contributor License Agreement
 
-Licensed under the [MIT](https://github.com/toptal/keycodes-app/blob/main/LICENSE 'https://github.com/toptal/keycodes-app/blob/main/LICENSE') license.
+Licensed under the [MIT](https://github.com/toptal/keycodes/blob/main/LICENSE 'https://github.com/toptal/keycodes/blob/main/LICENSE') license.
