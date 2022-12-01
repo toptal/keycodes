@@ -9,7 +9,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - uses: actions/cache@v2
+    - uses: actions/cache@v3
       id: build-cache
       with:
         path: ${{ github.workspace }}/.next/cache

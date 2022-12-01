@@ -12,11 +12,11 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Cancel previous runs
-        uses: styfle/cancel-workflow-action@0.9.0
+        uses: styfle/cancel-workflow-action@0.11.0
         with:
           access_token: ${{ github.token }}
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Set up steps
         uses: ./.github/actions/setup-steps
@@ -26,14 +26,14 @@ jobs:
 
       - name: Upload Jest HTML report
         if: failure()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: jest-unit-tests-report
           path: reports/jest-report-unit.html
           retention-days: 1
 
       - name: Upload unit tests coverage report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: jest-unit-coverage-report
           path: test-coverage/unit

@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Set up steps
         uses: ./.github/actions/setup-steps
@@ -46,7 +46,7 @@ jobs:
           yarn nyc report --temp-dir test-coverage/temp --reporter html --report-dir test-coverage/coverage-report-all
 
       - name: Save combined coverage report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: coverage-report-all
           path: test-coverage/coverage-report-all

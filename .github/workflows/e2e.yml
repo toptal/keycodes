@@ -15,11 +15,11 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Cancel previous runs
-        uses: styfle/cancel-workflow-action@0.9.0
+        uses: styfle/cancel-workflow-action@0.11.0
         with:
           access_token: ${{ github.token }}
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Set up steps
         uses: ./.github/actions/setup-steps
@@ -37,7 +37,7 @@ jobs:
 
       - name: Upload Playwright HTML report
         if: failure()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: playwright-e2e-tests-report
           path: reports/index.html
@@ -45,14 +45,14 @@ jobs:
 
       - name: Upload Playwright failure screenshots
         if: failure()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: e2e-tests-failure-screenshots
           path: screenshots
           retention-days: 1
 
       - name: Upload test coverage HTML report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: e2e-coverage-report
           path: test-coverage/e2e
