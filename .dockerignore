@@ -5,5 +5,4 @@ docker-compose.yml*
 Makefile*
 README.*
 node_modules
-/.npmrc
 /.env

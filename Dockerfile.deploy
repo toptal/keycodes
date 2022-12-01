@@ -37,7 +37,6 @@ FROM base AS build-deps
 COPY --chown=containeruser:containeruser package.json .
 COPY --chown=containeruser:containeruser yarn.lock .
 COPY --chown=containeruser:containeruser deploying/.env .
-COPY --chown=containeruser:containeruser deploying/.npmrc .
 
 RUN yarn install --frozen-lockfile
 
@@ -50,7 +49,6 @@ FROM base AS build
 
 COPY --chown=containeruser:containeruser . .
 COPY --chown=containeruser:containeruser deploying/.env .
-COPY --chown=containeruser:containeruser deploying/.npmrc .
 COPY --chown=containeruser:containeruser --from=build-deps /app/node_modules_build/ ./node_modules
 
 RUN yarn build
@@ -64,7 +62,6 @@ RUN rm -rf node_modules
 FROM base AS prod-deps
 
 COPY --chown=containeruser:containeruser deploying/.env .
-COPY --chown=containeruser:containeruser deploying/.npmrc .
 COPY --chown=containeruser:containeruser package.json .
 COPY --chown=containeruser:containeruser yarn.lock .
 COPY --from=build-deps /app/${YARN_CACHE_FOLDER} ./${YARN_CACHE_FOLDER}
@@ -82,7 +79,6 @@ FROM base AS release
 ENV NODE_ENV production
 
 COPY --chown=containeruser:containeruser deploying/.env .
-COPY --chown=containeruser:containeruser deploying/.npmrc .
 COPY --from=build /app/.next .next
 COPY --from=build /app/next.config.js .
 COPY --from=build /app/package.json .

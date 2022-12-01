@@ -1,7 +1,0 @@
-node_nodules/
-
-**/*-happo.js
-!.happo.js
-happo-tmp/
-.next
-public
