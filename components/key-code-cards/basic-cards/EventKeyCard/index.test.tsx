@@ -8,7 +8,7 @@ import { siteCopy } from '~/lib/constants/site-copy'
 import cardDescriptions from '~/lib/constants/descriptions'
 
 describe('Event key card', () => {
-  describe('correcly renders', () => {
+  describe('correctly renders', () => {
     it('event key, titles and description', () => {
       render(
         <PicassoProvider>

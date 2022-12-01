@@ -1,6 +1,6 @@
 # JavaScript Keycodes → [KeyCode.info](https://keycode.info)
 
-Keycodes is a simple website which allows users to press any key and instantly get the JavaScript Key or Key Code KeyboardEvent. Check out the Tool and Event List. Is build with next.js and typescript.
+Keycodes is a simple website which allows users to press any key and instantly get the JavaScript Key or Key Code KeyboardEvent. Check out the Tool and Event List. It is build with Next.js and Typescript.
 
 ## Development
 

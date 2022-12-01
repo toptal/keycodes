@@ -13,8 +13,8 @@ const services: Array<CheckerType> = [
     critical: false,
     check: async () => {
       return await redirectChecker(
-        'https://gitignore.io',
-        'https://www.toptal.com/developers/gitignore'
+        'https://keycode.info/',
+        'https://www.toptal.com/developers/keycode'
       )
     }
   }

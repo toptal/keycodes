@@ -131,8 +131,6 @@ const handleUnhandledRejection = (event, value, stacktrace) => {
 }
 
 /**
- * Temporary fixes https://toptal-core.atlassian.net/browse/TG-1052
- *
  * Issue:
  * Chrome browser after version 102 update reports user prompted errors to Sentry.
  * Chrome changelog: Errors during script evaluation in the Console now generate proper error events that trigger the window.onerror handler and are dispatched as "error" events on the window object.

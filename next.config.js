@@ -56,28 +56,6 @@ const transformClassNamesToCamelCase = config => {
   })
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const addSVGLoader = config => {
-  config.module.rules.push({
-    test: /\.svg$/i,
-    issuer: { and: [/\.(js|ts|md)x?$/] },
-    use: [
-      {
-        loader: '@svgr/webpack',
-        options: {
-          prettier: false,
-          svgo: true,
-          svgoConfig: {
-            plugins: [{ removeViewBox: false }],
-            floatPrecision: 2
-          },
-          titleProp: true
-        }
-      }
-    ]
-  })
-}
-
 const noindexEnabled =
   typeof process.env.NEXT_PUBLIC_SEARCH_INDEXING === 'undefined'
 
@@ -115,18 +93,6 @@ const nextConfig = {
   webpack: config => {
     transformClassNamesToCamelCase(config)
 
-    /**
-     * Uncomment and `yarn add -D @svgr/webpack` to use SVG in the project
-     *
-     * Use as:
-     *
-     * import Icon from '~/lib/icons/icon.svg'
-     *
-     * export default () => {
-     *   return <div><Icon height="10" width="10" fill="pink" /></div>
-     * }
-     */
-    // addSVGLoader(config)
     return config
   },
 
