@@ -13,7 +13,7 @@ Describe the changes and motivations for the pull request, unless obvious from t
 
 ### Acceptance Criteria
 
-- [ ] Add acceptance criterias from Jira task
+- [ ] Add acceptance criteria
 
 ### Pre-merge checklist
 

@@ -1,7 +1,6 @@
 {
   "name": "keycodes",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "clean": "rimraf .next",
     "dev": "next dev",
