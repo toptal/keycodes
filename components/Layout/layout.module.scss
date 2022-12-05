@@ -1,0 +1,59 @@
+@import "base.scss";
+
+.layout {
+  overflow-x: hidden;
+
+  background-color: $gray-lighter;
+
+  .container {
+    @include flex-container(column);
+
+    max-width: 1248px;
+
+    min-height: calc(100vh - #{$header-height});
+    margin: 0 auto;
+
+    main {
+      padding: gutter(2) gutter(2) gutter(5) gutter(2);
+
+      @include for-tablet-only {
+        padding: gutter(3) gutter(3) gutter(5) gutter(3);
+      }
+
+      @include for-desktop {
+        padding: gutter(3) gutter(4) gutter(5) gutter(4);
+      }
+    }
+  }
+
+  .header-button {
+    width: 60px;
+    height: 24px;
+
+    @include for-tablet {
+      width: 100px;
+    }
+  }
+
+  @keyframes slide-up {
+    0% {
+      transform: translateY(110vh);
+    }
+  
+    50% {
+      transform: translateY(55vh);
+    }
+  
+    100% {
+      transform: translateY(0vh);
+    }
+  }
+
+  .cookie-banner-wrapper {
+    div {
+      transform: translateY(110vh);
+
+      animation: slide-up 1s forwards;
+    }
+  }
+}

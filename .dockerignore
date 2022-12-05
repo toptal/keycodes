@@ -1,0 +1,8 @@
+.git*
+.bundle
+Dockerfile*
+docker-compose.yml*
+Makefile*
+README.*
+node_modules
+/.env

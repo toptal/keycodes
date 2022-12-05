@@ -1,0 +1,13 @@
+@import "include-media";
+
+$breakpoints: (
+  desktopLarge: 1440px,
+  desktop: 1024px,
+  tabletLarge: 834px,
+  tablet: 768px,
+  mobileXLarge: 524px,
+  // iPhone 7/8/9 Plus, Pixel 2 XL
+  mobileLarge: 425px,
+  mobileMedium: 375px,
+  mobile: 320px
+);

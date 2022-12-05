@@ -1,0 +1,20 @@
+@import "base.scss";
+
+.card {
+  @include card();
+
+  .content {
+    flex-wrap: wrap;
+    max-width: 110px;
+
+    .meta-key {
+      @include card-key-symbol($gray-main);
+
+      &.pressed {
+        color: $gray-darker;
+
+        border-color: $gray-darker;
+      }
+    }
+  }
+}

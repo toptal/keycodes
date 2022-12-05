@@ -1,0 +1,10 @@
+@import "base.scss";
+
+.link {
+  color: $blue-main;
+
+  &:hover {
+    color: $blue-main;
+    text-decoration: underline;
+  }
+}

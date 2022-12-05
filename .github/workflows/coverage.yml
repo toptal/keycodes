@@ -1,0 +1,53 @@
+name: Coverage
+
+on:
+  workflow_dispatch:
+    inputs:
+      GIT_BRANCH:
+        description: Branch name to run coverage
+        required: true
+
+jobs:
+  coverage:
+    name: Combined coverage report
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up steps
+        uses: ./.github/actions/setup-steps
+
+      - name: Create folder structure
+        run: |
+          mkdir -p test-coverage/unit test-coverage/e2e test-coverage/all
+
+      - name: Download unit tests coverage report
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: unit.yml
+          branch: ${{ github.event.inputs.GIT_BRANCH }}
+          path: test-coverage/unit
+
+      - name: Download e2e tests coverage report
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: e2e.yml
+          branch: ${{ github.event.inputs.GIT_BRANCH }}
+          path: test-coverage/e2e
+
+      - name: Generate combined coverage report
+        run: |
+          mkdir test-coverage-all
+          mv test-coverage/unit/jest-unit-coverage-report/coverage-final.json test-coverage/e2e/coverage-final-unit.json
+          find test-coverage -type f -name '*.json' -exec cp {} test-coverage-all ';'
+          mkdir -p test-coverage/temp
+          yarn nyc merge test-coverage-all test-coverage/temp/coverage-final.json
+          yarn nyc report --temp-dir test-coverage/temp --reporter html --report-dir test-coverage/coverage-report-all
+
+      - name: Save combined coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report-all
+          path: test-coverage/coverage-report-all
+          retention-days: 1

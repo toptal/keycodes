@@ -1,0 +1,11 @@
+@import "base.scss";
+
+.card {
+  @include card();
+
+  .content {
+    @include flex-container(row, center, center, wrap);
+    @include font-h1($gray-darker);
+    text-align: center;
+  }
+}

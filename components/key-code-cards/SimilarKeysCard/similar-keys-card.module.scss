@@ -1,0 +1,21 @@
+@import "base.scss";
+
+.card {
+  @include card();
+
+  .link {
+    @include font-h3($gray-darker);
+
+    &:hover {
+      text-decoration-line: underline;
+
+      color: $blue-main;
+    }
+
+    &:active {
+      text-decoration-line: underline;
+
+      color: $blue-darker;
+    }
+  }
+}

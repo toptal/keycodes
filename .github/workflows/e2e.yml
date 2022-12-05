@@ -1,0 +1,60 @@
+name: End-to-end tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  e2e_tests:
+    env:
+      NEXT_PUBLIC_GA_ID: xxx
+      E2E_COVERAGE: true
+    name: End-to-end tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Cancel previous runs
+        uses: styfle/cancel-workflow-action@0.11.0
+        with:
+          access_token: ${{ github.token }}
+
+      - uses: actions/checkout@v3
+
+      - name: Set up steps
+        uses: ./.github/actions/setup-steps
+
+      - name: End-to-end tests
+        run: yarn test:e2e:coverage
+        env:
+          FORCE_COLOR: 2
+
+      - name: Generate coverage report
+        run: yarn nyc:report
+
+      - name: Run empty coverage check
+        run: ruby -e "require 'json'; raise 'Empty report' if JSON.parse(File.read('./test-coverage/e2e/coverage-final.json')) === {}"
+
+      - name: Upload Playwright HTML report
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: playwright-e2e-tests-report
+          path: reports/index.html
+          retention-days: 1
+
+      - name: Upload Playwright failure screenshots
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: e2e-tests-failure-screenshots
+          path: screenshots
+          retention-days: 1
+
+      - name: Upload test coverage HTML report
+        uses: actions/upload-artifact@v3
+        with:
+          name: e2e-coverage-report
+          path: test-coverage/e2e
+          retention-days: 1
+

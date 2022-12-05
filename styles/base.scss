@@ -1,0 +1,9 @@
+// "base.scss" is being imported into every component's scss files
+// in order to avoid duplicates, this file should contain
+// scss variables and mixins only!
+
+@import "colors";
+@import "breakpoints";
+@import "variables";
+@import "mixins/index";
+@import "card.scss";

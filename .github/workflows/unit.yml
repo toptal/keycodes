@@ -1,0 +1,40 @@
+name: Unit tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  unit_tests:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Cancel previous runs
+        uses: styfle/cancel-workflow-action@0.11.0
+        with:
+          access_token: ${{ github.token }}
+
+      - uses: actions/checkout@v3
+
+      - name: Set up steps
+        uses: ./.github/actions/setup-steps
+
+      - name: Unit tests
+        run: yarn test:unit:coverage
+
+      - name: Upload Jest HTML report
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: jest-unit-tests-report
+          path: reports/jest-report-unit.html
+          retention-days: 1
+
+      - name: Upload unit tests coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: jest-unit-coverage-report
+          path: test-coverage/unit
+          retention-days: 1

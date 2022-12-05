@@ -1,0 +1,20 @@
+@import "base.scss";
+
+.card {
+  @include card();
+
+  .content {
+    @include flex-container(row, center, center, wrap);
+    font-weight: 400;
+    font-size: 12px;
+    font-family: "PT Mono", monospace;
+    font-style: normal;
+    line-height: 110%;
+    white-space: pre-wrap;
+    text-align: start;
+
+    @include for-desktop-large {
+      font-size: 10px;
+    }
+  }
+}

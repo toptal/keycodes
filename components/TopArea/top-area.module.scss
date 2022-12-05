@@ -1,0 +1,19 @@
+@import "base.scss";
+
+.container {
+  @include for-desktop-large {
+    padding-top: gutter(1);
+  }
+
+  margin-bottom: gutter(2);
+
+  text-align: center;
+
+  .keycode {
+    @include for-tablet {
+      @include typography(220px, $gray-darker, 400);
+    }
+
+    @include typography(184px, $gray-darker, 400);
+  }
+}

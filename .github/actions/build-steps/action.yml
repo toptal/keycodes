@@ -1,0 +1,24 @@
+name: 'Build step'
+description: 'Step to build app with caching'
+
+inputs:
+  e2e_coverage:
+    description: 'Whether or not e2e_coverage is enabled'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/cache@v3
+      id: build-cache
+      with:
+        path: ${{ github.workspace }}/.next/cache
+        key: ${{ runner.os }}-nextjs-${{ inputs.e2e_coverage }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+        restore-keys: |
+          ${{ runner.os }}-nextjs-${{ inputs.e2e_coverage }}-
+
+    - name: Build app
+      run: yarn build
+      shell: bash
+      env:
+        E2E_COVERAGE: ${{ inputs.e2e_coverage }}

@@ -1,0 +1,89 @@
+ARG NODE_IMAGE=node:16-slim
+
+ARG public_search_indexing=disabled
+ARG port=3000
+
+#
+# Base image
+#
+FROM ${NODE_IMAGE} AS base
+
+ARG PORT
+ARG public_search_indexing
+
+ENV PORT ${port}
+ENV NEXT_PUBLIC_SEARCH_INDEXING ${public_search_indexing}
+ENV NEXT_TELEMETRY_DISABLED 1
+ENV YARN_CACHE_FOLDER=.yarn-cache
+
+RUN apt-get update && apt-get install -y openssl libc6
+
+RUN mkdir /app
+
+ARG USER_ID=429
+RUN id containeruser || useradd --uid=${USER_ID} containeruser -m --home-dir=/app
+
+RUN chown -R containeruser:containeruser /app
+
+USER containeruser:containeruser
+
+WORKDIR /app
+
+#
+# Build Dependencies
+#
+FROM base AS build-deps
+
+COPY --chown=containeruser:containeruser package.json .
+COPY --chown=containeruser:containeruser yarn.lock .
+COPY --chown=containeruser:containeruser deploying/.env .
+
+RUN yarn install --frozen-lockfile
+
+RUN mv node_modules node_modules_build
+
+#
+# Build Stage
+#
+FROM base AS build
+
+COPY --chown=containeruser:containeruser . .
+COPY --chown=containeruser:containeruser deploying/.env .
+COPY --chown=containeruser:containeruser --from=build-deps /app/node_modules_build/ ./node_modules
+
+RUN yarn build
+
+RUN rm -rf node_modules
+
+
+#
+# Prod Dependencies
+#
+FROM base AS prod-deps
+
+COPY --chown=containeruser:containeruser deploying/.env .
+COPY --chown=containeruser:containeruser package.json .
+COPY --chown=containeruser:containeruser yarn.lock .
+COPY --from=build-deps /app/${YARN_CACHE_FOLDER} ./${YARN_CACHE_FOLDER}
+
+RUN yarn install --frozen-lockfile --production --prefer-offline --ignore-scripts
+
+RUN mv node_modules node_modules_prod
+
+
+# Release image
+#
+
+FROM base AS release
+
+ENV NODE_ENV production
+
+COPY --chown=containeruser:containeruser deploying/.env .
+COPY --from=build /app/.next .next
+COPY --from=build /app/next.config.js .
+COPY --from=build /app/package.json .
+COPY --from=build /app/public public
+COPY --from=prod-deps /app/node_modules_prod ./node_modules
+
+CMD ["yarn", "start"]
+

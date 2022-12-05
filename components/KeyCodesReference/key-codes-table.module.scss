@@ -1,0 +1,41 @@
+@import "base.scss";
+
+@function column($columns: 1) {
+  @return calc(100%/12 * #{$columns});
+}
+
+.table {
+  @include increase-specificity {
+    @include for-mobile-only {
+      display: none;
+    }
+  }
+
+  th, td {
+    padding: gutter() 0;
+  }
+
+  th {
+    width: column(2);
+  }
+
+  th, th * {
+    color: $gray-darker;
+  }
+
+  th:last-of-type {
+    width: column(4);
+  }
+
+  tr {
+    border-color: $gray-light-2;
+  }
+}
+
+.table-content-cell {
+  @include increase-specificity {
+    color: $gray-dark;
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
