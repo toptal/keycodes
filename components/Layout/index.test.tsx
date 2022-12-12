@@ -112,7 +112,7 @@ describe('Default layout', () => {
     expect(pushMock).toHaveBeenCalledWith('/table')
   })
 
-  it('renders cookiebanner', () => {
+  it('renders cookie banner', () => {
     expect(screen.getByTestId('cookie-banner')).toBeInTheDocument()
   })
 })
