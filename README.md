@@ -4,7 +4,7 @@ Keycodes is a simple website which allows users to press any key and instantly g
 
 ## Development
 
-You'll need node and [yarn](https://yarnpkg.com/) installed on your machine.
+You'll need [node](https://nodejs.org/en/) and [yarn](https://yarnpkg.com/) installed on your machine.
 
 - Install dependencies `yarn`
 - Run the development server: `yarn dev`
