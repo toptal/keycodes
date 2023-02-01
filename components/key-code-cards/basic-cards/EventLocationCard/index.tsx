@@ -1,4 +1,5 @@
 import BasicCardContainer from '../BasicCardContainer'
+import { ClipboardCopy } from '../ClipboardCopy'
 
 import { TestIdEvenLocationCard } from './test-ids'
 
@@ -23,7 +24,7 @@ const EventLocationCard = ({ keyLocation }: EventLocationCard): JSX.Element => {
       title={siteCopy.cards.eventLocation}
       description={cardDescriptions.eventLocation}
     >
-      {location}
+      <ClipboardCopy>{location}</ClipboardCopy>
     </BasicCardContainer>
   )
 }

@@ -1,4 +1,5 @@
 import BasicCardContainer from '../BasicCardContainer'
+import { ClipboardCopy } from '../ClipboardCopy'
 
 import { TestIdEventKeyCard } from './test-ids'
 
@@ -16,7 +17,7 @@ const EventKeyCard = ({ eventKey }: EventKeyCard): JSX.Element => {
       description={cardDescriptions.eventKey}
       testId={TestIdEventKeyCard.EventKeyCardContainer}
     >
-      {eventKey}
+      <ClipboardCopy>{eventKey}</ClipboardCopy>
       {eventKey === siteCopy.content.whiteSpace && (
         <small>{siteCopy.content.blankSpace}</small>
       )}
