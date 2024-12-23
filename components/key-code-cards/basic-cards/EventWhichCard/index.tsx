@@ -1,4 +1,5 @@
 import BasicCardContainer from '../BasicCardContainer'
+import { ClipboardCopy } from '../ClipboardCopy'
 
 import { TestIdEvenWhichCard } from './test-ids'
 
@@ -16,7 +17,7 @@ const EventWhichCard = ({ which }: EventWhichCardProps): JSX.Element => {
       description={cardDescriptions.eventWhich}
       testId={TestIdEvenWhichCard.EventWhichCardContainer}
     >
-      {which}
+      <ClipboardCopy>{which}</ClipboardCopy>
     </BasicCardContainer>
   )
 }
