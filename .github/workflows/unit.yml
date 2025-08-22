@@ -8,7 +8,7 @@ on:
 jobs:
   secrets_scan:
     name: Secrets scan
-    runs-on: ubuntu-latest
+    runs-on: squad-growth-ubuntu2204-x64-standard
     permissions: write-all
     timeout-minutes: 10
     steps:
