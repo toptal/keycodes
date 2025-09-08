@@ -1,0 +1,104 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  lint_typescript:
+    name: Lint and Typescript checks
+    uses: ./.github/workflows/lint-typescript.yml
+    secrets: inherit
+
+  unit_tests:
+    name: Unit tests
+    uses: ./.github/workflows/unit.yml
+    secrets: inherit
+
+  e2e_tests:
+    name: End-to-end tests
+    uses: ./.github/workflows/e2e.yml
+    secrets: inherit
+
+  secrets_scan:
+    name: Secrets scan
+    uses: ./.github/workflows/secrets-scan.yml
+    secrets: inherit
+
+  notify_slack_success:
+    name: Notify success status to Slack
+    runs-on: ubuntu-latest
+    if: success() && github.ref == 'refs/heads/master' && github.event_name == 'push'
+    needs: [lint_typescript, unit_tests, e2e_tests, secrets_scan]
+    permissions:
+      actions: read
+      contents: read
+      id-token: write
+    steps:
+      - name: GSM Secrets
+        id: secrets_manager
+        uses: toptal/actions/gsm-secrets@main
+        with:
+          workload_identity_provider: projects/858873486241/locations/global/workloadIdentityPools/gha-pool/providers/github-com
+          service_account: gha-keycodes@toptal-ci.iam.gserviceaccount.com
+          secrets_name: |-
+            SLACK_MARKETING_TOOLS_2_RELEASES_WEBHOOK:toptal-ci/SLACK_MARKETING_TOOLS_2_RELEASES_WEBHOOK
+            SLACK_TEST_PUB_BOT_WEBHOOK:toptal-ci/SLACK_TEST_PUB_BOT_WEBHOOK
+
+      - name: Parse secrets
+        id: parse_secrets
+        uses: toptal/actions/expose-json-outputs@main
+        with:
+          json: ${{ steps.secrets_manager.outputs.secrets }}
+
+      - uses: toptal/slack-workflow-status@master
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          slack_webhook_url: ${{ steps.parse_secrets.outputs.SLACK_MARKETING_TOOLS_2_RELEASES_WEBHOOK }}
+          name: gha-bot
+          icon_url: https://avatars.slack-edge.com/2021-05-17/2068859221653_526c61e414df90dd67f7_192.png
+          include_jobs: on-failure
+          display_only_failed: true
+          include_commit_message: true
+
+  notify_slack_failure:
+    name: Notify failure status to Slack
+    runs-on: ubuntu-latest
+    if: (failure() || cancelled()) && github.ref == 'refs/heads/master' && github.event_name == 'push'
+    needs: [lint_typescript, unit_tests, e2e_tests, secrets_scan]
+    permissions:
+      actions: read
+      contents: read
+      id-token: write
+    steps:
+      - name: GSM Secrets
+        id: secrets_manager
+        uses: toptal/actions/gsm-secrets@main
+        with:
+          workload_identity_provider: projects/858873486241/locations/global/workloadIdentityPools/gha-pool/providers/github-com
+          service_account: gha-keycodes@toptal-ci.iam.gserviceaccount.com
+          secrets_name: |-
+            SLACK_MARKETING_TOOLS_2_BULLHORN_WEBHOOK:toptal-ci/SLACK_MARKETING_TOOLS_2_BULLHORN_WEBHOOK
+            SLACK_TEST_PUB_BOT_WEBHOOK:toptal-ci/SLACK_TEST_PUB_BOT_WEBHOOK
+
+      - name: Parse secrets
+        id: parse_secrets
+        uses: toptal/actions/expose-json-outputs@main
+        with:
+          json: ${{ steps.secrets_manager.outputs.secrets }}
+
+      - uses: toptal/slack-workflow-status@master
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          slack_webhook_url: ${{ steps.parse_secrets.outputs.SLACK_MARKETING_TOOLS_2_BULLHORN_WEBHOOK }}
+          name: gha-bot
+          icon_url: https://avatars.slack-edge.com/2021-05-17/2068859221653_526c61e414df90dd67f7_192.png
+          include_jobs: on-failure
+          display_only_failed: true
+          include_commit_message: true
+

@@ -3,71 +3,38 @@ name: Unit tests
 on:
   push:
     branches: [main]
-  pull_request:
+  workflow_call:
 
 jobs:
-  secrets_scan:
-    name: Secrets scan
-    runs-on: squad-growth-ubuntu2204-x64-standard
-    permissions: write-all
-    timeout-minutes: 10
+  unit_tests:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+      - name: Cancel previous runs
+        uses: styfle/cancel-workflow-action@0.11.0
         with:
-          fetch-depth: 0
+          access_token: ${{ github.token }}
 
-      - name: Get the secrets from GSM
-        id: secrets_manager
-        uses: toptal/actions/gsm-secrets@v1.0.2
+      - uses: actions/checkout@v3
+
+      - name: Set up steps
+        uses: ./.github/actions/setup-steps
+
+      - name: Unit tests
+        run: yarn test:unit:coverage
+
+      - name: Upload Jest HTML report
+        if: failure()
+        uses: actions/upload-artifact@v4
         with:
-          workload_identity_provider: projects/858873486241/locations/global/workloadIdentityPools/gha-pool/providers/github-com
-          service_account: gha-keycodes@toptal-ci.iam.gserviceaccount.com
-          secrets_name: |-
-            SLACK_BOT_TOKEN:toptal-ci/SLACK_BOT_TOKEN
+          name: jest-unit-tests-report
+          path: reports/jest-report-unit.html
+          retention-days: 1
 
-      - name: Parse secrets
-        id: parse_secrets
-        uses: toptal/actions/expose-json-outputs@v1.0.2
+      - name: Upload unit tests coverage report
+        uses: actions/upload-artifact@v4
         with:
-          json: ${{ steps.secrets_manager.outputs.secrets }}
-
-      - name: Secrets Scan
-        uses: toptal/actions/secret-scanning-action@main
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          full-scan: true
-          slack-channel: -marketing-tools-2-releases
-          slack-token: ${{ steps.parse_secrets.outputs.SLACK_BOT_TOKEN }}
-
-  # unit_tests:
-  #   name: Unit tests
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 5
-  #   steps:
-  #     - name: Cancel previous runs
-  #       uses: styfle/cancel-workflow-action@0.11.0
-  #       with:
-  #         access_token: ${{ github.token }}
-
-  #     - uses: actions/checkout@v3
-
-  #     - name: Set up steps
-  #       uses: ./.github/actions/setup-steps
-
-  #     - name: Unit tests
-  #       run: yarn test:unit:coverage
-
-  #     - name: Upload Jest HTML report
-  #       if: failure()
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         name: jest-unit-tests-report
-  #         path: reports/jest-report-unit.html
-  #         retention-days: 1
-
-  #     - name: Upload unit tests coverage report
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         name: jest-unit-coverage-report
-  #         path: test-coverage/unit
-  #         retention-days: 1
+          name: jest-unit-coverage-report
+          path: test-coverage/unit
+          retention-days: 1
