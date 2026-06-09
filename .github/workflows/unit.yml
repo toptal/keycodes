@@ -26,14 +26,14 @@ jobs:
 
       - name: Upload Jest HTML report
         if: failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v7
         with:
           name: jest-unit-tests-report
           path: reports/jest-report-unit.html
           retention-days: 1
 
       - name: Upload unit tests coverage report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v7
         with:
           name: jest-unit-coverage-report
           path: test-coverage/unit
