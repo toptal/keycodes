@@ -23,14 +23,14 @@ jobs:
           mkdir -p test-coverage/unit test-coverage/e2e test-coverage/all
 
       - name: Download unit tests coverage report
-        uses: dawidd6/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@v21
         with:
           workflow: unit.yml
           branch: ${{ github.event.inputs.GIT_BRANCH }}
           path: test-coverage/unit
 
       - name: Download e2e tests coverage report
-        uses: dawidd6/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@v21
         with:
           workflow: e2e.yml
           branch: ${{ github.event.inputs.GIT_BRANCH }}
