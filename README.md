@@ -26,7 +26,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 - [Testing](/docs/01-testing.md)
 - [Linting](/docs/02-linting.md)
-- [Logging](/docs/04-logging.md)
+- [Logging](/docs/03-logging.md)
 
 ## Contributing
 
