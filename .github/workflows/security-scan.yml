@@ -1,0 +1,8 @@
+name: Secret Scan
+
+on:
+  pull_request:
+
+jobs:
+  call_secret_scanning:
+    uses: toptal/actions/.github/workflows/security-scan.yml@v3.6.3
