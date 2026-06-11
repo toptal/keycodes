@@ -6,6 +6,6 @@ export const getKeyCodeEvent = (
 ): KeyCodeEvent | undefined => {
   return keyCodeEventValues.find(
     keyCodeEvent =>
-      keyCodeEvent.code === keyCode.code && keyCodeEvent.key === keyCode.key
+      keyCodeEvent.code === keyCode.code || keyCodeEvent.key === keyCode.key
   )
 }
