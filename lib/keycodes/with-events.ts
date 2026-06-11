@@ -780,7 +780,7 @@ export const keyCodesWithEvents: Record<string, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: true,
     shiftKey: true,
-    description: 'Right Windows',
+    description: 'Right Windows / Right ⌘',
     unicode: '⌘ ⊞',
     path: '/meta-right'
   },
@@ -794,7 +794,7 @@ export const keyCodesWithEvents: Record<string, KeyCodeEvent> = {
     ctrlKey: false,
     metaKey: false,
     shiftKey: false,
-    description: 'Windows Menu / Right ⌘',
+    description: 'Windows Menu',
     unicode: '▤',
     path: '/context-menu'
   },
