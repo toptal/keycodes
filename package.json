@@ -79,7 +79,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-react": "^7.24.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-standard": "^5.0.0",
     "happo.io": "^7.2.1",
     "http-status-codes": "^2.1.4",
