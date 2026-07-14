@@ -1,4 +1,5 @@
 import BasicCardContainer from '../BasicCardContainer'
+import { ClipboardCopy } from '../ClipboardCopy'
 
 import { TestIdEventCodeCard } from './test-ids'
 
@@ -17,7 +18,7 @@ const EventCodeCard = ({ code }: EventCodeCard): JSX.Element => {
       description={cardDescriptions.eventCode}
       testId={TestIdEventCodeCard.EventCodeCardContainer}
     >
-      {code}
+      <ClipboardCopy>{code}</ClipboardCopy>
     </BasicCardContainer>
   )
 }
